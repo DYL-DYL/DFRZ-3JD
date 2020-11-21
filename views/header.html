@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        header {
+            height: 6.1vh;
+            overflow: scroll;
+            background-color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        header::-webkit-scrollbar {
+            display: none;
+        }
+
+        header>div {
+            width: 117.1vw;
+        }
+
+        header ul {
+            display: flex;
+            padding: 0;
+        }
+
+        header li {
+            list-style: none;
+            padding: 0 10px;
+            line-height: 6vh;
+            color: #333333;
+            font-size: 3.2vw;
+            border-bottom: 2px solid #333333;
+        }
+
+        header a {
+            color: black;
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        body {
+            background-color: pink;
+            padding: 6vh 0 7.5vh 0;
+        }
+
+        footer {
+            height: 7.5vh;
+            width: 100%;
+            background-color: white;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        footer a {
+            color: #888888;
+            font-size: 12px;
+            text-decoration: none;
+        }
+        footer div{
+            padding-top: 6px;
+        }
+        footer div i{
+            display: block;
+            height: 3vh;
+            width: 3vh;
+            margin:0 auto;
+        }
+        footer div:nth-of-type(1) i {
+            background: url(/imges/首页-推荐/nav-1.png) no-repeat center;
+            background-size: 100%;
+        }
+
+        footer div:nth-of-type(2) i {
+            background: url(/imges/首页-推荐/nav-2.png) no-repeat ;
+            background-size: 100%;
+        }
+
+        footer div:nth-of-type(3) i {
+            background: url(/imges/首页-推荐/nav-3.png) no-repeat center;
+            background-size: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <ul>
+                <li><a href="/">推荐</a></li>
+                <li><a href="/monthly">包月鲜花</a></li>
+                <li><a href="/gift">礼品花束</a></li>
+                <li><a href="/fleshiness">绿植多肉</a></li>
+                <li><a href="/moreF">F+制物所</a></li>
+                <li><a href="/home">家居生活</a></li>
+            </ul>
+        </div>
+    </header>
+    <footer>
+        <div><i></i><a href="/">首页</a></div>
+        <div><i></i><a href="/find">发现</a></div>
+        <div><i></i><a href="/mine">我的</a></div>
+    </footer>
