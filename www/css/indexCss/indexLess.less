@@ -1,0 +1,293 @@
+ .carousel-indicators{
+     li{
+         width: 11px !important;
+         height: 3px !important;
+         background-color: rgba(255, 255, 255, 0.6) !important;
+         border: none;
+     }
+     .active{
+        width: 22px !important;
+        background-color: rgba(255, 255, 255, 1) !important;
+     }
+ }
+ header li:nth-of-type(n+2){
+    border: none;
+ }
+
+ nav{
+
+    margin-top: 20px;
+    letter-spacing: 0;
+     font-size: 0;
+     img{
+         width: 25%;
+     }
+     img:nth-of-type(1){
+        width: 50%;
+     }
+ }
+ .only{
+     padding-left:20px ;
+     h1{
+         margin: 30px 0 20px;
+         color: #312f2e;
+         line-height: 6.4vw;
+         letter-spacing: 1px;
+         font-size: 4.5vw;
+         font-weight: 700;
+     }
+     img{
+         width: 30vw;
+         margin-right: 10px;
+     }
+ }
+
+ .flash{
+     font-family: "Helvetica Neue",Helvetica,STHeiTi,Arial,sans-serif;
+     &>img{
+         width: 100%;
+         margin-top: 30px;
+     }
+     &>div{
+         margin: 30px 0 40px;
+         &>div {
+            padding:0 20px;
+            h1{
+                color: #312f2e;
+                font-weight: 700;
+                letter-spacing: 1px;
+                font-size: 4.5vw;
+             }
+             div{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                p:nth-of-type(1){
+                    font-size:3.2vw;
+                    padding-bottom: 5px;
+                }
+                p{
+                    color: #9e9b9e;
+                    font-size: 3.73vw;
+                    letter-spacing: 1px;
+                    font-family: PingFangSC-Medium,PingFang SC;
+                    span{
+                        color: #ff6269;
+                        font-weight: 600;
+                        font-size: 5vw;
+                    }
+                }
+             }
+         }
+         &>section{
+            width: 100%;
+            height: 26.93vw;
+            overflow: scroll;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            &>div{
+                display: flex;
+                height: 26.93vw;
+                width: 1700vw;
+                &>div{
+                    width: 100vw;
+                    padding:0 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    img{
+                        width: 40.5vw;
+                        border-radius: 3px;
+                    }
+                    &>div{
+                        width: 42.4vw;
+                        height: 26.93vw;
+                        overflow: hidden;
+                        text-align: right;
+                        h1{
+                            margin:7.73vw  0 3.47vw;
+                            color: rgba(51, 51, 51, 1);
+                            font-weight: 600;
+                            font-size: 3.73vw;
+                        }
+                        del{
+                            color: rgba(181, 181, 181, 1);
+                            font-size: 3.2vw;
+                            line-height: 4.4vw;
+                            margin-right: 4px;
+                        }
+                        span{
+                            color: rgba(255, 98, 105, 1);
+                            font-weight: 500;
+                            font-size: 3.46vw;
+                        }
+                    }
+                }
+                
+            }
+         }
+     }
+ }
+
+ .new{
+    &>div{
+        margin: 30px 0 40px;
+        &>div {
+           padding:0 20px;
+           h1{
+               color: #312f2e;
+               font-weight: 700;
+               letter-spacing: 1px;
+               font-size: 4.5vw;
+            }
+            div{
+               display: flex;
+               justify-content: space-between;
+               align-items: flex-end;
+               p:nth-of-type(1){
+                   font-size:3.2vw;
+                   padding-bottom: 5px;
+               }
+               p{
+                   color: #9e9b9e;
+                   font-size: 3.73vw;
+                   letter-spacing: 1px;
+                   font-family: PingFangSC-Medium,PingFang SC;
+                   span{
+                       color: #ff6269;
+                       font-weight: 600;
+                       font-size: 5vw;
+                   }
+               }
+            }
+        }
+        &>section{
+            width: calc(100% - 20px);
+            overflow: scroll;
+            margin-left: 20px;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            &>div{
+                width: 512vw;
+                display: flex;
+                &>div{
+                    width: 60vw;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin-right: 4vw;
+                    img{
+                        width: 60vw;
+                        border-radius: 3px;
+                    }
+                    h1{
+                        color: rgba(51, 51, 51, 1);
+                        font-size: 3.73vw;
+                        line-height: 5.33vw;
+                    }
+                    p{
+                        color: rgba(51, 51, 51, 0.7);
+                        line-height: 0.44vw;
+                        font-family: PingFangSC-Regular, PingFang SC;
+                        font-size: 3.2vw;
+                        margin: 0;
+                    }
+                    &>div{
+                        margin-top: 14px;
+                        color: rgba(51, 51, 51, 1);
+                        font-family: PingFangSC-Semibold, PingFang SC;
+                        font-weight: 600;
+                        font-size: 3.2vw;
+                    }
+                }  
+            }
+        }
+    }
+ }
+
+ .hot{
+    padding:0 20px;
+    &>div {
+        margin: 40px 0 30px;
+        h1{
+            color: #312f2e;
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 4.5vw;
+         }
+         div{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            p:nth-of-type(1){
+                font-size:3.2vw;
+                padding-bottom: 5px;
+            }
+            p{
+                color: #9e9b9e;
+                font-size: 3.73vw;
+                letter-spacing: 1px;
+                font-family: PingFangSC-Medium,PingFang SC;
+                span{
+                    color: #ff6269;
+                    font-weight: 600;
+                    font-size: 5vw;
+                }
+            }
+         }
+    }
+    &>section{
+        font-size: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap:wrap ;
+        &>div{
+            width: 42.67vw;
+            font-family: PingFangSC-Semibold, PingFang SC;
+            
+            img{
+                width: 100%;
+            }
+            span{
+                color: rgba(51, 51, 51, 1);
+                font-size: 3.73vw;
+                padding-top: 5px;
+                font-weight: 600;
+                line-height: 5.87vw;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            p{
+                color: rgba(51, 51, 51, 0.7);
+                font-size: 3.2vw;
+                line-height: 4.4vw;
+                margin-top: 3px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            div{
+                color: rgba(51, 51, 51, 1);
+                font-size: 3.2vw;
+                line-height: 5.2vw;
+                font-weight: 600;
+            }
+        }
+    }
+ }
+ .inscribe{
+     margin-top: 40px;
+     padding-bottom: 6px;
+     text-align: center;
+     color: #999;
+     font-size: 3.2vw;
+     line-height: 4.8vw;
+     font-family: "Helvetica Neue",Helvetica,STHeiTi,Arial,sans-serif;
+    p{
+        margin: 0;
+    }
+    img{
+        width: 3.2vw;
+    }
+ }

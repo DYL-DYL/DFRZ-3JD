@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="/bootstrap-3.3.7-dist/js/jquery-3.1.1.js"></script>
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
     <style>
         * {
             margin: 0;
+            letter-spacing: 1px;
         }
 
         header {
@@ -17,6 +21,7 @@
             position: fixed;
             top: 0;
             width: 100%;
+            z-index: 99;
         }
 
         header::-webkit-scrollbar {
@@ -48,7 +53,6 @@
         }
 
         body {
-            background-color: pink;
             padding: 6vh 0 7.5vh 0;
         }
 
@@ -67,22 +71,25 @@
             font-size: 12px;
             text-decoration: none;
         }
-        footer div{
+
+        footer div {
             padding-top: 6px;
         }
-        footer div i{
+
+        footer div i {
             display: block;
             height: 3vh;
             width: 3vh;
-            margin:0 auto;
+            margin: 0 auto;
         }
+
         footer div:nth-of-type(1) i {
             background: url(/imges/首页-推荐/nav-1.png) no-repeat center;
             background-size: 100%;
         }
 
         footer div:nth-of-type(2) i {
-            background: url(/imges/首页-推荐/nav-2.png) no-repeat ;
+            background: url(/imges/首页-推荐/nav-2.png) no-repeat;
             background-size: 100%;
         }
 
