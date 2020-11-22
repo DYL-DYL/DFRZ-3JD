@@ -1,0 +1,56 @@
+header {
+  display: none;
+}
+body {
+  padding-top: 0;
+  position: relative;
+}
+.top-nav {
+  height: 117.67vw;
+  width: 100%;
+  overflow: scroll;
+  font-size: 0;
+  letter-spacing: 0;
+}
+.top-nav::-webkit-scrollbar {
+  display: none;
+}
+.top-nav section {
+  position: absolute;
+  height: 100px;
+  width: 100%;
+  top: 90.13vw;
+}
+.top-nav ul {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+  z-index: 99;
+  text-align: center;
+  padding: 0;
+  left: 0;
+}
+.top-nav ul li {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid white;
+  margin: 0 3px;
+}
+.top-nav ul li:nth-of-type(n+2) {
+  background-color: white;
+}
+.top-nav > div {
+  overflow: hidden;
+  width: 800%;
+  letter-spacing: 0;
+}
+.top-nav img {
+  width: 100vw;
+  letter-spacing: 0;
+}
+.top-nav .item {
+  display: inline-block;
+  vertical-align: top;
+}

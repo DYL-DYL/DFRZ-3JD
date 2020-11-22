@@ -1,6 +1,87 @@
 {{include './header.html'}}
-    <h1>这里是礼品花束</h1>
+<link rel="stylesheet" href="/css/giftCSS/gift.css">
+<div class="top-nav">
+    <section>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </section>
 
+    <div>
+        <div class="item active">
+            <img src="/imges/首页-礼品/banner-1.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="/imges/首页-礼品/banner-2.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="/imges/首页-礼品/banner-3.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="/imges/首页-礼品/banner-4.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="/imges/首页-礼品/banner-5.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="/imges/首页-礼品/banner-6.jpg" alt="">
+        </div>
+        <div class="item">
+            <img src="/imges/首页-礼品/banner-7.jpg" alt="">
+        </div>
+        <div class="item active">
+            <img src="/imges/首页-礼品/banner-1.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+<script>
+    $('.top-nav').on({
+        touchstart: function () {
+            // clearInterval(timerMove)
+            clearInterval(timer)
+        },
+        touchend: function () {
+            move()
+            
+        }
+    })
+    function move() {
+        let thisNum = Math.round($('.top-nav')[0].scrollLeft / $('.top-nav').width()) + 1
+        if (thisNum == 8) {
+            thisNum = 0
+        }
+        $('.top-nav li').each(function (index, item) {
+            $(item).css('background-color', 'white')
+        })
+        $(`.top-nav li:nth-of-type(${thisNum})`).css('background-color', 'transparent')
+        if (thisNum <= 7) {
+            $('.top-nav')[0].scrollLeft = (thisNum - 1) * $('.top-nav').width()
+        } else {
+            $('.top-nav')[0].scrollLeft = 0
+            $(`.top-nav li:nth-of-type(1)`).css('background-color', 'transparent')
+        }
+    }
+    var timer = setInterval(function () {
+        let moveNum = 0
+        var timerMove = setInterval(() => {
+            moveNum++
+            $('.top-nav')[0].scrollLeft = $('.top-nav')[0].scrollLeft + 1
+            console.log($('.top-nav').width());
+            if (moveNum == $('.top-nav').width()) {
+                move()
+                clearInterval(timerMove)
+            }
+        }, 1);
+
+    }, 5000)
+</script>
 </body>
 
 </html>
