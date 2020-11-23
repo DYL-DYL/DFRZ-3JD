@@ -39,4 +39,8 @@ router.get('/mine', (req, res) => {
     res.render('mine')
 })
 
+router.get('/community', (req, res) => {
+    res.render('community')
+})
+
 module.exports = router
