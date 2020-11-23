@@ -30,6 +30,7 @@ header {
     width: 95%;
     border: none;
     background-color: none;
+    outline: none;
 }
 
 
@@ -171,6 +172,7 @@ header {
 .list .detail {
     width: 48%;
     position: relative;
+    margin-bottom: 5vh;
 }
 
 .list .detail img {
@@ -196,6 +198,7 @@ header {
     float: right;
     color: #dbdada;
     font-size: 2.5vw;
+    margin-right: 1vw;
 }
 
 .list .detail .first {
