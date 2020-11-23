@@ -1,19 +1,19 @@
- .carousel-indicators{
-     li{
+ .swiper-pagination{
+     .swiper-pagination-bullet{
          width: 11px !important;
          height: 3px !important;
          background-color: rgba(255, 255, 255, 0.6) !important;
          border: none;
      }
-     .active{
+     .swiper-pagination-bullet-active{
         width: 22px !important;
         background-color: rgba(255, 255, 255, 1) !important;
      }
  }
+
  header li:nth-of-type(n+2){
     border: none;
  }
-
  nav{
 
     margin-top: 20px;
@@ -50,8 +50,9 @@
      }
      &>div{
          margin: 30px 0 40px;
-         &>div {
+         &>div:nth-of-type(1) {
             padding:0 20px;
+            margin-bottom: -45px;
             h1{
                 color: #312f2e;
                 font-weight: 700;
@@ -66,69 +67,71 @@
                     font-size:3.2vw;
                     padding-bottom: 5px;
                 }
-                p{
-                    color: #9e9b9e;
+             }
+         }
+         .main-pics{
+            overflow: hidden;
+            padding-top: 35px;
+            height: 36.7vw;
+           .swiper-pagination-fraction{
+               position: absolute;
+               top: -5px;
+               text-align: right;
+               padding-right: 20px;
+               color: #9e9b9e;
                     font-size: 3.73vw;
                     letter-spacing: 1px;
                     font-family: PingFangSC-Medium,PingFang SC;
-                    span{
-                        color: #ff6269;
+                .swiper-pagination-current{
+                    color: #ff6269;
                         font-weight: 600;
                         font-size: 5vw;
-                    }
                 }
-             }
-         }
-         &>section{
-            width: 100%;
-            height: 26.93vw;
-            overflow: scroll;
-            &::-webkit-scrollbar {
-                display: none;
-            }
-            &>div{
-                display: flex;
-                height: 26.93vw;
-                width: 1700vw;
-                &>div{
-                    width: 100vw;
+           }
+            .swiper-slide{
                     padding:0 20px;
                     display: flex;
-                    justify-content: space-between;
+                        justify-content: space-between;
                     img{
                         width: 40.5vw;
                         border-radius: 3px;
+                        height:50.67vw;
+                        position: relative;
                     }
                     &>div{
-                        width: 42.4vw;
-                        height: 26.93vw;
-                        overflow: hidden;
-                        text-align: right;
-                        h1{
-                            margin:7.73vw  0 3.47vw;
-                            color: rgba(51, 51, 51, 1);
-                            font-weight: 600;
-                            font-size: 3.73vw;
-                        }
-                        del{
-                            color: rgba(181, 181, 181, 1);
-                            font-size: 3.2vw;
-                            line-height: 4.4vw;
-                            margin-right: 4px;
-                        }
-                        span{
-                            color: rgba(255, 98, 105, 1);
-                            font-weight: 500;
-                            font-size: 3.46vw;
-                        }
-                    }
+                        
+                            width: 42.4vw;
+                            height: 26.93vw;
+                            overflow: hidden;
+                            text-align: right;
+                            h1{
+                                margin:7.73vw  0 3.47vw;
+                                color: rgba(51, 51, 51, 1);
+                                font-weight: 600;
+                                font-size: 3.73vw;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                overflow: hidden;
+                            }
+                            del{
+                                color: rgba(181, 181, 181, 1);
+                                font-size: 3.2vw;
+                                line-height: 4.4vw;
+                                margin-right: 4px;
+                            }
+                            span{
+                                color: rgba(255, 98, 105, 1);
+                                font-weight: 500;
+                                font-size: 3.46vw;
+                            
+                            }
+                    }   
+                    
                 }
                 
-            }
-         }
-     }
+        }
+    }
  }
-
  .new{
     &>div{
         margin: 30px 0 40px;
@@ -290,4 +293,10 @@
     img{
         width: 3.2vw;
     }
+ }
+
+ .swiper-container{
+     img{
+         width: 100%;
+     }
  }

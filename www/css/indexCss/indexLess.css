@@ -1,10 +1,10 @@
-.carousel-indicators li {
+.swiper-pagination .swiper-pagination-bullet {
   width: 11px !important;
   height: 3px !important;
   background-color: rgba(255, 255, 255, 0.6) !important;
   border: none;
 }
-.carousel-indicators .active {
+.swiper-pagination .swiper-pagination-bullet-active {
   width: 22px !important;
   background-color: #ffffff !important;
 }
@@ -47,77 +47,78 @@ nav img:nth-of-type(1) {
 .flash > div {
   margin: 30px 0 40px;
 }
-.flash > div > div {
+.flash > div > div:nth-of-type(1) {
   padding: 0 20px;
+  margin-bottom: -45px;
 }
-.flash > div > div h1 {
+.flash > div > div:nth-of-type(1) h1 {
   color: #312f2e;
   font-weight: 700;
   letter-spacing: 1px;
   font-size: 4.5vw;
 }
-.flash > div > div div {
+.flash > div > div:nth-of-type(1) div {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
-.flash > div > div div p:nth-of-type(1) {
+.flash > div > div:nth-of-type(1) div p:nth-of-type(1) {
   font-size: 3.2vw;
   padding-bottom: 5px;
 }
-.flash > div > div div p {
+.flash > div .main-pics {
+  overflow: hidden;
+  padding-top: 35px;
+  height: 36.7vw;
+}
+.flash > div .main-pics .swiper-pagination-fraction {
+  position: absolute;
+  top: -5px;
+  text-align: right;
+  padding-right: 20px;
   color: #9e9b9e;
   font-size: 3.73vw;
   letter-spacing: 1px;
   font-family: PingFangSC-Medium, PingFang SC;
 }
-.flash > div > div div p span {
+.flash > div .main-pics .swiper-pagination-fraction .swiper-pagination-current {
   color: #ff6269;
   font-weight: 600;
   font-size: 5vw;
 }
-.flash > div > section {
-  width: 100%;
-  height: 26.93vw;
-  overflow: scroll;
-}
-.flash > div > section::-webkit-scrollbar {
-  display: none;
-}
-.flash > div > section > div {
-  display: flex;
-  height: 26.93vw;
-  width: 1700vw;
-}
-.flash > div > section > div > div {
-  width: 100vw;
+.flash > div .main-pics .swiper-slide {
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
 }
-.flash > div > section > div > div img {
+.flash > div .main-pics .swiper-slide img {
   width: 40.5vw;
   border-radius: 3px;
+  height: 50.67vw;
+  position: relative;
 }
-.flash > div > section > div > div > div {
+.flash > div .main-pics .swiper-slide > div {
   width: 42.4vw;
   height: 26.93vw;
   overflow: hidden;
   text-align: right;
 }
-.flash > div > section > div > div > div h1 {
+.flash > div .main-pics .swiper-slide > div h1 {
   margin: 7.73vw 0 3.47vw;
   color: #333333;
   font-weight: 600;
   font-size: 3.73vw;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
-.flash > div > section > div > div > div del {
+.flash > div .main-pics .swiper-slide > div del {
   color: #b5b5b5;
   font-size: 3.2vw;
   line-height: 4.4vw;
   margin-right: 4px;
 }
-.flash > div > section > div > div > div span {
+.flash > div .main-pics .swiper-slide > div span {
   color: #ff6269;
   font-weight: 500;
   font-size: 3.46vw;
@@ -279,4 +280,7 @@ nav img:nth-of-type(1) {
 }
 .inscribe img {
   width: 3.2vw;
+}
+.swiper-container img {
+  width: 100%;
 }
