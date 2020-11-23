@@ -1,87 +1,31 @@
 {{include './header.html'}}
 <link rel="stylesheet" href="/css/monthlyCss/monthly.css">
-<div class="part part-one">
-    <div class="banner">
-        <img src="/imges/首页-包月/banner.png" alt="">
-    </div>
-    <div class="list">
-        <section class="list-detail">
-            <div><img src="/imges/首页-包月/list-one1.jpg" alt=""></div>
-            <p>简花包月（品种可自选）</p>
-            <p>￥99元起/月</p>
-            <span>新用户下单即送花瓶</span>
-        </section>
-        <section class="list-detail">
-            <div><img src="/imges/首页-包月/list-one2.jpg" alt=""></div>
-            <p>自由饼</p>
-            <p>￥24.9元起/月</p>
-        </section>
-        <section class="list-detail">
-            <div><img src="/imges/首页-包月/list-one3.jpg" alt=""></div>
-            <p>挚爱·进口玫瑰</p>
-            <p>￥399元起/月</p>
-            <span>新用户下单送花瓶</span>
-        </section>
-    </div>
+
+<div class="content">
+
 </div>
 
-<div class="part part-two">
-    <div class="banner">
-        <img src="/imges/首页-包月/banner2.png" alt="">
-    </div>
-    <div class="list">
-        <section class="list-detail">
-            <div><img src="/imges/首页-包月/list-two1.jpg" alt=""></div>
-            <p>悦花-混合鲜花包月套餐</p>
-            <p>￥99元起/月</p>
-            <span>新用户下单即送花瓶</span>
-        </section>
-        <section class="list-detail">
-            <div><img src="/imges/首页-包月/list-two2.jpg" alt=""></div>
-            <p>繁花-混合鲜花包月套餐</p>
-            <p>￥169元起/月</p>
-            <span>新用户下单即送花瓶</span>
-        </section>
-        <section class="list-detail">
-            <div><img src="/imges/首页-包月/list-two3.jpg" alt=""></div>
-            <p>小野-精致鲜花混合包月</p>
-            <p>￥129元起/月</p>
-            <span>新用户下单即送花瓶</span>
-        </section>
-        <section class="list-detail">
-            <div><img src="/imges/首页-包月/list-two4.jpg" alt=""></div>
-            <p>野逸包月</p>
-            <p>¥199元/4束起</p>
-            <span>新用户下单即送花瓶</span>
-        </section>
-        <section class="list-detail">
-            <div><img src="/imges/首页-包月/list-two5.png" alt=""></div>
-            <p>「午后暇光」系列主题大师包月</p>
-            <p>￥239元/月</p>
-            <span>新用户下单即送花瓶</span>
-        </section>
-        <section class="list-detail">
-            <div><img src="/imges/首页-包月/list-two6.jpg" alt=""></div>
-            <p>谜藏-高端混合包月套餐</p>
-            <p>￥399元起/月</p>
-            <span>新用户下单即送花瓶</span>
-        </section>
-    </div>
-</div>
-
-<div class="part part-three">
-    <div class="banner">
-        <img src="/imges/首页-包月/banner3.png" alt="">
-    </div>
-    <div class="list">
-        <section class="list-detail">
-            <div><img src="/imges/首页-包月/list-three1.jpg" alt=""></div>
-            <p>miniplus-混合鲜花包月套餐</p>
-            <p>￥99元/月</p>
-            <span>新用户下单即送花瓶</span>
-        </section>
-    </div>
-</div>
+<script src='/data/monthlyData.js'></script>
+<script>
+    // console.log($(monthlyData))
+    $(monthlyData).each(function(index, item) {
+        console.log(item)
+        var str = `<div class='part'>
+            <div class="banner"><img src="${item.banner}"></div><div class="list">
+        `
+        $(item.list).each(function(index, data) {
+            str += `
+            <section class="list-detail">
+            <div><img src="${data.img}" alt=""></div>
+            <p>${data.name}</p>
+            <p>${data.price}</p>
+            <span>${data.tip}</span>
+        </section>`
+        })
+        str += `</div>`
+        $('.content').append(str)
+    })
+</script>
 
 <div class="part part-four">
     <div class="banner">
