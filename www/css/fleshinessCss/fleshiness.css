@@ -1,0 +1,264 @@
+header {
+    background-image: url(/imges/首页-绿植/header-bg.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.search {
+    display: flex;
+    width: 100%;
+    background-color: white;
+    border-radius: 10vw;
+    padding: 1vw 2vw;
+    margin-top: 3vw;
+    justify-content: space-around;
+    /* position: fixed;
+    top: 0;
+    width: 100%; */
+}
+
+.search .icon {
+    display: inline-block;
+    width: 5%;
+}
+
+.search .icon img {
+    width: 100%;
+}
+
+.search input {
+    width: 95%;
+    border: none;
+    background-color: none;
+}
+
+
+/* 顶部搜索框  固定还没做 */
+
+.banner {
+    margin-top: 3vh;
+    width: 100%;
+}
+
+.banner img {
+    width: 100%;
+}
+
+
+/* header部分bannner */
+
+.ad {
+    margin-top: 4vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ad>div {
+    width: 49%;
+}
+
+.ad>div img {
+    width: 100%;
+}
+
+.ad>div:nth-of-type(1) img:nth-of-type(1) {
+    margin-bottom: 0.6vh;
+}
+
+
+/* 盆栽部分 */
+
+.activity {
+    margin-top: 6vh;
+    width: 100%;
+    margin-bottom: 5vh;
+}
+
+.activity p,
+.news p,
+.hot p {
+    font-size: 3.7vw;
+    font-weight: 600;
+}
+
+.activity>div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.activity>div img {
+    width: 49%;
+}
+
+
+/* 活动专区部分 */
+
+.swiper-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    width: 800%;
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    list-style: none;
+}
+
+.swiper-slide {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.swiper-slide div {
+    width: 31%;
+    position: relative;
+}
+
+.swiper-slide div img {
+    width: 100%;
+}
+
+.swiper-slide div p:nth-of-type(1) {
+    text-align: center;
+    margin: 1vh 0;
+    font-size: 3.7vw;
+    font-weight: 600;
+}
+
+.swiper-slide div p:nth-of-type(2) {
+    text-align: center;
+    margin: 1vh 0;
+    font-size: 3vw;
+    margin-bottom: 4vh;
+}
+
+.swiper-slide div del {
+    color: #bdbdbd;
+    margin-left: 2vw;
+}
+
+.swiper-slide div .tip {
+    position: absolute;
+    color: white;
+    display: inline-block;
+    font-size: 2.5vw;
+    background-color: yellowgreen;
+    top: 1.5vw;
+    left: 1.5vw;
+    padding: 0 1vw;
+    border-radius: 5vw;
+}
+
+
+/* 新品推荐 轮播部分 */
+
+.container-list {
+    padding: 0;
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.list .detail {
+    width: 48%;
+    position: relative;
+}
+
+.list .detail img {
+    width: 100%;
+}
+
+.list .detail p:nth-of-type(1) {
+    font-size: 3.5vw;
+    font-weight: 600;
+    margin: 1.5vh 0;
+}
+
+.list .detail p:nth-of-type(2) {
+    font-size: 3vw;
+}
+
+.list .detail p:nth-of-type(2) del {
+    color: #dbdada;
+    margin-left: 1.5vw;
+}
+
+.list .detail p:nth-of-type(2) span:nth-of-type(2) {
+    float: right;
+    color: #dbdada;
+    font-size: 2.5vw;
+}
+
+.list .detail .first {
+    font-family: PingFangSC-Regular, PingFang SC;
+    position: absolute;
+    display: inline-block;
+    top: 1vh;
+    left: 1vh;
+    font-size: 3vw;
+    background-color: rgb(0, 110, 84);
+    color: white;
+    padding: 0 1vw;
+}
+
+.list .detail .second {
+    font-family: PingFangSC-Regular, PingFang SC;
+    position: absolute;
+    display: inline-block;
+    top: 1vh;
+    left: 1vh;
+    font-size: 3vw;
+    background-color: rgb(158, 209, 39);
+    color: white;
+    padding: 0 1vw;
+}
+
+.list .detail .third {
+    font-family: PingFangSC-Regular, PingFang SC;
+    position: absolute;
+    display: inline-block;
+    top: 1vh;
+    left: 1vh;
+    font-size: 3vw;
+    background-color: rgb(176, 193, 110);
+    color: white;
+    padding: 0 1vw;
+}
+
+.list .detail .hot {
+    font-family: PingFangSC-Regular, PingFang SC;
+    position: absolute;
+    display: inline-block;
+    top: 1vh;
+    left: 1vh;
+    font-size: 3vw;
+    background-color: rgb(252, 193, 105);
+    border-radius: 3vw;
+    color: white;
+    padding: 0 1vw;
+}
+
+
+/* 热卖专区部分 */
+
+.bottom {
+    margin-top: 6vh;
+    text-align: center;
+}
+
+.bottom p {
+    font-size: 3vw;
+    color: #bdbdbd;
+}
+
+
+/* 底部 */
