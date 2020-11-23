@@ -32,46 +32,52 @@
 </div>
 <nav>
     <div>
-        <ul>
-            <li><a href="">新品专区</a></li>
-            <li><a href="">鲜花2H达</a></li>
-            <li><a href="">鲜花预定</a></li>
-            <li><a href="">网红蛋糕</a></li>
-            <li><a href="">优选好礼</a></li>
-            <li><a href="">永生花</a></li>
-            <li><a href="">花礼周边</a></li>
-            <li><a href="">生日好礼</a></li>
-            <li><a href="">送爱人</a></li>
-            <li><a href="">送长辈领导</a></li>
-            <li><a href="">更多推荐</a></li>
-        </ul>
-    </div>
-    <div>
-        <img src="/imges/首页-礼品/down.png" alt="">
-    </div>
-    <section>
         <div>
-            <section>
-                <img src="/imges/首页-礼品/up.png" alt="">
-            </section>
-            <div>新品专区</div>
-            <div>鲜花2H达</div>
-            <div>鲜花预定</div>
-            <div>网红蛋糕</div>
-            <div>优选好礼</div>
-            <div>永生花</div>
-            <div>花礼周边</div>
-            <div>生日好礼</div>
-            <div>送爱人</div>
-            <div>送长辈领导</div>
-            <div>更多推荐</div>
+            <ul>
+                <li><a href="" id="new">新品专区</a></li>
+                <li><a href="" id="move">鲜花2H达</a></li>
+                <li><a href="" id="faster">鲜花预定</a></li>
+                <li><a href="" id="birthday">网红蛋糕</a></li>
+                <li><a href="" id="good">优选好礼</a></li>
+                <li><a href="" id="fover">永生花</a></li>
+                <li><a href="" id="outGood">花礼周边</a></li>
+                <li><a href="" id="birthdayGift">生日好礼</a></li>
+                <li><a href="" id="love">送爱人</a></li>
+                <li><a href="" id="parent">送长辈领导</a></li>
+                <li><a href="" id="more">更多推荐</a></li>
+            </ul>
         </div>
-    </section>
+        <div class="isDiv">
+            <img src="/imges/首页-礼品/down.png" alt="">
+        </div>
+        <section class="isNav">
+            <div>
+                <section>
+                    <img src="/imges/首页-礼品/up.png" alt="">
+                </section>
+                <div><a href="" id="new">新品专区</a></div>
+                <div><a href="" id="move">鲜花2H达</a></div>
+                <div><a href="" id="faster">鲜花预定</a></div>
+                <div><a href="" id="birthday">网红蛋糕</a></div>
+                <div><a href="" id="good">优选好礼</a></div>
+                <div><a href="" id="fover">永生花</a></div>
+                <div><a href="" id="outGood">花礼周边</a></div>
+                <div><a href="" id="birthdayGift">生日好礼</a></div>
+                <div><a href="" id="love">送爱人</a></div>
+                <div><a href="" id="parent">送长辈领导</a></div>
+                <div><a href="" id="more">更多推荐</a></div>
+            </div>
+        </section>
+    </div>
+
 </nav>
 <div class="gift-all"></div>
 <main></main>
 <div class="last-pic">
     <img src="/imges/首页-礼品/footer.jpg" alt="">
+</div>
+<div class="up">
+    <img src="/imges/首页-礼品/up.png" alt="">
 </div>
 <!-- 数据导入 -->
 <script src="/data/giftData.js"></script>
@@ -96,9 +102,9 @@
             </div>
         `)
     })
-    $.each(giftData,function (key, item) {
-        
-        if (key!='top') {
+    $.each(giftData, function (key, item) {
+
+        if (key != 'top') {
             $('main').append(`
             <div class="gift-all gift-${key} gift-childs">
                 <section>
@@ -110,8 +116,8 @@
                 </div>
             </div>
             `)
-            $(item.title).each(function(index,item_child){
-                
+            $(item.title).each(function (index, item_child) {
+
                 $(`.gift-${key}>div`).append(`
                 <div>
                     <img src="${item_child.img}" alt="">
@@ -126,14 +132,86 @@
             })
         }
     })
-    $('nav>div').click(function(){
-        $('nav>section').css('display','block')
-        $('nav>div:nth-of-type(1)').html('切换分类')
+    $('nav>div>div:nth-of-type(2)').click(function () {
+        $('nav>div>section').css('display', 'block')
+        $('nav>div>div:nth-of-type(1)').html('切换分类')
     })
-    $(window).click(function(){
-        console.log(this);
-    })
+    $(window).click(function (e) {
+        if ($(event.target).hasClass('isNav')) {
+            $('.isNav').css('display', 'none')
+            $('nav>div>div:nth-of-type(1)').html(`
+        <ul>
+            <li><a href="" id="new">新品专区</a></li>
+                <li><a href="" id="move">鲜花2H达</a></li>
+                <li><a href="" id="faster">鲜花预定</a></li>
+                <li><a href="" id="birthday">网红蛋糕</a></li>
+                <li><a href="" id="good">优选好礼</a></li>
+                <li><a href="" id="fover">永生花</a></li>
+                <li><a href="" id="outGood">花礼周边</a></li>
+                <li><a href="" id="birthdayGift">生日好礼</a></li>
+                <li><a href="" id="love">送爱人</a></li>
+                <li><a href="" id="parent">送长辈领导</a></li>
+                <li><a href="" id="more">更多推荐</a></li>
+        </ul>`)
+        addClick()
+        }
 
+    })
+    function addClick() {
+        $('nav a').click(function (e) {
+            $('.isNav').css('display', 'none')
+            $('nav>div>div:nth-of-type(1)').html(`
+        <ul>
+            <li><a href="" id="new">新品专区</a></li>
+                <li><a href="" id="move">鲜花2H达</a></li>
+                <li><a href="" id="faster">鲜花预定</a></li>
+                <li><a href="" id="birthday">网红蛋糕</a></li>
+                <li><a href="" id="good">优选好礼</a></li>
+                <li><a href="" id="fover">永生花</a></li>
+                <li><a href="" id="outGood">花礼周边</a></li>
+                <li><a href="" id="birthdayGift">生日好礼</a></li>
+                <li><a href="" id="love">送爱人</a></li>
+                <li><a href="" id="parent">送长辈领导</a></li>
+                <li><a href="" id="more">更多推荐</a></li>
+        </ul>`)
+            e.preventDefault()
+            addClick()
+            var time = setInterval(() => {
+                let thisScroll = $('html')[0].scrollTop
+                $('html')[0].scrollTop = thisScroll + 100
+                if ($('html')[0].scrollTop > $(`.gift-${this.id}`).offset().top) {
+                    $('html')[0].scrollTop = $(`.gift-${this.id}`).offset().top-$('nav>div').innerHeight()
+                    clearInterval(time)
+                }
+            }, 10);
+        })
+    }addClick()
+
+    $(window).scroll(function () {
+        if ($('html')[0].scrollTop >= $(`nav`).offset().top) {
+            $(`nav>div`).css({
+                position: 'fixed'
+            })
+        } else {
+            $(`nav>div`).css({
+                position: 'absolute'
+            })
+        }
+        if($('html')[0].scrollTop>=800){
+            $('.up').css('display','block')
+        }else{
+            $('.up').css('display','none')
+        }
+    })
+    $('.up').click(function(){
+        var time = setInterval(() => {
+            let thisScroll = $('html')[0].scrollTop
+            $('html')[0].scrollTop = thisScroll - 100
+            if ($('html')[0].scrollTop <=0) {
+                clearInterval(time)
+            }
+        }, 10);
+    })
 </script>
 
 <script>

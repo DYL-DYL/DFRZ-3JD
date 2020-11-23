@@ -19,13 +19,31 @@ body {
   width: 100%;
 }
 nav {
-  margin: 15px 5px 15px 15px;
+  position: relative;
+  height: 11.73vw;
+}
+nav a {
+  color: #1B1F2B;
+  font-weight: 600;
+  font-family: PingFangSC-Semibold, PingFang SC;
+  font-size: 3.73vw;
+  line-height: 5.33vw;
+}
+nav a:focus {
+  color: #1B1F2B;
+  text-decoration: none;
+}
+nav > div {
+  padding: 15px 5px 15px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: absolute;
+  background-color: white;
+  top: 0;
+  z-index: 99;
 }
-nav > div:nth-of-type(1) {
+nav > div > div:nth-of-type(1) {
   width: 88vw;
   overflow: scroll;
   color: #1B1F2B;
@@ -34,40 +52,37 @@ nav > div:nth-of-type(1) {
   font-size: 3.73vw;
   line-height: 5.33vw;
 }
-nav > div:nth-of-type(1)::-webkit-scrollbar {
+nav > div > div:nth-of-type(1)::-webkit-scrollbar {
   display: none;
 }
-nav > div:nth-of-type(1) ul {
+nav > div > div:nth-of-type(1) ul {
   width: 245vw;
   display: flex;
   padding: 0;
   list-style: none;
   margin: 0;
 }
-nav > div:nth-of-type(1) ul a {
-  color: #1B1F2B;
-  font-weight: 600;
-  font-family: PingFangSC-Semibold, PingFang SC;
-  font-size: 3.73vw;
-  line-height: 5.33vw;
-}
-nav > div:nth-of-type(1) ul a:focus {
-  color: #1B1F2B;
-  text-decoration: none;
-}
-nav > div:nth-of-type(1) ul li {
+nav > div > div:nth-of-type(1) ul li {
   margin-right: 6.27vw;
   border-bottom: 2px solid #1B1F2B;
 }
-nav > div:nth-of-type(2) {
+nav > div > div:nth-of-type(1) ul li a:focus {
+  color: #1B1F2B !important;
+  text-decoration: none !important;
+}
+nav > div > div:nth-of-type(1) ul li a:hover {
+  color: #1B1F2B !important;
+  text-decoration: none !important;
+}
+nav > div > div:nth-of-type(2) {
   width: 10vw;
   text-align: center;
   box-shadow: -5px 0 5px -5px #ccc;
 }
-nav > div:nth-of-type(2) img {
+nav > div > div:nth-of-type(2) img {
   width: 50%;
 }
-nav > section {
+nav > div > section {
   position: absolute;
   display: none;
   background-color: rgba(0, 0, 0, 0.6);
@@ -77,7 +92,7 @@ nav > section {
   top: -150vw;
   z-index: 999;
 }
-nav > section > div {
+nav > div > section > div {
   background-color: white;
   height: 38.4vw;
   width: 100%;
@@ -85,20 +100,20 @@ nav > section > div {
   padding: 5.87vw 5.33vw 2.93vw;
   position: relative;
 }
-nav > section > div > div {
+nav > div > section > div > div {
   display: inline-block;
   width: 21vw;
   text-align: center;
   padding-bottom: 5.3vw;
 }
-nav > section > div section {
+nav > div > section > div section {
   position: absolute;
   right: 10px;
   top: -20px;
   width: 20px;
   height: 20px;
 }
-nav > section > div section img {
+nav > div > section > div section img {
   width: 100%;
 }
 .gift-all > section {
@@ -219,4 +234,15 @@ footer {
 }
 body {
   padding-bottom: 0;
+}
+.up {
+  width: 6.67vw;
+  height: 6.67vw;
+  position: fixed;
+  bottom: 25.6vw;
+  right: 4vw;
+  display: none;
+}
+.up img {
+  width: 100%;
 }

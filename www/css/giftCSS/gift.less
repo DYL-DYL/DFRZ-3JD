@@ -25,84 +25,100 @@ body{
 
 
 nav{
-    margin: 15px 5px 15px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: relative;
-    &>div:nth-of-type(1){
-        width: 88vw;
-        overflow: scroll;
+    height: 11.73vw;
+    a{
         color: #1B1F2B;
         font-weight: 600;
         font-family: PingFangSC-Semibold, PingFang SC;
         font-size: 3.73vw;
         line-height: 5.33vw;
-        &::-webkit-scrollbar {
-            display: none;
-        }
-
-        ul{
-            width: 245vw;
-            display: flex;
-            padding: 0;
-            list-style: none;
-            margin: 0;
-            a{
-                   color: #1B1F2B;
-                   font-weight: 600;
-                   font-family: PingFangSC-Semibold, PingFang SC;
-                   font-size: 3.73vw;
-                   line-height: 5.33vw;
-            }
-            a:focus{
-                color: #1B1F2B;
-                text-decoration: none;
-            }
-            li{
-                margin-right: 6.27vw;
-                border-bottom: 2px solid #1B1F2B;
-            }
-        }
     }
-    &>div:nth-of-type(2){
-        width: 10vw;
-        text-align: center;
-        box-shadow: -5px 0 5px -5px #ccc;
-        img{
-            width: 50%;
-        }
+    a:focus{
+        color: #1B1F2B;
+        text-decoration: none;
     }
-    &>section{
+    &>div{
+        padding: 15px 5px 15px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         position: absolute;
-        display: none;
-        background-color: rgba(0,0,0,.6);
-        width: 100vw;
-        height: 1000vw;
-        left: -15px;
-        top: -150vw;
-        z-index: 999;
-        &>div{
-            background-color: white;
-            height: 38.4vw;
-            width: 100%;
-            margin-top: 157vw;
-            padding: 5.87vw 5.33vw 2.93vw;
-            position: relative;
-            &>div{
-                display: inline-block;
-                width: 21vw;
-                text-align: center;
-                padding-bottom: 5.3vw;
+        background-color: white;
+        top: 0;
+        z-index: 99;
+        &>div:nth-of-type(1){
+            width: 88vw;
+            overflow: scroll;
+            color: #1B1F2B;
+            font-weight: 600;
+            font-family: PingFangSC-Semibold, PingFang SC;
+            font-size: 3.73vw;
+            line-height: 5.33vw;
+            &::-webkit-scrollbar {
+                display: none;
             }
-            section{
-                position: absolute;
-                right: 10px;
-                top: -20px;
-                width: 20px;
-                height: 20px;
-                img{
-                    width: 100%;
+            
+            ul{
+                width: 245vw;
+                display: flex;
+                padding: 0;
+                list-style: none;
+                margin: 0;
+                li{
+                    margin-right: 6.27vw;
+                    border-bottom: 2px solid #1B1F2B;
+                    a:focus{
+                        color: #1B1F2B !important;
+                        text-decoration: none !important;
+                    }
+                    a:hover{
+                        color: #1B1F2B !important;
+                        text-decoration: none !important;
+                    
+                    }
+                }
+            }
+        }
+        &>div:nth-of-type(2){
+            width: 10vw;
+            text-align: center;
+            box-shadow: -5px 0 5px -5px #ccc;
+            img{
+                width: 50%;
+            }
+        }
+        &>section{
+            position: absolute;
+            display: none;
+            background-color: rgba(0,0,0,.6);
+            width: 100vw;
+            height: 1000vw;
+            left: -15px;
+            top: -150vw;
+            z-index: 999;
+            &>div{
+                background-color: white;
+                height: 38.4vw;
+                width: 100%;
+                margin-top: 157vw;
+                padding: 5.87vw 5.33vw 2.93vw;
+                position: relative;
+                &>div{
+                    display: inline-block;
+                    width: 21vw;
+                    text-align: center;
+                    padding-bottom: 5.3vw;
+                }
+                section{
+                    position: absolute;
+                    right: 10px;
+                    top: -20px;
+                    width: 20px;
+                    height: 20px;
+                    img{
+                        width: 100%;
+                    }
                 }
             }
         }
@@ -237,4 +253,15 @@ footer{
 }
 body{
     padding-bottom: 0;
+}
+.up{
+    width: 6.67vw;
+    height: 6.67vw;
+    position: fixed;
+    bottom: 25.6vw;
+    right: 4vw;
+    display: none;
+    img{
+        width:100%;
+    }
 }
