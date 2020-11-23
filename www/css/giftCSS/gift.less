@@ -5,54 +5,236 @@ body{
     padding-top: 0;
     position: relative;
 }
-.top-nav{
-    height: 117.67vw;
-    width: 100%;
-    overflow: scroll;
-    font-size: 0;
-    letter-spacing: 0;
-    &::-webkit-scrollbar {
-        display: none;
+.swiper-pagination{
+    .swiper-pagination-bullet{
+        width: 11px !important;
+        height: 3px !important;
+        background-color: rgba(255, 255, 255, 0.6) !important;
+        border: none;
     }
-    section{
-        position: absolute;
-        height: 100px;
-        width: 100%;
-        top: 90.13vw;
+    .swiper-pagination-bullet-active{
+       width: 22px !important;
+       background-color: rgba(255, 255, 255, 1) !important;
     }
-    ul{
-        position: absolute;
-        width: 100%;
-        bottom: 10px;
-        z-index: 99;
-        text-align: center;
-        padding: 0;
-        left: 0;
-        li{
-            display: inline-block;
-            width: 5px;
-            height: 5px;
-            border-radius: 50%;
-            border: 1px solid white;
-            margin: 0 3px;
-        }
-        li:nth-of-type(n+2){
-            background-color: white;
-        }
-    }
-
-    &>div{
-        // display: flex;
-        overflow: hidden;
-        width: 800%;
-        letter-spacing: 0;
-    }
+}
+.top-pics{
     img{
+        width: 100%;
+    }
+}
+
+
+nav{
+    margin: 15px 5px 15px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    &>div:nth-of-type(1){
+        width: 88vw;
+        overflow: scroll;
+        color: #1B1F2B;
+        font-weight: 600;
+        font-family: PingFangSC-Semibold, PingFang SC;
+        font-size: 3.73vw;
+        line-height: 5.33vw;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        ul{
+            width: 245vw;
+            display: flex;
+            padding: 0;
+            list-style: none;
+            margin: 0;
+            a{
+                   color: #1B1F2B;
+                   font-weight: 600;
+                   font-family: PingFangSC-Semibold, PingFang SC;
+                   font-size: 3.73vw;
+                   line-height: 5.33vw;
+            }
+            a:focus{
+                color: #1B1F2B;
+                text-decoration: none;
+            }
+            li{
+                margin-right: 6.27vw;
+                border-bottom: 2px solid #1B1F2B;
+            }
+        }
+    }
+    &>div:nth-of-type(2){
+        width: 10vw;
+        text-align: center;
+        box-shadow: -5px 0 5px -5px #ccc;
+        img{
+            width: 50%;
+        }
+    }
+    &>section{
+        position: absolute;
+        display: none;
+        background-color: rgba(0,0,0,.6);
         width: 100vw;
-        letter-spacing: 0;
+        height: 1000vw;
+        left: -15px;
+        top: -150vw;
+        z-index: 999;
+        &>div{
+            background-color: white;
+            height: 38.4vw;
+            width: 100%;
+            margin-top: 157vw;
+            padding: 5.87vw 5.33vw 2.93vw;
+            position: relative;
+            &>div{
+                display: inline-block;
+                width: 21vw;
+                text-align: center;
+                padding-bottom: 5.3vw;
+            }
+            section{
+                position: absolute;
+                right: 10px;
+                top: -20px;
+                width: 20px;
+                height: 20px;
+                img{
+                    width: 100%;
+                }
+            }
+        }
     }
-    .item{
-       display: inline-block;
-       vertical-align: top;
+}
+
+.gift-all{
+    &>section{
+        padding: 2.67vw 4vw 2.267vw;
+        background-color: #333;
+        font-family: PingFangSC-Medium, PingFang SC;
+        color: white;
+        h1{
+            line-height: 6.4vw;
+            height: 6.4vw;
+            font-size: 4.8vw;
+            font-weight: 600;
+            margin: 0 ;
+            margin-bottom: 5px;
+        }
+        p{
+            margin: 0;
+            line-height: 4.4vw;
+            font-size: 3.34vw;
+        }
     }
+    &>div{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        &>div{
+            width: 100%;
+            text-align: center;
+            font-family: PingFangSC-Regular, PingFang SC;
+            &>img{
+                width: 100%;
+                margin-bottom: 3.33vw;
+            }
+            span{
+                line-height: 4.93vw;
+                color: #333333;
+                font-size: 3.467vw;
+            }
+            &>p{
+                margin: 0.8vw 0 1.6vw;
+                color: #333333;
+                line-height: 6.4vw;
+                font-weight: 600;
+                font-size: 4.53vw;
+            }
+            small{
+                color: rgba(51, 51, 51, 0.5);
+                font-size: 3.2vw;
+                line-height: 4vw;
+            }
+            &>div{
+                margin-top: 4vw;
+                display: flex;
+                justify-content: center;
+                margin-bottom: 5vw;
+                p{
+                    border: .02rem solid #333333;
+                    line-height: 4.267vw;
+                    height: 7.2vw;
+                    padding: 1.2vw 2vw;
+                    box-sizing: border-box;
+                    font-weight: 600;
+                }
+                div{
+                    height: 7.2vw;
+                    background-color: #333333;
+                    color: white;
+                    line-height: 7.2vw;
+                    padding:0 5px;
+                    img{
+                        margin-left: 3px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+.gift-childs{
+    &>div{
+        margin-top: 10px;
+        &>div{
+            width: 48.5vw;
+            &>span{
+                display: inline-block;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            &>p{
+                height: 8vw;
+                line-height: 4vw;
+                font-size: 3.2vw;
+                color: rgba(51, 51, 51, 0.5);
+                font-weight: 400;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+            &>div{
+                p{
+                  font-size: 3.2vw;  
+                  padding: 2px;
+                  line-height: 4vw;
+                  height: 5vw;
+                }
+                div{
+                    height: 5vw;
+                    line-height: 5vw;
+                    font-size: 3.2vw;
+                    img{
+                        vertical-align: text-bottom;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.last-pic{
+    img{
+        width: 100%;
+    }
+}
+footer{
+    display: none;
+}
+body{
+    padding-bottom: 0;
 }
