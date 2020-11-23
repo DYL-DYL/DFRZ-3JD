@@ -56,9 +56,12 @@ router.get('/mine', (req, res) => {
     res.render('mine')
 })
 
+//社区
 router.get('/community', (req, res) => {
     res.render('community')
 })
+
+//搜索
 router.router.get('/search', (req, res) => {
     res.render('search')
 })
