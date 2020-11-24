@@ -1,9 +1,11 @@
 {{include './community-common.html'}}
 <link rel="stylesheet" href="/css/communityCSS/community.css">
 
+
 <body>
-    <header>
+    <header class="bar bar-nav">
         <div class="container">
+            <!-- 搜索部分 -->
             <div class="search">
                 <section class="inest">
                     <span class="glyphicon glyphicon-search"></span>
@@ -12,9 +14,60 @@
                 <button>搜索</button>
             </div>
 
-        </div>
+            <!-- 用户推荐 -->
+            <div class="top-user">
+                <ul class="top-show">
+                    <li class="more">
+                        <img src="/imges/社区-首页/more.png" alt="">
+                    </li>
+                </ul>
+            </div>
 
+            <!-- 导航栏 -->
+            <div class="nav-bar">
+                <a href="javascript:viod(0)">关注</a>
+                <a href="javascript:viod(0)">推荐</a>
+                <a href="javascript:viod(0)" class="nav-active">最新</a>
+            </div>
+        </div>
     </header>
+
+    <main>
+        <div class="news"></div>
+        <div class="recommend"></div>
+        <div class="attention"></div>
+    </main>
+
+
+
+
+
+    <script src='/data/communityData.js'></script>
+    <script>
+        $(topUser).each(function(index, item) {
+            str = `<li>
+                <section class="show-photo">
+                    <div><img src="${item.pic1}"></div>
+                    <div><img src="${item.pic2}">
+                         <section class="add-photo"><img src="/imges/社区-首页/photoAdd.png"></section>
+                         </div>
+                   
+                </section>
+                <section>
+                    <div class="user-photo"><img src="${item.user}">
+                        <img src="/imges/社区-首页/user-border.png">
+                        </div>
+                    <span>${item.name}</span>
+                </section>
+                <section><span>${item.job}</span></section></li>`
+
+            $('.top-show').prepend(str)
+        })
+
+        $('.nav-bar').find('a').click(function() {
+            $(this).addClass('nav-active').siblings().removeClass()
+        })
+    </script>
 </body>
 
 </html>
