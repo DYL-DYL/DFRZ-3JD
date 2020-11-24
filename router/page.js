@@ -87,6 +87,28 @@ router.get('/flower_detail', (req, res) => {
       }
     })
 })
+//鲜花养护-单品花束
+router.get('/single_bouquet', (req, res) => {
+  res.render('single_bouquet')
+})
+//鲜花养护-混合
+router.get('/mix', (req, res) => {
+  res.render('mix')
+})
+//鲜花养护-迷你
+router.get('/mini', (req, res) => {
+  res.render('mini')
+})
+
+//鲜花养护-主题
+router.get('/gift_bouquet', (req, res) => {
+  res.render('gift_bouquet')
+})
+
+//鲜花养护-绿植
+router.get('/green_planting', (req, res) => {
+  res.render('gift_bouquet')
+})
 
 //搜索
 router.get('/search', (req, res) => {
@@ -106,6 +128,7 @@ router.get('/community/message', (req, res) => {
     res.render('community-message')
 })
 
+
 router.get('/register', (req, res) => {
     res.render('register')
 })
@@ -116,7 +139,7 @@ router.get('/detailPage',(req,res)=>{
     fs.readFile('./www/data/detailPage.json',(err,data)=>{
         if(!err){
             var thisData=JSON.parse(data)
-            res.render('detailPage',thisData['req.query.id'])
+            res.render('detailPage',thisData[req.query.id])
         }else{
             console.log(err);
         }

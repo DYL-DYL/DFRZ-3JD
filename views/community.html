@@ -1,11 +1,9 @@
 {{include './community-common.html'}}
 <link rel="stylesheet" href="/css/communityCSS/community.css">
 
-
 <body>
-    <header class="bar bar-nav">
+    <header>
         <div class="container">
-            <!-- 搜索部分 -->
             <div class="search">
                 <section class="inest">
                     <span class="glyphicon glyphicon-search"></span>
@@ -14,21 +12,24 @@
                 <button>搜索</button>
             </div>
 
-            <!-- 用户推荐 -->
-            <div class="top-user">
-                <ul class="top-show">
-                    <li class="more">
-                        <img src="/imges/社区-首页/more.png" alt="">
-                    </li>
-                </ul>
-            </div>
 
-            <!-- 导航栏 -->
-            <div class="nav-bar">
-                <a href="javascript:void(0)" id="attention">关注</a>
-                <a href="javascript:void(0)" id="recommend">推荐</a>
-                <a href="javascript:void(0)" id="news" class="nav-active">最新</a>
-            </div>
+        </div>
+
+        <!-- 用户推荐 -->
+        <div class="top-user">
+            <ul class="top-show">
+                <li class="more">
+                    <img src="/imges/社区-首页/more.png" alt="">
+                </li>
+            </ul>
+        </div>
+
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <a href="javascript:void(0)" id="attention">关注</a>
+            <a href="javascript:void(0)" id="recommend">推荐</a>
+            <a href="javascript:void(0)" id="news" class="nav-active">最新</a>
+        </div>
         </div>
     </header>
 
@@ -85,6 +86,7 @@
 
 
 
+
     <script src='/data/communityData.js'></script>
     <script>
         $(topUser).each(function(index, item) {
@@ -133,6 +135,8 @@
 
         })
     </script>
+    </header>
+
 </body>
 
 </html>

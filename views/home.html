@@ -40,9 +40,9 @@
     <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
         <ul id="swiper-wrapper-5166ce487d6f5cbe" class="swiper-wrapper" aria-live="polite">
             {{each data.new item index}}
-            <li class="swiper-slide" role="group" aria-label="({{index}}+1) /3" >
+            <li class="swiper-slide" role="group" aria-label="({{index}}+1) /3"  >
                 {{each item news}}
-                <div class="lb-box">
+                <div class="lb-box toDetail"  data-id="home/1-{{a}}">
                     <div class="img">
                         <img src="{{news.img}}" alt="">
                         <div>NEW</div>
@@ -71,8 +71,8 @@
 
 <div class="show_box">
     <h1>热卖专区</h1>
-    {{each data.list item}}
-    <div class="list">
+    {{each data.list item a}}
+    <div class="list toDetail" data-id="home/{{a}}">
         <div class="list_img">
             <img src="{{item.img}}" alt="">
             <p class="tips">{{item.top}}</p>
@@ -159,6 +159,9 @@
         autoplayDisableOnInteraction: false,
 
     });
+    $('.toDetail').click(function(){
+        location.href='/detailPage?id='+$(this).data("id")
+    })
 </script>
 </body>
 

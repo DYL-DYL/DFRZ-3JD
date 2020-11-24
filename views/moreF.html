@@ -3,9 +3,9 @@
     <div class="top"><img src="./imges/首页-制物/topbanner.jpg" alt=""></div>
 
     <div class="show_box">
-        {{each data index}}
+        {{each data index a}}
         {{each index item }}
-        <div class="list">
+        <div class="list" data-id="moreF/{{a}}" class="toDetail">
             <div class="list_img">
                 <img src="{{item.img}}" alt="">
                 <p class="tips">{{item.top}}</p>
@@ -35,6 +35,11 @@
             <span><img src="./imges/首页-制物/ic.png" alt=""> 沪公网安备 31011402005615号</span>
         </p>
     </div>
+    <script>
+            $('.toDetail').click(function(){
+        location.href='/detailPage?id='+$(this).data("id")
+    })
+    </script>
 </body>
 
 </html>
