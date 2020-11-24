@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+ul {
+    list-style: none;
+}
+
 header {
     width: 100%;
     background-color: white;
@@ -54,8 +58,6 @@ input:-moz-placeholder {
     font-size: 4.5vw;
     padding: 0 2vw;
     color: rgb(155, 155, 155);
-<<<<<<< HEAD
-=======
 }
 
 
@@ -164,7 +166,7 @@ input:-moz-placeholder {
 }
 
 .top-show .more img {
-    width: 81%;
+    width: 24vw;
 }
 
 
@@ -192,18 +194,57 @@ input:-moz-placeholder {
 
 /* 最新 */
 
-.news {
+.news,
+.recommend {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 
-.news .cet {
+.news ul,
+.recommend ul {
     width: 48%;
+    margin-top: 2vh;
+    margin-bottom: 8vh;
 }
 
-.news .cet img {
+.cet {
     width: 100%;
->>>>>>> 043bc00bc9f561f6b49c266fac600ce1f55d9b52
+    background-color: white;
+    padding-bottom: 1vw;
+    margin-bottom: 2vh;
+    border-radius: 2vw;
+}
+
+.cet>img {
+    width: 100%;
+    border-top-left-radius: 2vw;
+    border-top-right-radius: 2vw;
+    margin-bottom: 1vh;
+}
+
+.msg {
+    padding: 0 2vw;
+    font-size: 3vw;
+}
+
+.user {
+    padding: 0 2vw;
+    font-size: 3vw;
+}
+
+.user>img {
+    width: 6vw;
+    height: 6vw;
+    border-radius: 3vw;
+    margin-right: 2vw;
+}
+
+.user span:nth-of-type(2) {
+    float: right;
+}
+
+.user span>img {
+    width: 4vw;
 }

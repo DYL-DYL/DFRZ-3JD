@@ -15,36 +15,69 @@
 
         </div>
 
-            <!-- 用户推荐 -->
-            <div class="top-user">
-                <ul class="top-show">
-                    <li class="more">
-                        <img src="/imges/社区-首页/more.png" alt="">
-                    </li>
-                </ul>
-            </div>
+        <!-- 用户推荐 -->
+        <div class="top-user">
+            <ul class="top-show">
+                <li class="more">
+                    <img src="/imges/社区-首页/more.png" alt="">
+                </li>
+            </ul>
+        </div>
 
-            <!-- 导航栏 -->
-            <div class="nav-bar">
-                <a href="javascript:void(0)">关注</a>
-                <a href="javascript:void(0)">推荐</a>
-                <a href="javascript:void(0)" class="nav-active">最新</a>
-            </div>
+        <!-- 导航栏 -->
+        <div class="nav-bar">
+            <a href="javascript:void(0)" id="attention">关注</a>
+            <a href="javascript:void(0)" id="recommend">推荐</a>
+            <a href="javascript:void(0)" id="news" class="nav-active">最新</a>
+        </div>
         </div>
     </header>
 
     <main>
         <div class="container">
+            <!-- 最新部分 -->
             <div class="news">
-                {{each data.news item}}
-                <div class="cet"><img src="{{item.img}}" alt="">
-                    <p>{{item.msg}}</p>
-                    <p><img src="{{item.userPic}}" alt="">{{item.name}}</p>
-                </div>
-                {{/each}}
+                <ul class="left">
+                    {{each data.left item}}
+                    <li class="cet"><img src="{{item.img}}" alt="">
+                        <p class="msg">{{item.msg}}</p>
+                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
+                    </li>
+                    {{/each}}
+                </ul>
+                <ul class="right">
+                    {{each data.right item}}
+                    <li class="cet"><img src="{{item.img}}" alt="">
+                        <p class="msg">{{item.msg}}</p>
+                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
+                    </li>
+                    {{/each}}
+                </ul>
+
             </div>
-            <div class="recommend"></div>
-            <div class="attention"></div>
+            <!-- 推荐部分 -->
+            <div class="recommend" style="display: none;">
+                <ul class="left">
+                    {{each data.right item}}
+                    <li class="cet"><img src="{{item.img}}" alt="">
+                        <p class="msg">{{item.msg}}</p>
+                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
+                    </li>
+                    {{/each}}
+                </ul>
+                <ul class="right">
+                    {{each data.left item}}
+                    <li class="cet"><img src="{{item.img}}" alt="">
+                        <p class="msg">{{item.msg}}</p>
+                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <!-- 关注部分 -->
+            <div class="attention">
+
+            </div>
         </div>
 
     </main>
@@ -52,7 +85,57 @@
 
 
 
+
+
+    <script src='/data/communityData.js'></script>
+    <script>
+        $(topUser).each(function(index, item) {
+            str = `<li>
+                <section class="show-photo">
+                    <div><img src="${item.pic1}"></div>
+                    <div><img src="${item.pic2}">
+                         <section class="add-photo"><img src="/imges/社区-首页/photoAdd.png"></section>
+                         </div>
+                   
+                </section>
+                <section>
+                    <div class="user-photo"><img src="${item.user}">
+                        <img src="/imges/社区-首页/user-border.png">
+                        </div>
+                    <span>${item.name}</span>
+                </section>
+                <section><span>${item.job}</span></section></li>`
+
+            $('.top-show').prepend(str)
+        })
+
+        $('#news').click(function() {
+            $(this).addClass('nav-active').siblings().removeClass()
+            $('.news').css('display', 'flex').siblings().css('display', 'none')
+        })
+        $('#attention').click(function() {
+            $(this).addClass('nav-active').siblings().removeClass()
+            $('.attention').css('display', 'block').siblings().css('display', 'none')
+        })
+        $('#recommend').click(function() {
+            $(this).addClass('nav-active').siblings().removeClass()
+            $('.recommend').css('display', 'flex').siblings().css('display', 'none')
+        })
+
+        $(window).scroll(function() {
+
+            var topp = $(document).scrollTop();
+
+            if (topp > 90) {
+                $('header').slideUp()
+            } else {
+                $('header').slideDown()
+            }
+
+        })
+    </script>
     </header>
+
 </body>
 
 </html>
