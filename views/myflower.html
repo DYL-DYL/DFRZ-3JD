@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="/bootstrap-3.3.7-dist/js/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="/css/findCss/myflower.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
+</head>
+
+<body>
+    <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
+        <ul id="swiper-wrapper-5166ce487d6f5cbe" class="swiper-wrapper" aria-live="polite">
+            <li class="swiper-slide" role="group" aria-label="1 /2">
+                <img src="./imges/发现/养护/banner.jpg" alt="">
+            </li>
+        </ul>
+        <div class="swiper-pagination swiper-pagination-bullets">
+            <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+        </div>
+    </div>
+
+    <ul class="top">
+        <li> <a href="/maintenance">全部花束</a></li>
+        <li> <a href="/myflower" class="current">我的花束</a></li>
+    </ul>
+    <div class="no_pro">
+        <p><img src="./imges/发现/养护/ad.jpg" alt=""></p>
+        <p>您本周没有订花哦 </p>
+        <p>花儿在这里等你</p>
+        <a href="">去选花</a>
+    </div>
+    <div class="show_box">
+        <div class="show">
+            <p>－ 最 新 插 花 推 荐 －</p>
+            <a href="/flower_detail?id=1">
+                <img src="./imges/发现/养护/ad1.jpg" alt="">
+                <p>射手座星座花「筑梦庄园」</p>
+                <p>射手座主题花</p>
+            </a>
+            <a href="/flower_detail?id=2">
+                <img src="./imges/发现/养护/ad2.jpg" alt="">
+                <p>大师严云-阳光露台</p>
+                <p>大师养护插花指南</p>
+            </a>
+            <a href="/flower_detail?id=3">
+                <img src="./imges/发现/养护/ad3.jpg" alt="">
+                <p>谜藏201121-2高端主题花束</p>
+                <p>谜藏高端花插花指南</p>
+            </a>
+        </div>
+    </div>
+
+
+    <script>
+        var mySwiper = new Swiper('.swiper-container', {
+            direction: 'horizontal',
+            loop: true,
+            autoplay: true,
+            speed: 300,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            autoplayDisableOnInteraction: false,
+        });
+
+    </script>
+</body>
+
+</html>

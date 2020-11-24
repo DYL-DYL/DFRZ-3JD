@@ -55,9 +55,29 @@ router.get('/mine', (req, res) => {
 
     res.render('mine')
 })
-
+//社区
 router.get('/community', (req, res) => {
     res.render('community')
+})
+//鲜花养护
+router.get('/maintenance', (req, res) => {
+  res.render('maintenance')
+})
+//我的花束
+router.get('/myflower', (req, res) => {
+  res.render('myflower')
+})
+router.get('/flower_detail', (req, res) => {
+  fs.readFile('./www/flower_detail.json',(err,data)=>{
+      if(!err){
+        var data = JSON.parse(data)
+
+        console.log(data[req.query.id-1]);
+        res.render('flower_detail',data[req.query.id-1])
+      }else{
+        console.log(err)
+      }
+    })
 })
 
 module.exports = router
