@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="/bootstrap-3.3.7-dist/js/jquery-3.1.1.js"></script>
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="/bootstrap-3.3.7-dist/js/jquery.cookie.js"></script>
+    <style>
+        body {
+            background-color: rgb(245, 245, 245);
+        }
+        
+        footer {
+            height: 7.5vh;
+            width: 100%;
+            background-color: white;
+            position: fixed;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+            z-index: 99;
+        }
+        
+        footer a {
+            color: #888888;
+            font-size: 4.5vw;
+            line-height: 7.5vh;
+            text-decoration: none;
+        }
+        
+        footer a:focus {
+            color: #888888;
+            text-decoration: none;
+        }
+        
+        footer span {
+            display: inline-block;
+            width: 16vw;
+            height: 16vw;
+            background-color: rgb(255, 103, 114);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8vw;
+            position: relative;
+            bottom: 1.5vh;
+            border: 1vw solid white;
+            box-sizing: border-box;
+        }
+        
+        footer .glyphicon-heart {
+            font-size: 8vw;
+            color: white;
+            margin-right: 1vw;
+            /* margin-bottom: 1vh; */
+        }
+        
+        .active {
+            color: black;
+            font-weight: 600;
+        }
+    </style>
+    <footer>
+        <div><a class="active" href="/community">首页</a></div>
+        <div><a href="/">商城</a></div>
+        <div>
+            <a class="" href="/community/talk"><span><i class="glyphicon glyphicon-heart"></i></span></a>
+        </div>
+        <div><a class="" href="/community/message">消息</a></div>
+        <div><a class="" href="/community/me">我</a></div>
+    </footer>

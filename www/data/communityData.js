@@ -1,0 +1,1 @@
+var topUser = [{ pic1: '/imges/社区-首页/photo1.jpg', pic2: '/imges/社区-首页/photo2.jpg', name: 'Phoenix' }]

@@ -3,54 +3,54 @@
 var exp = require('express')
 var app = exp()
 var router = exp.Router()
-var {User} = require('../libs/mongoose')
+var { User } = require('../libs/mongoose')
 var fs = require('fs')
 
 // 首页
-router.get('/',(req,res)=>{
-      res.render('index')
-})
-// 首页-包月鲜花
-router.get('/monthly',(req,res)=>{
-    res.render('monthly')
-})
-// 首页-礼品花束
-router.get('/gift',(req,res)=>{
-    res.render('gift')
-})
-// 绿植多肉
-router.get('/fleshiness',(req,res)=>{
-    res.render('fleshiness')
-})
-// F+制物所
-router.get('/moreF',(req,res)=>{
-    fs.readFile('./www/moreF.json',(err,data)=>{
-        if(!err){
-          var data = JSON.parse(data)
-          res.render('moreF',{data})
-        }else{
-          console.log(err)
-        }
-     })
-})
-// 家居生活
-router.get('/home',(req,res)=>{
-    fs.readFile('./www/home.json',(err,data)=>{
-        if(!err){
-          var data = JSON.parse(data)
-   
-        res.render('home',{data})
-        }else{
-          console.log(err)
-        }
-     })
-})
-// 发现
-router.get('/find',(req,res)=>{
+router.get('/', (req, res) => {
+        res.render('index')
+    })
+    // 首页-包月鲜花
+router.get('/monthly', (req, res) => {
+        res.render('monthly')
+    })
+    // 首页-礼品花束
+router.get('/gift', (req, res) => {
+        res.render('gift')
+    })
+    // 绿植多肉
+router.get('/fleshiness', (req, res) => {
+        res.render('fleshiness')
+    })
+    // F+制物所
+router.get('/moreF', (req, res) => {
+        fs.readFile('./www/moreF.json', (err, data) => {
+            if (!err) {
+                var data = JSON.parse(data)
+                res.render('moreF', { data })
+            } else {
+                console.log(err)
+            }
+        })
+    })
+    // 家居生活
+router.get('/home', (req, res) => {
+        fs.readFile('./www/home.json', (err, data) => {
+            if (!err) {
+                var data = JSON.parse(data)
+
+                res.render('home', { data })
+            } else {
+                console.log(err)
+            }
+        })
+    })
+    // 发现
+router.get('/find', (req, res) => {
     res.render('find')
 })
 
-    // 我的
+// 我的
 router.get('/mine', (req, res) => {
 
     res.render('mine')
@@ -78,6 +78,24 @@ router.get('/flower_detail', (req, res) => {
         console.log(err)
       }
     })
+})
+
+//搜索
+router.get('/search', (req, res) => {
+    res.render('search')
+})
+
+//社区部分-发布信息
+router.get('/community/talk', (req, res) => {
+        res.render('community-talk')
+    })
+    //社区部分-我
+router.get('/community/me', (req, res) => {
+        res.render('community-me')
+    })
+    //社区部分-消息
+router.get('/community/message', (req, res) => {
+    res.render('community-message')
 })
 
 module.exports = router

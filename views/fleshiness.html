@@ -102,6 +102,12 @@
                 $('.list').append(str)
             })
 
+            $('.search').click(function() {
+                $.get('/search', (data) => {
+                    location.href = 'search'
+                })
+            })
+
             var swiper = new Swiper('.swiper-container', {
                 pagination: {
                     el: '.swiper-pagination',
