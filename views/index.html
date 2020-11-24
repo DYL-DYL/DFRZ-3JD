@@ -238,6 +238,10 @@
     $('.toDetail').click(function(){
         location.href='/detailPage?id='+$(this).data("id")
     })
+    $('.main-pics .swiper-pagination').click(function(){
+        let thisNum = $(`.main-pics .swiper-pagination>span`).eq(0).html()-1
+        $('.main-pics .toDetail').eq(thisNum).click()
+    })
 </script>
 </body>
 

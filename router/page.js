@@ -116,7 +116,7 @@ router.get('/detailPage',(req,res)=>{
     fs.readFile('./www/data/detailPage.json',(err,data)=>{
         if(!err){
             var thisData=JSON.parse(data)
-            res.render('detailPage',thisData['req.query.id'])
+            res.render('detailPage',thisData[req.query.id])
         }else{
             console.log(err);
         }
