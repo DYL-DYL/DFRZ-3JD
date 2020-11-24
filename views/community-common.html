@@ -27,7 +27,7 @@
         
         footer a {
             color: #888888;
-            font-size: 4vw;
+            font-size: 4.5vw;
             line-height: 7.5vh;
             text-decoration: none;
         }
@@ -39,17 +39,37 @@
         
         footer span {
             display: inline-block;
-            width: 12vw;
-            height: 12vw;
+            width: 16vw;
+            height: 16vw;
             background-color: rgb(255, 103, 114);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8vw;
+            position: relative;
+            bottom: 1.5vh;
+            border: 1vw solid white;
+            box-sizing: border-box;
+        }
+        
+        footer .glyphicon-heart {
+            font-size: 8vw;
+            color: white;
+            margin-right: 1vw;
+            /* margin-bottom: 1vh; */
+        }
+        
+        .active {
+            color: black;
+            font-weight: 600;
         }
     </style>
     <footer>
-        <div><a href="/">首页</a></div>
+        <div><a class="active" href="/community">首页</a></div>
         <div><a href="/">商城</a></div>
         <div>
-            <a href="/mine"><span><i class="glyphicon glyphicon-plus"></i></span></a>
+            <a class="" href="/community/talk"><span><i class="glyphicon glyphicon-heart"></i></span></a>
         </div>
-        <div><a href="/mine">消息</a></div>
-        <div><a href="/mine">我</a></div>
+        <div><a class="" href="/community/message">消息</a></div>
+        <div><a class="" href="/community/me">我</a></div>
     </footer>

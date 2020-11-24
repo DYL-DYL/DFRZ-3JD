@@ -62,8 +62,21 @@ router.get('/community', (req, res) => {
 })
 
 //搜索
-router.router.get('/search', (req, res) => {
+router.get('/search', (req, res) => {
     res.render('search')
+})
+
+//社区部分-发布信息
+router.get('/community/talk', (req, res) => {
+        res.render('community-talk')
+    })
+    //社区部分-我
+router.get('/community/me', (req, res) => {
+        res.render('community-me')
+    })
+    //社区部分-消息
+router.get('/community/message', (req, res) => {
+    res.render('community-message')
 })
 
 module.exports = router
