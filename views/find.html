@@ -26,26 +26,24 @@
         </div>
     </div>
 </main>
-    <script>
-        $('footer>div:nth-of-type(1)>i').css({
-            background:'url(/imges/首页-推荐/nav-1b.png)',
-            backgroundSize: '100%'
-        })
-        $('footer>div:nth-of-type(2)>i').css({
-            background:'url(/imges/首页-推荐/nav-2b.png)',
-            backgroundSize: '100%'
-        })
-        $('main>div:nth-of-type(1)').click(function(){
-            var username= $.cookie('username')
-            if(username==undefined){
-                location.href='/mine';
-            }else{
-                location.href='/community'
-            }
-        })
-
-
-    </script>
+<script>
+    $('footer>div:nth-of-type(1)>i').css({
+        background: 'url(/imges/首页-推荐/nav-1b.png)',
+        backgroundSize: '100%'
+    })
+    $('footer>div:nth-of-type(2)>i').css({
+        background: 'url(/imges/首页-推荐/nav-2b.png)',
+        backgroundSize: '100%'
+    })
+    $('main>div:nth-of-type(1)').click(function() {
+        var username = $.cookie('username')
+        if (username == undefined) {
+            location.href = '/mine';
+        } else {
+            location.href = '/community'
+        }
+    })
+</script>
 
 </body>
 
