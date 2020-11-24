@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.img{
+    width: 100%;
+    margin-bottom: 6.667vw;
+}
+img{
+    width: 100%;
+}
+p{
+    width: 100%;
+    text-align: center;
+    margin: 15px 0;
+    font-size: 12px;
+}
+.show{
+    padding: 0 6.667vw;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.list{
+    margin-bottom: 6.667vw;
+    width:40vw;
+}
+.list p{
+    margin: 10px 0;
+
+}

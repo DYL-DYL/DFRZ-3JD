@@ -4,7 +4,7 @@ var exp = require('express')
 var app = exp()
 var router = exp.Router()
 var { User } = require('../libs/mongoose')
-
+var fs = require('fs')
 
 // 首页
 router.get('/', (req, res) => {
@@ -24,23 +24,78 @@ router.get('/fleshiness', (req, res) => {
     })
     // F+制物所
 router.get('/moreF', (req, res) => {
-        res.render('moreF')
+        fs.readFile('./www/moreF.json', (err, data) => {
+            if (!err) {
+                var data = JSON.parse(data)
+                res.render('moreF', { data })
+            } else {
+                console.log(err)
+            }
+        })
     })
     // 家居生活
 router.get('/home', (req, res) => {
-        res.render('home')
+        fs.readFile('./www/home.json', (err, data) => {
+            if (!err) {
+                var data = JSON.parse(data)
+
+                res.render('home', { data })
+            } else {
+                console.log(err)
+            }
+        })
     })
     // 发现
 router.get('/find', (req, res) => {
-        res.render('find')
-    })
-    // 我的
-router.get('/mine', (req, res) => {
-    res.render('mine')
+    res.render('find')
 })
 
+// 我的
+router.get('/mine', (req, res) => {
+
+    res.render('mine')
+})
+//社区
 router.get('/community', (req, res) => {
     res.render('community')
+})
+//鲜花养护
+router.get('/maintenance', (req, res) => {
+  res.render('maintenance')
+})
+//我的花束
+router.get('/myflower', (req, res) => {
+  res.render('myflower')
+})
+router.get('/flower_detail', (req, res) => {
+  fs.readFile('./www/flower_detail.json',(err,data)=>{
+      if(!err){
+        var data = JSON.parse(data)
+
+        console.log(data[req.query.id-1]);
+        res.render('flower_detail',data[req.query.id-1])
+      }else{
+        console.log(err)
+      }
+    })
+})
+
+//搜索
+router.get('/search', (req, res) => {
+    res.render('search')
+})
+
+//社区部分-发布信息
+router.get('/community/talk', (req, res) => {
+        res.render('community-talk')
+    })
+    //社区部分-我
+router.get('/community/me', (req, res) => {
+        res.render('community-me')
+    })
+    //社区部分-消息
+router.get('/community/message', (req, res) => {
+    res.render('community-message')
 })
 
 router.get('/register',(req,res)=>{

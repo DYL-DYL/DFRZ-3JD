@@ -43,9 +43,17 @@
                 location.href='/community'
             }
         })
-
+        $('main>div:nth-of-type(2)').click(function(){
+            var username= $.cookie('username')
+            if(username==undefined){
+                location.href='/mine';
+            }else{
+                location.href='/maintenance'
+            }
+        })
 
     </script>
+
 
 </body>
 
