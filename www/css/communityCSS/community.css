@@ -54,6 +54,8 @@ input:-moz-placeholder {
     font-size: 4.5vw;
     padding: 0 2vw;
     color: rgb(155, 155, 155);
+<<<<<<< HEAD
+=======
 }
 
 
@@ -203,4 +205,5 @@ input:-moz-placeholder {
 
 .news .cet img {
     width: 100%;
+>>>>>>> 043bc00bc9f561f6b49c266fac600ce1f55d9b52
 }

@@ -1,7 +1,219 @@
 {{include './community-common.html'}}
+<style>
+    .header {
+        background-image: url(https://oss.flowerplus.cn/oss_jpg/2019-03-01/15514334642699.jpg!750);
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+        height: 64vw;
+        background-size: cover;
+        color: white;
+    }
+
+    .header>div {
+        width: 100%;
+        height: 100%;
+        padding: 0 4vw;
+        background-color: rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    .user_info {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 6.667vw;
+    }
+
+    .username {
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 4vw;
+        margin-top: 2.67vw;
+    }
+
+    .username span {
+        margin-left: 6px;
+        color: #F0A735;
+        font-size: 11px;
+    }
+
+    .user img {
+        width: 58px;
+    }
+
+    .btn {
+        display: flex;
+        align-items: center;
+        border: 1px solid #fff;
+        border-radius: 14px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 15px;
+        margin-top: 14.5px;
+        font-size: 12px;
+        font-weight: 400;
+        width: 83.5px;
+    }
+
+    .icon {
+        margin-right: 8px;
+    }
+
+    .icon img {
+        width: 10px;
+    }
+
+    .info-count {
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        left: 40px;
+        right: 40px;
+        bottom: 10px;
+    }
+
+    .label {
+        font-size: 11px;
+        letter-spacing: 1px;
+        font-weight: 400;
+    }
+
+    .count {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .sns_tab_wrapper {
+        height: 44px;
+        padding: 10px;
+        display: flex;
+        text-align: center;
+        list-style: none;
+        background-color: #fff;
+        color: black;
+        line-height: 44px;
+    }
+
+    .sns_tab_wrapper li {
+        width: 50%;
+        letter-spacing: 1px;
+        line-height: 24px;
+    }
+
+    .sns_tab_wrapper li span:nth-of-type(1) {
+        position: relative;
+    }
+
+    .txt::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -15px;
+        height: 3px;
+        background-color: #FF6772;
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .no-result{
+        margin-top: 10%;
+    }
+    .pic {
+        text-align: center;
+    }
+
+    .pic img{
+        width: 58px;
+    }
+    .text{
+        margin-top: 30px;
+        font-size: 13px;
+        font-weight: 400;
+        color: #C3C5C6;
+        text-align: center;
+    }
+    .main2{
+        display: none;
+    }
+</style>
+<div class="header">
+    <div>
+        <div class="user_info">
+            <div class="user_info_box">
+                <div class="user">
+                    <img src="https://oss.flowerplus.cn/oss_png/2019-05-23/15585981426066.png!57_57" alt="">
+                </div>
+                <div class="username">
+                    手机用户<span>Lv.1</span>
+                </div>
+            </div>
+            <div class="btn">
+                <div class="icon"><img src="https://oss.flowerplus.cn/oss_svg/2019-02-19/15505426447364.svg" alt="">
+                </div>
+                <div>编辑</div>
+            </div>
+        </div>
+
+        <div class="info-count">
+            <div>
+                <div class="count">5</div>
+                <div class="label">我关注的人</div>
+            </div>
+            <div>
+                <div class="count">0</div>
+                <div class="label">关注我的人</div>
+            </div>
+            <div>
+                <div class="count">5</div>
+                <div class="label">获赞和收藏</div>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<ul class="sns_tab_wrapper">
+    <li class="btn1"><span class="txt">帖子</span> <span>(0)</span></li>
+    <li class="btn2"><span>收藏</span> <span>(0)</span></li>
+</ul>
+
+<main class="main1">
+    <div class="no-result">
+        <div class="pic">
+            <img src="https://oss.flowerplus.cn/oss_svg/2019-03-01/15514287051119.svg" alt="">
+        </div>
+        <p class="text">点击下方 “+” ，发布你的第一篇帖子吧</p>
+    </div>
+</main>
+<main class="main2">
+    <div class="no-result">
+        <div class="pic">
+            <img src="https://oss.flowerplus.cn/oss_svg/2019-03-01/15514287126935.svg" alt="">
+        </div>
+        <p class="text">收藏夹空空如也</p>
+    </div>
+</main>
+
 
 
 <script>
     $('a').removeClass('active')
     $('a').eq(4).addClass('active')
+    $('.btn1').click(function(){
+        $('.btn2').children().eq(0).removeClass('txt')
+        $(this).children().eq(0).addClass('txt')
+        $('.main2').css('display','none')
+        $('.main1').css('display','block')
+    })
+    $('.btn2').click(function(){
+        $('.btn1').children().eq(0).removeClass('txt')
+        $(this).children().eq(0).addClass('txt')
+        $('.main1').css('display','none')
+        $('.main2').css('display','block')
+    })
 </script>
