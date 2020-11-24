@@ -186,3 +186,21 @@ input:-moz-placeholder {
     font-weight: 600;
     border-bottom: 1vw solid rgb(255, 103, 114);
 }
+
+
+/* 最新 */
+
+.news {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.news .cet {
+    width: 48%;
+}
+
+.news .cet img {
+    width: 100%;
+}

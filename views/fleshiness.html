@@ -77,10 +77,11 @@
 
         <script>
             $(fleshinessData).each(function(index, item) {
+                console.log(item)
                 var str = ` <li class="swiper-slide">
                 `
                 $(item.list).each(function(index, item) {
-                    str += `<div><img src="${item.img}" alt="">
+                    str += `<div><img src="${item.img}" alt="" class="toDetail" data-id="fleshiness/${item.name}">
                             <p>${item.name}</p>
                             <p><span>${item.price}</span><del>${item.oldPrice}</del></p>
                             <span class="tip">${item.tip}</span>
@@ -91,8 +92,7 @@
             })
 
             $(hot).each(function(index, item) {
-
-                var str = `<section class="detail">
+                var str = `<section class="detail toDetail" data-id="fleshiness/${item.name}">
                         <div><img src="${item.img}" alt=""></div>
                         <p>${item.name}</p>
                         <p><span>${item.price}</span><del>${item.oldPrice}</del><span>${item.sale}</span></p>
@@ -100,6 +100,10 @@
                     </section>
                 `
                 $('.list').append(str)
+            })
+
+            $('.toDetail').click(function() {
+                location.href = '/detailPage?id=' + $(this).data('id')
             })
 
             $('.search').click(function() {

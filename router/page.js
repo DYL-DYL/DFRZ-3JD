@@ -5,6 +5,7 @@ var app = exp()
 var router = exp.Router()
 var { User } = require('../libs/mongoose')
 var fs = require('fs')
+const { JSONCookie } = require('cookie-parser')
 
 // 首页
 router.get('/', (req, res) => {
@@ -53,30 +54,39 @@ router.get('/find', (req, res) => {
 // 我的
 router.get('/mine', (req, res) => {
 
-    res.render('mine')
-})
-//社区
+        res.render('mine')
+    })
+    //社区
 router.get('/community', (req, res) => {
-    res.render('community')
-})
-//鲜花养护
+        fs.readFile('www/data/news.json', (err, data) => {
+            if (!err) {
+                data = JSON.parse(data)
+                res.render('community', { data })
+            } else {
+                console.log(err)
+            }
+
+        })
+
+    })
+    //鲜花养护
 router.get('/maintenance', (req, res) => {
-  res.render('maintenance')
-})
-//我的花束
+        res.render('maintenance')
+    })
+    //我的花束
 router.get('/myflower', (req, res) => {
-  res.render('myflower')
+    res.render('myflower')
 })
 router.get('/flower_detail', (req, res) => {
-  fs.readFile('./www/flower_detail.json',(err,data)=>{
-      if(!err){
-        var data = JSON.parse(data)
+    fs.readFile('./www/flower_detail.json', (err, data) => {
+        if (!err) {
+            var data = JSON.parse(data)
 
-        console.log(data[req.query.id-1]);
-        res.render('flower_detail',data[req.query.id-1])
-      }else{
-        console.log(err)
-      }
+            console.log(data[req.query.id - 1]);
+            res.render('flower_detail', data[req.query.id - 1])
+        } else {
+            console.log(err)
+        }
     })
 })
 
@@ -98,7 +108,7 @@ router.get('/community/message', (req, res) => {
     res.render('community-message')
 })
 
-router.get('/register',(req,res)=>{
+router.get('/register', (req, res) => {
     res.render('register')
 })
 
