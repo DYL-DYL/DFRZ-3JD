@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="59px" height="43px" viewBox="0 0 59 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 20</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#F9D2D4" offset="0%"></stop>
+            <stop stop-color="#EF869A" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="37.9148936" y="15.263587" width="16.0851064" height="11.3641304" rx="5.68206522"></rect>
+        <filter x="-56.0%" y="-52.8%" width="211.9%" height="258.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.937254902   0 0 0 0 0.525490196   0 0 0 0 0.603921569  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-4">
+            <stop stop-color="#F8BBCA" offset="0%"></stop>
+            <stop stop-color="#EE869A" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="我" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我-个人中心" transform="translate(-99.000000, -481.000000)">
+            <g id="Group-2" transform="translate(89.000000, 470.000000)">
+                <g id="Group-7">
+                    <g id="Group-20" transform="translate(5.000000, 0.000000)">
+                        <g id="unpaid-copy">
+                            <g id="Group" transform="translate(5.000000, 11.000000)">
+                                <rect id="Rectangle-11" fill="url(#linearGradient-1)" x="0" y="0" width="50.5531915" height="42.7826087" rx="2.29787234"></rect>
+                                <g id="Rectangle-8">
+                                    <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                                </g>
+                                <ellipse id="Oval-7" fill="url(#linearGradient-4)" fill-rule="nonzero" cx="43.6595745" cy="20.9456522" rx="2.29787234" ry="2.27282609"></ellipse>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

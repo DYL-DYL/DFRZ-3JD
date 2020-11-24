@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="43px" viewBox="0 0 64 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>completed copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#F9D2D4" offset="0%"></stop>
+            <stop stop-color="#EF869A" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="我" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我-个人中心" transform="translate(-592.000000, -480.000000)">
+            <g id="Group-2" transform="translate(89.000000, 470.000000)">
+                <g id="Group-3" transform="translate(499.000000, 0.000000)">
+                    <g id="completed-copy" transform="translate(5.000000, 0.000000)">
+                        <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(6.000000, 10.000000)" fill="url(#linearGradient-1)">
+                            <path d="M26,43 L2.08,43 C0.93124772,43 0,42.0374122 0,40.85 L0,2.15 C0,0.962587788 0.93124772,0 2.08,0 L49.92,0 C51.0687523,0 52,0.962587788 52,2.15 L52,40.75 C52,41.9926407 50.9926407,43 49.75,43 L26,43 Z" id="Rectangle-9"></path>
+                        </g>
+                        <polyline id="Rectangle-22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(33.399544, 34.469181) rotate(-45.000000) translate(-33.399544, -34.469181) " points="46.1767067 40.4357975 20.6223822 40.4357975 20.6223822 28.5025636"></polyline>
+                        <path d="M0,22 L62,22" id="Line-10" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

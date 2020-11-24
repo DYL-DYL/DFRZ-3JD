@@ -20,6 +20,9 @@ temp.defaults.extname = '.html'
 // 页面跳转的路由
 app.use(require('./router/page'))
 
+// 用户注册接口
+app.use('/user',require('./router/user'))
+
 app.listen(3000,()=>{
   console.log('running.....')
 })

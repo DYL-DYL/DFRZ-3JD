@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>吐槽与建议</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="我" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我-个人中心" transform="translate(-620.000000, -1284.000000)">
+            <rect fill="#FFFFFF" x="0" y="0" width="750" height="1540"></rect>
+            <g id="Group-6-Copy" transform="translate(588.000000, 1284.000000)" stroke="#000000" stroke-width="1.5">
+                <g id="Group-17" transform="translate(32.000000, 0.000000)">
+                    <g id="吐槽与建议" transform="translate(4.500000, 4.500000)">
+                        <path d="M32.1295805,38.2869142 L32.1295805,1.55029083 C32.1295805,0.752172011 31.4825773,0.105168875 30.6844585,0.105168875 L19.4291964,0.105168875 C18.6310776,0.105168875 17.9840744,0.752172011 17.9840744,1.55029083 L17.9840744,38.2869142 L23.831077,47.6499931 C23.9475065,47.8364371 24.1049337,47.9938643 24.2913777,48.1102938 C24.968341,48.53304 25.8598317,48.3269564 26.2825779,47.6499931 L32.1295805,38.2869142 Z" id="Combined-Shape" transform="translate(25.056827, 24.217564) rotate(45.000000) translate(-25.056827, -24.217564) "></path>
+                        <path d="M1.5,46.0875 L49.7012195,46.0875" id="Line-5" stroke-linecap="square"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

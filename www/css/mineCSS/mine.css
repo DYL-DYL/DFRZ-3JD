@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+}
+header {
+  display: none;
+}
+body {
+  padding-top: 0;
+}
+.login {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  background-color: white;
+}
+.login > img {
+  width: 100%;
+}
+.login > div {
+  padding: 24px 17px;
+}
+.login > div form > div {
+  background-color: #f5f5f5;
+  padding: 10px 5px 10px 20px;
+}
+.login > div form > div input {
+  margin-left: 10px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #333;
+}
+.login > div form > section {
+  height: 35px;
+  color: orangered;
+  line-height: 35px;
+  font-size: 18px;
+  padding-left: 20px;
+}
+.login > div form > p {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 3px;
+  background-color: #40e640;
+}
+.login > div form > button {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  width: 100%;
+  border-radius: 3px;
+  color: white;
+  background-color: #ccc;
+  border: none;
+}
+main .userTop img {
+  width: 100%;
+}
+main .userTop > div {
+  box-shadow: 0px 7px 8px 0px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 6px;
+  margin-top: 40px;
+  padding-top: 20px;
+  position: absolute;
+  top: 0;
+  width: 91.4vw;
+  margin-left: 4.3vw;
+  text-align: center;
+}
+main .userTop > div > div {
+  position: relative;
+}
+main .userTop > div > div > div {
+  width: 18.67vw;
+  height: 18.67vw;
+  border-radius: 50%;
+  border: 1px solid black;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+main .userTop > div > div > div div {
+  background-color: rgba(51, 51, 51, 0.5);
+  color: white;
+  font-size: 2.67vw;
+  font-family: PingFangSC-Regular !important;
+  height: 4.8vw;
+  line-height: 4.8vw;
+  width: 100%;
+}
+main .userTop > div > div p {
+  margin: 10px 0;
+}
+main .userTop > div > div section {
+  position: absolute;
+  top: 2.67vw;
+  right: 0;
+  padding: 0 15px;
+  height: 8vw;
+  line-height: 8vw;
+  letter-spacing: 0;
+  box-shadow: -4px 7px 20px 0px rgba(189, 189, 189, 0.2);
+  border-top-left-radius: 4vw;
+  border-bottom-left-radius: 4vw;
+  background-color: #fde9e6;
+  display: flex;
+  align-items: center;
+  font-size: 3.2vw;
+}
+main .userTop > div > div section img {
+  width: 1.6vw;
+  height: 2.4vw;
+  margin-left: 3px;
+}
+main .userTop > div > ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+main .userTop > div > ul li {
+  width: 25%;
+  list-style: none;
+}
+main .userTop > div > ul li img {
+  width: 8.5vw;
+  height: 8.5vw;
+}
+main .userTop > div > ul li p {
+  margin-top: 2.4vw;
+  margin-bottom: 0;
+  font-size: 3.2vw;
+  height: 4.53vw;
+  line-height: 4.53vw;
+  color: #333333;
+  font-family: PingFangSC-Regular !important;
+}
+main .userTop > div > section {
+  height: 3.73vw;
+  line-height: 3.73vw;
+  color: #666666;
+  font-size: 2.267vw;
+  font-family: PingFangSC-Regular !important;
+  margin: 5.33vw 0 7.73vw;
+}
+main .date {
+  margin-top: 80px;
+  padding: 5.33vw 5.33vw 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: PingFangSC-Regular !important;
+}
+main .date div {
+  font-size: 3.73vw;
+  height: 5.33vw;
+  line-height: 5.33vw;
+  color: #333333;
+  font-weight: 600;
+}
+main .date section {
+  position: relative;
+  padding-right: 10px ;
+  color: #666666;
+  font-size: 3.2vw;
+}
+main .date section::after {
+  border: 1px solid #333333;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  content: " ";
+  top: 50%;
+  right: 0;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  transform: translateY(-50%) rotate(45deg);
+}
+main .welfare {
+  padding: 5.33vw 5.33vw 0;
+}
+main .welfare div {
+  font-size: 3.73vw;
+  height: 5.33vw;
+  line-height: 5.33vw;
+  color: #333333;
+  font-weight: 600;
+  font-family: PingFangSC-Regular !important;
+}
+main .welfare img {
+  margin-top: 4.8vw;
+  width: 100%;
+}
+main .myServe > div {
+  margin: 35px 5.33vw 0;
+  font-size: 3.73vw;
+  height: 5.33vw;
+  line-height: 5.33vw;
+  color: #333333;
+  font-weight: 600;
+  font-family: PingFangSC-Regular !important;
+}
+main .myServe ul {
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+main .myServe ul li {
+  margin-top: 27px;
+  width: 25%;
+  text-align: center;
+  list-style: none;
+  color: #333333;
+  font-size: 3.2vw;
+}
+main .myServe ul li p {
+  height: 4.5vw;
+  line-height: 4.5vw;
+}
+main .myServe ul li img {
+  width: 8vw;
+  height: 8vw;
+  margin-bottom: 11px;
+}

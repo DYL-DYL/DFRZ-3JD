@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/registerCSS/register.css">
+    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="/bootstrap-3.3.7-dist/js/jquery-3.1.1.js"></script>
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="register">
+        <img src="/imges/我的/login-bg.jpg" alt="">
+        <div>
+            <form action="">
+                <div>
+                    <i class="glyphicon glyphicon-user"></i>
+                    <input type="text" placeholder="请输入账号名" name="username">
+                </div>
+                <section></section>
+                <div>
+                    <i class="glyphicon glyphicon-earphone"></i>
+                    <input type="text" placeholder="请输入手机号" name="phone" pattern="^1[3|5|6|7|8|9][0-9]{9}$">
+                </div>
+                <section></section>
+                <div>
+                    <i class="glyphicon glyphicon-lock"></i>
+                    <input type="password" placeholder="请输入6~16位密码，并包含大小写" name="psw">
+                </div>
+                <section></section>
+                <div>
+                    <i class="glyphicon glyphicon-lock"></i>
+                    <input type="password" placeholder="请确认密码">
+                </div>
+                <section></section>
+                <button type="submit">注册</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        $('form').submit(function (e) {
+            e.preventDefault()
+            $('form>section').html('')
+            var patPsw = /^[a-zA-Z]{6,15}$|^[0-9]{6,15}$|[^a-zA-Z0-9]{6,15}$/
+            $.post('/user/findUser', $(this).serialize(), (data) => {
+                // 判断用户名
+                if (data == '该用户名还没有注册') {
+                    // 判断密码是否一致
+                    if ($(':password').eq(0).val() == $(':password').eq(1).val()) {
+                        // 判断密码是否符合标准
+                        if (patPsw.test($(':password').eq(0).val())) {
+                            $('form>section').eq(2).html('请输入符合标准的密码')
+                        } else if ($(':password').eq(0).val().length < 6 || $(':password').eq(0).val().length > 16) {
+                            $('form>section').eq(2).html('请输入6~16位的密码')
+                        } else {
+                            // 数据库添加数据
+                            $.post('/user/addUser', $(this).serialize(), (data) => {
+                                if(data=='注册成功'){
+                                    location.href='mine'
+                                }else{
+                                    $('form>section').eq(0).html('注册失败，请重试')
+                                }
+                            })
+                        }
+                    } else {
+                        $('form>section').eq(3).html('两次密码输入不一致')
+                    }
+                } else {
+                    $('form>section').eq(0).html('该用户名已被注册')
+                }
+            })
+
+        })
+
+
+    </script>
+</body>
+
+</html>

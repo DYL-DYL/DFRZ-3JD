@@ -1,0 +1,53 @@
+* {
+  margin: 0;
+}
+.register {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  position: absolute;
+  top: 0;
+  background-color: white;
+}
+.register > img {
+  width: 100%;
+}
+.register > div {
+  padding: 6.4vw 4.53vw;
+}
+.register > div form > div {
+  background-color: #f5f5f5;
+  padding: 2.67vw 1.33vw 2.67vw 5.33vw;
+}
+.register > div form > div input {
+  margin-left: 2.67vw;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #333;
+  width: 60vw;
+  font-size: 3.73vw;
+}
+.register > div form > section {
+  height: 9.33vw;
+  color: orangered;
+  line-height: 9.33vw;
+  font-size: 4.8vw;
+  padding-left: 5.33vw;
+}
+.register > div form > p {
+  text-align: right;
+  color: orangered;
+  padding-right: 5.33vw;
+  margin-bottom: 5.33vw;
+}
+.register > div form > button {
+  height: 10.67vw;
+  line-height: 10.67vw;
+  text-align: center;
+  width: 100%;
+  border-radius: 3px;
+  color: white;
+  background-color: #ccc;
+  border: none;
+}

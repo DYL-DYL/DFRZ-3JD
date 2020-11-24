@@ -43,4 +43,8 @@ router.get('/community', (req, res) => {
     res.render('community')
 })
 
+router.get('/register',(req,res)=>{
+    res.render('register')
+})
+
 module.exports = router

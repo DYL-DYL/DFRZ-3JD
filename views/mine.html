@@ -1,6 +1,157 @@
 {{include './header.html'}}
-<h1>这里是我的</h1>
-
+<link rel="stylesheet" href="/css/mineCSS/mine.css">
+<div class="login">
+    <img src="/imges/我的/login-bg.jpg" alt="">
+    <div>
+        <form action="" >
+            <div>
+                <i class="glyphicon glyphicon-user"></i>
+                <input type="text" placeholder="请输入账号名" name="username">
+            </div>
+            <section></section>
+            <div>
+                <i class="glyphicon glyphicon-lock"></i>
+                <input type="password" placeholder="请输入密码" name="psw">
+            </div>
+            <section></section>
+            <p>注册</p>
+            <button type="submit">登录</button>
+        </form>
+    </div>
+</div>
+<main>
+    <div class="userTop">
+        <img src="/imges/我的/pic-bg.png" alt="">
+        <div>
+            <div>
+                <div>
+                    <div>编辑</div>
+                </div>
+                <p>手机用户</p>
+                <section>进入会员中心<img src="/imges/我的/right.svg" alt=""></section>
+            </div>
+            <ul>
+                <li>
+                    <img src="/imges/我的/pic1-1.svg" alt="">
+                    <p>购物车</p>
+                </li>
+                <li>
+                    <img src="/imges/我的/pic1-2.svg" alt="">
+                    <p>服务中</p>
+                </li>
+                <li>
+                    <img src="/imges/我的/pic1-3.svg" alt="">
+                    <p>待评价</p>
+                </li>
+                <li>
+                    <img src="/imges/我的/pic1-4.svg" alt="">
+                    <p>已完成</p>
+                </li>
+            </ul>
+            <section>全部订单></section>
+        </div>
+    </div>
+    <div class="date">
+        <div>收花日历</div>
+        <section>无服务中订单</section>
+    </div>
+    <div class="welfare">
+        <div>近期福利</div>
+        <img src="/imges/我的/banner.jpg" alt="">
+    </div>
+    <div class="myServe">
+        <div>我的服务</div>
+        <ul>
+            <li>
+                <img src="/imges/我的/pic2-1.png" alt="">
+                <p>悦己节赠品</p>
+            </li>
+            <li>
+                <img src="/imges/我的/pic2-2.svg" alt="">
+                <p>在线花艺课</p>
+            </li>
+            <li>
+                <img src="/imges/我的/pic2-3.png" alt="">
+                <p>随花购</p>
+            </li>
+            <li>
+                <img src="/imges/我的/pic2-4.svg" alt="">
+                <p>兑换花卡</p>
+            </li>
+            <li>
+                <img src="/imges/我的/pic2-5.svg" alt="">
+                <p>优惠升级</p>
+            </li>
+            <li>
+                <img src="/imges/我的/pic2-6.svg" alt="">
+                <p>我的优惠券</p>
+            </li>
+            <li>
+                <img src="/imges/我的/pic2-7.png" alt="">
+                <p>当日达订单</p>
+            </li>
+            <li>
+                <img src="/imges/我的/pic2-8.png" alt="">
+                <p>花加G卡</p>
+            </li>
+        </ul>
+    </div>
+    <div class="myServe">
+        <div>其他帮助</div>
+        <ul>
+            <li>
+                <img src="/imges/我的/pic3-1.svg" alt="">
+                <p>常见问题</p>
+            </li>
+            <li>
+                <img src="/imges/我的/pic3-2.svg" alt="">
+                <p>企业服务</p>
+            </li>
+            <li>
+                <img src="/imges/我的/pic3-3.svg" alt="">
+                <p>产品建议</p>
+            </li>
+            <li>
+                <img src="/imges/我的/pic3-4.svg" alt="">
+                <p>第三方查询</p>
+            </li>
+        </ul>
+    </div>
+</main>
+<script>
+    var username = $.cookie('username')
+    if (username != undefined) {
+        $('.login').css('display','none')
+    }
+    $('footer>div:nth-of-type(1)>i').css({
+            background:'url(/imges/首页-推荐/nav-1b.png)',
+            backgroundSize: '100%'
+    })
+    $('footer>div:nth-of-type(3)>i').css({
+            background:'url(/imges/首页-推荐/nav-3b.png)',
+            backgroundSize: '100%'
+    })
+    $('form').submit(function(e){
+        $('form section').html('')
+        e.preventDefault()
+        $.post('/user/userPage',$(this).serialize(),(data)=>{
+            console.log(data);
+            if(data=='该用户还没有注册'){
+                $('form section').eq(0).html('该用户还没有注册,请注册')
+            }
+            if(data=='密码不正确'){
+                $('form section').eq(1).html('密码错误，请重新输入')
+            }
+            if(data=='登录成功'){
+                
+                $('.login').css('display','none')
+            }
+        })
+    })
+    $('form>p').click(function(){
+        location.href='/register'
+    })
+</script>
 </body>
 
 </html>

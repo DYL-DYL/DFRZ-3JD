@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="54px" height="44px" viewBox="0 0 54 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>in_service copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#F9D2D4" offset="0%"></stop>
+            <stop stop-color="#EF869A" offset="100%"></stop>
+        </linearGradient>
+        <polyline id="path-2" points="10.8 17.3508772 18.5377902 17.3508772 18.5377902 9.75986842"></polyline>
+        <filter x="-121.5%" y="-97.5%" width="343.0%" height="347.7%" filterUnits="objectBoundingBox" id="filter-3">
+            <feMorphology radius="0.9" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.933333333   0 0 0 0 0.525490196   0 0 0 0 0.603921569  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="我" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="我-个人中心" transform="translate(-265.000000, -480.000000)">
+            <g id="Group-2" transform="translate(89.000000, 470.000000)">
+                <g id="Group-5" transform="translate(166.000000, 0.000000)">
+                    <g id="in_service-copy" transform="translate(5.000000, 0.000000)">
+                        <g id="in_service" transform="translate(5.000000, 10.000000)">
+                            <path d="M51.4953618,0 C52.8786353,0 54,0.877302627 54,1.95951026 C54,9.11426201 54,14.4803258 54,18.0577017 C54,21.6651968 54,27.0764394 54,34.2914296 C54,35.3736372 52.8786353,36.2509398 51.4953618,36.2509398 L46.5729161,36.2509398 L7.53211242,36.2509398 L2.50463822,36.2509398 C1.12136473,36.2509398 0,35.3736372 0,34.2914296 L1.77635684e-15,21.4073029 C1.35652141e-15,17.9790865 1.62761885,14.754477 4.38571312,12.7184063 L11.7963268,7.24776901 C12.3479456,6.84055486 12.6734694,6.19563298 12.6734694,5.50998969 L12.6734694,1.95951026 C12.6734694,0.877302627 13.7948341,0 15.1781076,0 C25.238355,0 47.471417,0 51.4953618,0 Z" id="vv" fill="url(#linearGradient-1)"></path>
+                            <g id="Line-8" stroke-linecap="round" stroke-linejoin="round">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                                <use stroke="#FFFFFF" stroke-width="1.8" xlink:href="#path-2"></use>
+                            </g>
+                            <ellipse id="Oval" stroke="#FFFFFF" stroke-width="1.8" fill="url(#linearGradient-1)" cx="14" cy="36.9581767" rx="6" ry="6.04182331"></ellipse>
+                            <ellipse id="Oval-Copy" stroke="#FFFFFF" stroke-width="1.8" fill="url(#linearGradient-1)" cx="42" cy="36.9581767" rx="6" ry="6.04182331"></ellipse>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
