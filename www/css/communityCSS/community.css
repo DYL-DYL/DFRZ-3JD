@@ -55,3 +55,152 @@ input:-moz-placeholder {
     padding: 0 2vw;
     color: rgb(155, 155, 155);
 }
+
+
+/* 顶部搜索部分 */
+
+.top-user {
+    width: 100%;
+    overflow: scroll;
+}
+
+.top-user::-webkit-scrollbar {
+    /*隐藏滚轮*/
+    display: none;
+}
+
+.top-show {
+    width: 200%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.top-show li {
+    width: 20%;
+    border: 1px solid rgb(199, 199, 199);
+    border-radius: 3vw;
+    box-sizing: border-box;
+    padding: 2vw;
+    margin: 0 2vw;
+}
+
+.show-photo {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    position: relative;
+    text-align: center;
+}
+
+.show-photo div {
+    width: 14vw;
+    height: 14vw;
+    position: relative;
+}
+
+.show-photo div img {
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+}
+
+.show-photo .add-photo {
+    position: absolute;
+    bottom: 0;
+    right: 2vw;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 2px rgb(155, 155, 155);
+}
+
+.show-photo .add-photo img {
+    width: 70%;
+    height: 70%;
+}
+
+.top-show li>section:nth-of-type(2) {
+    display: flex;
+    margin: 2vh 0;
+}
+
+.top-show li>section:nth-of-type(2) span {
+    font-size: 2.8vw;
+}
+
+.user-photo {
+    width: 20%;
+    position: relative;
+    margin: 0 2vw;
+}
+
+.user-photo img {
+    width: 95%;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+}
+
+.user-photo img:nth-of-type(2) {
+    width: 105%;
+    top: -1px;
+}
+
+.top-show li>section:nth-of-type(3) span {
+    font-size: 3vw;
+    margin-left: 2vw;
+}
+
+.top-show .more {
+    width: 20%;
+    border: none;
+}
+
+.top-show .more img {
+    width: 81%;
+}
+
+
+/* 用户推荐 */
+
+.nav-bar {
+    margin-top: 1.5vh;
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav-bar a {
+    padding: 0 2vw;
+    font-size: 4vw;
+    color: black;
+    padding-bottom: .8vh;
+    text-decoration: none;
+}
+
+.nav-bar .nav-active {
+    font-weight: 600;
+    border-bottom: 1vw solid rgb(255, 103, 114);
+}
+
+
+/* 最新 */
+
+.news {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.news .cet {
+    width: 48%;
+}
+
+.news .cet img {
+    width: 100%;
+}
