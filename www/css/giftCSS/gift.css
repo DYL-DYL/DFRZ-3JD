@@ -56,7 +56,7 @@ nav > div > div:nth-of-type(1)::-webkit-scrollbar {
   display: none;
 }
 nav > div > div:nth-of-type(1) ul {
-  width: 245vw;
+  width: 271vw;
   display: flex;
   padding: 0;
   list-style: none;
@@ -171,8 +171,10 @@ nav > div > section > div section img {
   display: flex;
   justify-content: center;
   margin-bottom: 5vw;
+  overflow: hidden;
 }
 .gift-all > div > div > div p {
+  width: 60%;
   border: 0.02rem solid #333333;
   line-height: 4.267vw;
   height: 7.2vw;
@@ -181,14 +183,18 @@ nav > div > section > div section img {
   font-weight: 600;
 }
 .gift-all > div > div > div div {
+  width: 40%;
   height: 7.2vw;
   background-color: #333333;
   color: white;
   line-height: 7.2vw;
-  padding: 0 5px;
+  padding: 0 1.3vw;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .gift-all > div > div > div div img {
-  margin-left: 3px;
+  margin-left: 0.8vw;
 }
 .gift-childs > div {
   margin-top: 10px;

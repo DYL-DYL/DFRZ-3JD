@@ -3,19 +3,19 @@ var fleshinessData = [{
         img: '/imges/首页-绿植/new-list22.jpg',
         name: '宫粉梅 黄金蜡梅',
         price: '￥59.90',
-        oldProce: '￥79.90',
+        oldPrice: '￥79.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list23.jpg',
         name: '中国桔梗',
         price: '￥39.90',
-        oldProce: '￥59.90',
+        oldPrice: '￥59.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list24.jpg',
         name: '宫粉梅 黄金蜡梅',
         price: '￥59.90',
-        oldProce: '￥79.90',
+        oldPrice: '￥79.90',
         tip: 'NEW'
     }]
 }, {
@@ -23,19 +23,19 @@ var fleshinessData = [{
         img: '/imges/首页-绿植/new-list1.jpg',
         name: '腊梅盆栽',
         price: '￥59.90',
-        oldProce: '￥79.90',
+        oldPrice: '￥79.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list2.jpg',
         name: '诺贝尔圣诞树',
         price: '￥299.00',
-        oldProce: '￥399.00',
+        oldPrice: '￥399.00',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list3.jpg',
         name: '珊瑚冬青',
         price: '￥59.90',
-        oldProce: '￥79.90',
+        oldPrice: '￥79.90',
         tip: 'NEW'
     }]
 }, {
@@ -43,19 +43,19 @@ var fleshinessData = [{
         img: '/imges/首页-绿植/new-list4.jpg',
         name: '松红梅盆栽',
         price: '￥49.90',
-        oldProce: '￥69.90',
+        oldPrice: '￥69.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list5.jpg',
         name: '落新妇盆栽',
         price: '￥39.90',
-        oldProce: '￥59.90',
+        oldPrice: '￥59.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list6.jpg',
         name: '绣线菊盆栽',
         price: '￥49.90',
-        oldProce: '￥69.90',
+        oldPrice: '￥69.90',
         tip: 'NEW'
     }]
 }, {
@@ -63,19 +63,19 @@ var fleshinessData = [{
         img: '/imges/首页-绿植/new-list7.jpg',
         name: '元气森活-耐养',
         price: '￥99.90',
-        oldProce: '￥129.90',
+        oldPrice: '￥129.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list8.jpg',
         name: '大丽花盆栽',
         price: '￥59.00',
-        oldProce: '￥99.00',
+        oldPrice: '￥99.00',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list9.jpg',
         name: '珍珠橙盆栽',
         price: '￥59.00',
-        oldProce: '￥79.00',
+        oldPrice: '￥79.00',
         tip: 'NEW'
     }]
 }, {
@@ -83,19 +83,19 @@ var fleshinessData = [{
         img: '/imges/首页-绿植/new-list10.jpg',
         name: '郁金香盆栽',
         price: '￥39.90',
-        oldProce: '￥59.90',
+        oldPrice: '￥59.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list11.jpg',
         name: '大花蕙兰',
         price: '￥169.00',
-        oldProce: '￥299.00',
+        oldPrice: '￥299.00',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list12.jpg',
         name: '大蝴蝶兰',
         price: '￥99.00',
-        oldProce: '￥119.00',
+        oldPrice: '￥119.00',
         tip: 'NEW'
     }]
 }, {
@@ -103,19 +103,19 @@ var fleshinessData = [{
         img: '/imges/首页-绿植/new-list13.jpg',
         name: '脆皮金桔',
         price: '￥99.00',
-        oldProce: '￥139.00',
+        oldPrice: '￥139.00',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list14.jpg',
         name: '诺贝松圣诞挂件',
         price: '￥99.00',
-        oldProce: '￥199.00',
+        oldPrice: '￥199.00',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list15.jpg',
         name: '北美冬青盆栽',
         price: '￥189.00',
-        oldProce: '￥399.00',
+        oldPrice: '￥399.00',
         tip: 'NEW'
     }]
 }, {
@@ -123,19 +123,19 @@ var fleshinessData = [{
         img: '/imges/首页-绿植/new-list16.jpg',
         name: '转运果切纸',
         price: '￥49.90',
-        oldProce: '￥79.90',
+        oldPrice: '￥79.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list17.jpg',
         name: '迷你月季',
         price: '￥29.90',
-        oldProce: '￥49.90',
+        oldPrice: '￥49.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list18.jpg',
         name: '绿萝双子星',
         price: '￥29.90',
-        oldProce: '￥49.90',
+        oldPrice: '￥49.90',
         tip: 'NEW'
     }]
 }, {
@@ -143,19 +143,19 @@ var fleshinessData = [{
         img: '/imges/首页-绿植/new-list19.jpg',
         name: '梦香兰',
         price: '￥49.90',
-        oldProce: '￥69.90',
+        oldPrice: '￥69.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list20.jpg',
         name: '如梦令',
         price: '￥49.90',
-        oldProce: '￥69.90',
+        oldPrice: '￥69.90',
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list21.jpg',
         name: '冰糖桔 小红柠檬',
         price: '￥139.00',
-        oldProce: '￥299.00',
+        oldPrice: '￥299.00',
         tip: 'NEW'
     }]
 }]

@@ -12,7 +12,45 @@
                 <button>搜索</button>
             </div>
 
+
         </div>
+
+            <!-- 用户推荐 -->
+            <div class="top-user">
+                <ul class="top-show">
+                    <li class="more">
+                        <img src="/imges/社区-首页/more.png" alt="">
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 导航栏 -->
+            <div class="nav-bar">
+                <a href="javascript:void(0)">关注</a>
+                <a href="javascript:void(0)">推荐</a>
+                <a href="javascript:void(0)" class="nav-active">最新</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="news">
+                {{each data.news item}}
+                <div class="cet"><img src="{{item.img}}" alt="">
+                    <p>{{item.msg}}</p>
+                    <p><img src="{{item.userPic}}" alt="">{{item.name}}</p>
+                </div>
+                {{/each}}
+            </div>
+            <div class="recommend"></div>
+            <div class="attention"></div>
+        </div>
+
+    </main>
+
+
+
 
     </header>
 </body>
