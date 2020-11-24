@@ -52,13 +52,8 @@
             "msg": "#感恩节的花#",
             "userPic": "/imges/社区-首页/list-user9.jpg",
             "name": "大小乔"
-        },
-        {
-            "img": "/imges/社区-首页/list-pic10.jpg",
-            "msg": "从野逸拿出来洋兰、洋甘菊、少许新西兰棵，加了两朵菊花。",
-            "userPic": "/imges/社区-首页/list-user10.jpg",
-            "name": "暖暖"
         }
+
     ],
     "right": [{
             "img": "/imges/社区-首页/list-pic11.jpg",
@@ -112,6 +107,11 @@
             "img": "/imges/社区-首页/list-pic19.jpg",
             "msg": "#感恩节的花#",
             "userPic": "/imges/社区-首页/list-user19.jpg",
+            "name": "大小乔"
+        }, {
+            "img": "/imges/社区-首页/list-pic20.jpg",
+            "msg": "#感恩节的花#",
+            "userPic": "/imges/社区-首页/list-user20.jpg",
             "name": "大小乔"
         }
     ],
