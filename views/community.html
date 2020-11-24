@@ -34,6 +34,7 @@
 
     <main>
         <div class="container">
+            <!-- 最新部分 -->
             <div class="news">
                 <ul class="left">
                     {{each data.left item}}
@@ -47,15 +48,16 @@
                     {{each data.right item}}
                     <li class="cet"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span></p>
+                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
                     </li>
                     {{/each}}
                 </ul>
 
             </div>
-            <div class="recommend">
+            <!-- 推荐部分 -->
+            <div class="recommend" style="display: none;">
                 <ul class="left">
-                    {{each data.left item}}
+                    {{each data.right item}}
                     <li class="cet"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
                         <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
@@ -63,15 +65,18 @@
                     {{/each}}
                 </ul>
                 <ul class="right">
-                    {{each data.right item}}
+                    {{each data.left item}}
                     <li class="cet"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span></p>
+                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
                     </li>
                     {{/each}}
                 </ul>
             </div>
-            <div class="attention"></div>
+            <!-- 关注部分 -->
+            <div class="attention">
+
+            </div>
         </div>
 
     </main>
@@ -113,6 +118,19 @@
         $('#recommend').click(function() {
             $(this).addClass('nav-active').siblings().removeClass()
             $('.recommend').css('display', 'flex').siblings().css('display', 'none')
+        })
+
+        $(window).scroll(function() {
+
+            var topp = $(document).scrollTop();
+
+
+            if (topp > 90) {
+                $('.bar').slideUp()
+            } else {
+                $('.bar').slideDown()
+            }
+
         })
     </script>
 </body>
