@@ -82,7 +82,7 @@
         </div>
     </div>
     <section>
-        
+
     </section>
 </div>
 <div class="find hot">
@@ -93,7 +93,7 @@
         </div>
     </div>
     <section>
-        
+
     </section>
 </div>
 <div class="inscribe">
@@ -105,34 +105,39 @@
 <script>
     $('.flash section').on({
         touchend: function () {
-            let thisNum=$(this).scrollLeft()/$('.flash section>div>div').width()
-            $('.flash>div>div span').html(Math.round(thisNum)+1)
-            $(this)[0].scrollLeft=Math.round(thisNum)*$('.flash section>div>div').innerWidth()
+            let thisNum = $(this).scrollLeft() / $('.flash section>div>div').width()
+            $('.flash>div>div span').html(Math.round(thisNum) + 1)
+            $(this)[0].scrollLeft = Math.round(thisNum) * $('.flash section>div>div').innerWidth()
         }
     })
     $('.new section').on({
         touchend: function () {
-            let thisNum=$(this).scrollLeft()/$('.new section>div>div').width()
-            $('.new>div>div span').html(Math.round(thisNum)+1)
-            console.log($('.new section>div>div').outerWidth(true));
-            $(this)[0].scrollLeft=Math.round(thisNum)*($('.new section>div>div').outerWidth(true))
+            let thisNum = $(this).scrollLeft() / $('.new section>div>div').width()
+            $('.new>div>div span').html(Math.round(thisNum) + 1)
+            $(this)[0].scrollLeft = Math.round(thisNum) * ($('.new section>div>div').outerWidth(true))
         }
     })
-    $(indexData.flash).each(function(index,item){
+    $(indexData.flash).each(function (index, item) {
         $('.main-pics .swiper-wrapper').append(`
-            <div class="swiper-slide">
+            <div class="swiper-slide toDetail"  data-id="index/0-${index}" >
                 <img src="${item.img}" alt="">
                 <div>
-                    <div>${item.time}</div>
+                    <div class="time-item">
+                        <img src="/imges/首页-推荐/time.svg" alt="">
+                        <span class="day_show">0天</span>
+	                    <strong class="hour_show">0时</strong>
+	                    <strong class="minute_show">0分</strong>
+	                    <strong class="second_show">0秒</strong>
+                    </div>
                     <h1>${item.title}</h1>
                     <p><del>${item.oldPrice}</del><span>${item.newPrice}</span></p>
                 </div>
             </div>
         `)
     })
-    $(indexData.new).each(function(index,item){
+    $(indexData.new).each(function (index, item) {
         $('.new section>div').append(`
-            <div>
+            <div data-id="index/1-${index}" class="toDetail">
                 <img src="${item.img}" alt="">
                 <h1>${item.title}</h1>
                 <p>${item.txt}</p>
@@ -140,9 +145,9 @@
             </div>
         `)
     })
-    $(indexData.hot).each(function(index,item){
+    $(indexData.hot).each(function (index, item) {
         $('.hot-one section').append(`
-            <div>
+            <div data-id="index/2-${index}" class="toDetail">
                 <img src="${item.img}" alt="">
                 <span>${item.title}</span>
                 <p>${item.txt}</p>
@@ -150,9 +155,9 @@
             </div>
         `)
     })
-    $(indexData.find).each(function(index,item){
+    $(indexData.find).each(function (index, item) {
         $('.find section').append(`
-            <div>
+            <div data-id="index/3-${index}" class="toDetail">
                 <img src="${item.img}" alt="">
                 <span>${item.title}</span>
                 <p>${item.txt}</p>
@@ -160,31 +165,80 @@
             </div>
         `)
     })
+    // 倒计时
+    var intDiff = parseInt(((12*24+5)*60+38)*60+52);//倒计时总秒数量
+
+    function timer(intDiff) {
+        window.setInterval(function () {
+            var day = 0,
+                hour = 0,
+                minute = 0,
+                second = 0;//时间默认值		
+
+            if (intDiff > 0) {
+
+                day = Math.floor(intDiff / (60 * 60 * 24));
+
+                hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+
+                minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+
+                second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+
+            }
+
+            if (minute <= 9) minute = '0' + minute;
+
+            if (second <= 9) second = '0' + second;
+
+            $('.day_show').html(day + "天");
+
+            $('.hour_show').html('<s id="h"></s>' + hour + '时');
+
+            $('.minute_show').html('<s></s>' + minute + '分');
+
+            $('.second_show').html('<s></s>' + second + '秒');
+
+            intDiff--;
+
+        }, 1000);
+
+    }
+
+
+
+    $(function () {
+
+        timer(intDiff);
+
+    });	
 </script>
 <!-- 轮播配置 -->
-<script>        
-    var mySwiper = new Swiper ('.top-pics', {
-      loop: true, // 循环模式选项
-      autoplay:true,
-      // 如果需要分页器
-      pagination: {
-        el: '.swiper-pagination',
-      },
-    })        
-    
+<script>
+    var mySwiper = new Swiper('.top-pics', {
+        loop: true, // 循环模式选项
+        autoplay: true,
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    })
+
     var swiper = new Swiper('.main-pics', {
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'fraction',
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction',
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
 
     });
-  
-    </script>
+    $('.toDetail').click(function(){
+        location.href='/detailPage?id='+$(this).data("id")
+    })
+</script>
 </body>
 
 </html>

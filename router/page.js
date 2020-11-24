@@ -71,8 +71,6 @@ router.get('/flower_detail', (req, res) => {
   fs.readFile('./www/flower_detail.json',(err,data)=>{
       if(!err){
         var data = JSON.parse(data)
-
-        console.log(data[req.query.id-1]);
         res.render('flower_detail',data[req.query.id-1])
       }else{
         console.log(err)
@@ -102,4 +100,16 @@ router.get('/register',(req,res)=>{
     res.render('register')
 })
 
+// 详情页
+router.get('/detailPage',(req,res)=>{
+    // console.log(req.query);
+    fs.readFile('./www/data/detailPage.json',(err,data)=>{
+        if(!err){
+            var thisData=JSON.parse(data)
+            res.render('detailPage',thisData['req.query.id'])
+        }else{
+            console.log(err);
+        }
+    })
+})
 module.exports = router

@@ -103,3 +103,10 @@ footer{
 body{
     padding-bottom: 0;
 }
+
+header li{
+    border:none;
+}
+header li:nth-of-type(5){
+    border-bottom: 2px solid black;
+}

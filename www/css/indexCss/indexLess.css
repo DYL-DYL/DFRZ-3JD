@@ -68,12 +68,12 @@ nav img:nth-of-type(1) {
 }
 .flash > div .main-pics {
   overflow: hidden;
-  padding-top: 35px;
+  padding-top: 9.3vw;
   height: 36.7vw;
 }
 .flash > div .main-pics .swiper-pagination-fraction {
   position: absolute;
-  top: -5px;
+  top: -1.33vw;
   text-align: right;
   padding-right: 20px;
   color: #9e9b9e;
@@ -98,6 +98,7 @@ nav img:nth-of-type(1) {
   position: relative;
 }
 .flash > div .main-pics .swiper-slide > div {
+  position: relative;
   width: 42.4vw;
   height: 26.93vw;
   overflow: hidden;
@@ -238,6 +239,7 @@ nav img:nth-of-type(1) {
 .hot > section > div {
   width: 42.67vw;
   font-family: PingFangSC-Semibold, PingFang SC;
+  margin-bottom: 6.13vw;
 }
 .hot > section > div img {
   width: 100%;
@@ -250,6 +252,9 @@ nav img:nth-of-type(1) {
   line-height: 5.87vw;
   text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
 }
 .hot > section > div p {
   color: rgba(51, 51, 51, 0.7);
@@ -283,4 +288,29 @@ nav img:nth-of-type(1) {
 }
 .swiper-container img {
   width: 100%;
+}
+.time-item {
+  position: absolute;
+  right: 0;
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  background-color: #f6f4f5;
+  white-space: nowrap;
+}
+.time-item img {
+  width: 4.53vw !important;
+  height: 4.53vw !important;
+}
+.time-item > span {
+  font-weight: 400 !important;
+  color: #353331 !important;
+  align-items: center;
+  font-size: 3.2vw !important;
+}
+.time-item > strong {
+  font-weight: 400 !important;
+  color: #353331 !important;
+  align-items: center;
+  font-size: 3.2vw !important;
 }
