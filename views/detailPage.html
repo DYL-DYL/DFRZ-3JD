@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/detailPage/detaiPage.css">
+    <link rel="stylesheet" href="/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="/swiper/swiper-bundle.min.js"></script>
+    <script src="/bootstrap-3.3.7-dist/js/jquery-3.1.1.js"></script>
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="swiper-container top-pics">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="{{banner[0]}}">
+            </div>
+            <div class="swiper-slide">
+                <img src="{{banner[1]}}">
+            </div>
+            <div class="swiper-slide">
+                <img src="{{banner[2]}}">
+            </div>
+            <div class="swiper-slide">
+                <img src="{{banner[3]}}">
+            </div>
+            <div class="swiper-slide">
+                <img src="{{banner[4]}}">
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="shophead">
+         <h1>{{h}}</h1>
+         <p>{{title}}</p>
+    </div>
+    <div class="round_tit">
+        <img src="/imges/详情页/right.svg" alt="">
+        <div>产地直采</div>
+        <img src="/imges/详情页/right.svg" alt="">
+        <div>花损赔付</div>
+        <img src="/imges/详情页/right.svg" alt="">
+        <div>准时送达</div>
+    </div>
+    <div class="sales_des">
+        <p>促销</p>
+        <div>
+            <div>
+                <div>【新客福利】</div>
+                <p>新客赠送价值69元花瓶</p>
+            </div>
+            <div>
+                <div>【套餐详情】</div>
+                <p>高定版全家福含谜藏3束+秘境1束+野逸4束+大师2束+郁金香1束+朱顶红1束，券后仅售599</p>
+            </div>
+            <div>
+                <div>【小编力荐】</div>
+                <p>恭喜你发现花加11.11最大隐藏超值补贴优惠！下单就是赚</p>
+            </div>
+            <div>
+                <div>【温馨提示】</div>
+                <p>由于产品特殊性，不可修改收花时间</p>
+            </div>
+        </div>
+    </div>
+    <div class="more_banner">
+        <img src="/imges/详情页/banner.jpg" alt="">
+    </div>
+    <div class="all_imgs">
+        {{each img item}}
+        <div>
+            <img src="{{item}}" alt="">
+        </div>
+        {{/each}}
+    </div>
+    <div class="product-detail">
+        <div>
+            <div>服务免责声明</div>
+            <i class="glyphicon glyphicon-plus"></i>
+        </div>
+        <img src="/imges/详情页/pic-footer.jpg" alt="">
+    </div>
+    <div class="buy_shop">
+        <div>
+            <img src="/imges/详情页/home.svg" alt="">
+        </div>
+        <div>加入购物车</div>
+        <div>立即购买</div>
+    </div>
+    <script>
+        // 轮播配置
+        var mySwiper = new Swiper('.top-pics', {
+            loop: true, // 循环模式选项
+            // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        })
+    </script>
+</body>
+
+</html>
