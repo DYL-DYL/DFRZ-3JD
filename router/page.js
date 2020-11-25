@@ -54,9 +54,10 @@ router.get('/find', (req, res) => {
 // 我的
 router.get('/mine', (req, res) => {
 
-        res.render('mine/mine')
-    })
-    //社区
+    res.render('mine/mine')
+})
+
+
 router.get('/community', (req, res) => {
         fs.readFile('www/data/news.json', (err, data) => {
             if (!err) {
@@ -78,6 +79,7 @@ router.get('/myflower', (req, res) => {
     res.render('myflower')
 })
 router.get('/flower_detail', (req, res) => {
+
         fs.readFile('./www/flower_detail.json', (err, data) => {
             if (!err) {
                 var data = JSON.parse(data)
@@ -100,6 +102,31 @@ router.get('/single_bouquet', (req, res) => {
 
     })
     //鲜花养护-混合
+router.get('/flower_detail', (req, res) => {
+        fs.readFile('./www/flower_detail.json', (err, data) => {
+            if (!err) {
+                var data = JSON.parse(data)
+                res.render('flower_detail', data[req.query.id - 1])
+            } else {
+                console.log(err)
+            }
+        })
+    })
+    //鲜花养护-单品花束
+router.get('/single_bouquet', (req, res) => {
+    fs.readFile('./www/flower.json', (err, data) => {
+        if (!err) {
+            var data = JSON.parse(data)
+            res.render('single_bouquet', data)
+        } else {
+            console.log(err)
+        }
+    })
+
+})
+
+//鲜花养护-混合
+
 router.get('/mix', (req, res) => {
         res.render('mix')
     })
@@ -110,6 +137,7 @@ router.get('/mini', (req, res) => {
 
 //鲜花养护-主题
 router.get('/gift_bouquet', (req, res) => {
+
     fs.readFile('./www/flower.json', (err, data) => {
         if (!err) {
             var data = JSON.parse(data)
@@ -118,21 +146,46 @@ router.get('/gift_bouquet', (req, res) => {
             console.log(err)
         }
     })
-})
 
-//鲜花养护-绿植
-router.get('/green_planting', (req, res) => {
     fs.readFile('./www/flower.json', (err, data) => {
         if (!err) {
             var data = JSON.parse(data)
-            res.render('green_planting', data)
+            res.render('gift_bouquet', data)
         } else {
             console.log(err)
         }
     })
+
 })
 
-//搜索
+//鲜花养护-绿植
+router.get('/green_planting', (req, res) => {
+
+        fs.readFile('./www/flower.json', (err, data) => {
+            if (!err) {
+                var data = JSON.parse(data)
+                res.render('green_planting', data)
+            } else {
+                console.log(err)
+            }
+        })
+
+        fs.readFile('./www/flower.json', (err, data) => {
+            if (!err) {
+                var data = JSON.parse(data)
+                res.render('green_planting', data)
+            } else {
+                console.log(err)
+            }
+        })
+
+    })
+    //社区花朵最里面的详情
+
+router.get('/single_detail', (req, res) => {
+        res.render('single_detail')
+    })
+    //搜索
 router.get('/search', (req, res) => {
     res.render('search')
 })
@@ -167,6 +220,7 @@ router.get('/register', (req, res) => {
 
 // 详情页
 router.get('/detailPage', (req, res) => {
+
     // console.log(req.query);
     fs.readFile('./www/data/detailPage.json', (err, data) => {
         if (!err) {
@@ -176,6 +230,17 @@ router.get('/detailPage', (req, res) => {
             console.log(err);
         }
     })
+
+    // console.log(req.query);
+    fs.readFile('./www/data/detailPage.json', (err, data) => {
+        if (!err) {
+            var thisData = JSON.parse(data)
+            res.render('detailPage', thisData[req.query.id])
+        } else {
+            console.log(err);
+        }
+    })
+
 })
 
 // 用户编辑页面
