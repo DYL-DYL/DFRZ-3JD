@@ -47,7 +47,7 @@
             var patPsw = /^[a-zA-Z]{6,15}$|^[0-9]{6,15}$|[^a-zA-Z0-9]{6,15}$/
             $.post('/user/findUser', $(this).serialize(), (data) => {
                 // 判断用户名
-                if (data == '该用户名还没有注册') {
+                if (data.msg == '该用户名还没有注册') {
                     // 判断密码是否一致
                     if ($(':password').eq(0).val() == $(':password').eq(1).val()) {
                         // 判断密码是否符合标准

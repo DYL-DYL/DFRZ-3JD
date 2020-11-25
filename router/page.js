@@ -54,7 +54,7 @@ router.get('/find', (req, res) => {
 // 我的
 router.get('/mine', (req, res) => {
 
-        res.render('mine')
+        res.render('mine/mine')
     })
     //社区
 router.get('/community', (req, res) => {
@@ -166,5 +166,45 @@ router.get('/detailPage',(req,res)=>{
             console.log(err);
         }
     })
+})
+
+// 用户编辑页面
+router.get('/mineCompile',(req,res)=>{
+    res.render('mine/mineCompile')
+})
+
+// 用户常用地址
+router.get('/site',(req,res)=>{
+    res.render('mine/site')
+})
+
+// 完善用户信息
+router.get('/mineInformation',(req,res)=>{
+    res.render('mine/mineInformation')
+})
+// 发票
+router.get('/mineInvoice',(req,res)=>{
+    res.render('mine/mineInvoice')
+})
+
+// 购物车-待付款
+router.get('/userCar',(req,res)=>{
+    res.render('mine/userCar/payment')
+})
+// 购物车-全部
+router.get('/all',(req,res)=>{
+    res.render('mine/userCar/all')
+})
+// 购物车-服务中
+router.get('/buying',(req,res)=>{
+    res.render('mine/userCar/buying')
+})
+// 购物车-待评价
+router.get('/buyafter',(req,res)=>{
+    res.render('mine/userCar/buyafter')
+})
+// 购物车-已完成
+router.get('/buyend',(req,res)=>{
+    res.render('mine/userCar/buyend')
 })
 module.exports = router
