@@ -9,14 +9,31 @@ header {
     padding: 2vh 0;
 }
 
-.search {
+form {
     margin: 0 auto;
     display: flex;
-    width: 80%;
+    justify-content: center;
+}
+
+form button {
+    font-size: 4vw;
+    border: none;
+    padding: 0 2vw;
+    border-radius: 2vw;
+    background: none;
+    color: white;
+    outline: none;
+}
+
+.search {
+    /* margin: 0 auto; */
+    display: flex;
+    width: 70%;
     background-color: white;
     border-radius: 10vw;
     padding: 1vw 2vw;
     justify-content: space-around;
+    margin-right: 2vw;
     /* position: fixed;
     top: 0;
     width: 100%; */
@@ -42,14 +59,14 @@ header {
     margin-bottom: 6vh;
 }
 
-.find p {
+.find>p {
     font-size: 3.7vw;
     font-weight: 600;
     margin-top: 3vh;
     margin-bottom: 2vh;
 }
 
-.find span {
+.find>span {
     font-size: 3.5vw;
     color: #858585;
     display: inline-block;
@@ -87,4 +104,51 @@ header {
 .good .list del {
     color: #b3b3b3;
     margin-left: 3vw;
+}
+
+.nothing {
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.list-show {
+    list-style: none;
+    display: flex;
+    margin-top: 4vh;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.list-show li {
+    width: 48%;
+}
+
+.list-show li img {
+    width: 100%;
+}
+
+.list-show li p:nth-of-type(1) {
+    font-size: 4vw;
+    font-weight: 600;
+    padding: 0 2vw;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+.list-show li p:nth-of-type(2) {
+    font-size: 3.5vw;
+    padding: 0 2vw;
+}
+
+.list-show li p:nth-of-type(2) del {
+    color: #b3b3b3;
+    font-size: 3.2vw;
+    margin-left: 2vw;
+}
+
+.result {
+    text-align: center;
+    font-size: 3.5vw;
+    font-weight: 100;
+    color: #858585;
 }
