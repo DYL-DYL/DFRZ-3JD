@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+}
+.page {
+  background-color: white;
+}
+.page input {
+  text-align: right;
+  outline: none;
+  border: none;
+}
+.page header {
+  background-color: white;
+  display: flex;
+  align-items: center;
+}
+.page header h1 {
+  color: red ;
+  width: 95%;
+  margin: auto;
+  font-size: 3.2vw;
+  padding: 15px 10px;
+}
+.page .content-block {
+  margin: 0;
+}
+.page .content-block > p {
+  margin: 0;
+  padding: 15px 10px;
+  border-bottom: 1px solid #d9d9d9;
+}
+.page .content-block > p a {
+  font-size: 3.73vw;
+  display: flex;
+  justify-content: space-between;
+}
+.page .content-block > p a span:nth-of-type(1) {
+  color: #333;
+}
+.page .content-block > p a span:nth-of-type(2) {
+  color: #999;
+}
+.page .content-block > p > span {
+  display: inline-block;
+  padding: 6px 0 ;
+  min-width: 23%;
+  color: #666;
+  font-size: 12px;
+  border-radius: 2px;
+  text-align: center;
+  margin-top: 10px;
+  background-color: #F5F5F5;
+}
+.actions-modal-group {
+  margin: 0;
+  margin-top: 6px;
+}
+.actions-modal-group span {
+  color: black !important;
+  background-color: white !important;
+  border-radius: 0 !important;
+}
+.isClick {
+  background-color: #FF6672 !important;
+  color: white !important;
+  text-align: center;
+}

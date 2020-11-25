@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="/bootstrap-3.3.7-dist/js/jquery-3.1.1.js"></script>
+    <link rel="stylesheet" href="http://g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="/css/mineCSS/mineInformation.css">
+</head>
+
+<body>
+    <div class="page-group">
+        <div id="page-action" class="page">
+            <header class="bar bar-nav">
+                <h1 class="title">请完善以下信息，有助于我们推荐符合您审美的鲜花套餐~</h1>
+            </header>
+            <div class="content">
+                <div class="content-block">
+                    <p>
+                        <a href="#" class="create-actions">
+                            <span>性别</span>
+                            <span>-请选择-</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#" class="birthdy">
+                            <span>出生年月</span>
+                            <span><input type="text" id="my-input" value="-请选择-"></span>
+                            
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#" class="school">
+                            <span>学历</span>
+                            <span>-请选择-</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#" class="work">
+                            <span>职业</span>
+                            <span>-请选择-</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#" class="love">
+                            <span>婚姻状况</span>
+                            <span>-请选择-</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#" class="money">
+                            <span>收入水平</span>
+                            <span>-请选择-</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#" class="hoveChild">
+                            <span>是否生育</span>
+                            <span>-请选择-</span>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="">
+                            <span>购买用途</span>
+                            <span></span>
+                        </a>
+                        <span>送自己</span>
+                        <span>送父母</span>
+                        <span>送朋友</span>
+                    </p>
+                    <p>
+                        <a href="">
+                            <span>使用场景</span>
+                            <span></span>
+                        </a>
+                        <span>客厅</span>
+                        <span>卧室</span>
+                        <span>办公室</span>
+                        <span>店铺</span>
+                    </p>
+                    <p class="isClick" id="saveMsg">
+                        提交
+                    </p>
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+    <script src="/SUI框架/js/sm.js"></script>
+    <script src="/SUI框架/js/sm-extend.js"></script>
+    <script src="/SUI框架/js/sm-city-picker.js"></script>
+    <script src="/bootstrap-3.3.7-dist/js/jquery.cookie.js"></script>
+    <script>
+        $('.create-actions').click(function () {
+            var buttons1 = [
+                {
+                    text: '男',
+                    bold: true,
+                    color: 'danger',
+                    onClick: function () {
+                        $('.create-actions>span').eq(1).html('男')
+                    }
+                },
+                {
+                    text: '女',
+                    onClick: function () {
+                        $('.create-actions>span').eq(1).html('女')
+                    }
+                }
+            ];
+            var buttons2 = [
+                {
+                    text: '取消',
+                    bg: 'danger'
+                }
+            ];
+            var groups = [buttons1, buttons2];
+            $.actions(groups);
+        });
+        // 点击出生年月
+        $("#my-input").calendar({
+            value: ['2000-01-01']
+        });
+        // 点击学历
+        $('.school').click(function () {
+            var buttons1 = [
+                {
+                    text: '其他',
+                    bold: true,
+                    color: 'danger',
+                    onClick: function () {
+                        $('.school>span').eq(1).html('其他')
+                    }
+                },
+                {
+                    text: '大专',
+                    onClick: function () {
+                        $('.school>span').eq(1).html('大专')
+                    }
+                },
+                {
+                    text: '本科',
+                    onClick: function () {
+                        $('.school>span').eq(1).html('本科')
+                    }
+                },
+                {
+                    text: '硕士',
+                    onClick: function () {
+                        $('.school>span').eq(1).html('硕士')
+                    }
+                },
+                {
+                    text: '博士',
+                    onClick: function () {
+                        $('.school>span').eq(1).html('博士')
+                    }
+                }
+            ];
+            var buttons2 = [
+                {
+                    text: '取消',
+                    bg: 'danger'
+                }
+            ];
+            var groups = [buttons1, buttons2];
+            $.actions(groups);
+        });
+        // 点击职业
+        $('.work').click(function () {
+            var buttons1 = [
+                {
+                    text: '白领',
+                    bold: true,
+                    color: 'danger',
+                    onClick: function () {
+                        $('.work>span').eq(1).html('白领')
+                    }
+                },
+                {
+                    text: '学生',
+                    onClick: function () {
+                        $('.work>span').eq(1).html('学生')
+                    }
+                },
+                {
+                    text: '自由职业者',
+                    onClick: function () {
+                        $('.work>span').eq(1).html('自由职业者')
+                    }
+                }
+            ];
+            var buttons2 = [
+                {
+                    text: '取消',
+                    bg: 'danger'
+                }
+            ];
+            var groups = [buttons1, buttons2];
+            $.actions(groups);
+        });
+        // 点击婚姻状况
+        $('.love').click(function () {
+            var buttons1 = [
+                {
+                    text: '已婚',
+                    bold: true,
+                    color: 'danger',
+                    onClick: function () {
+                        $('.love>span').eq(1).html('已婚')
+                    }
+                },
+                {
+                    text: '恋爱中',
+                    onClick: function () {
+                        $('.love>span').eq(1).html('恋爱中')
+                    }
+                },
+                {
+                    text: '单身贵族',
+                    onClick: function () {
+                        $('.love>span').eq(1).html('单身贵族')
+                    }
+                }
+            ];
+            var buttons2 = [
+                {
+                    text: '取消',
+                    bg: 'danger'
+                }
+            ];
+            var groups = [buttons1, buttons2];
+            $.actions(groups);
+        });
+        // 点击收入水平
+        $('.money').click(function () {
+            var buttons1 = [
+                {
+                    text: '8000以上',
+                    bold: true,
+                    color: 'danger',
+                    onClick: function () {
+                        $('.money>span').eq(1).html('8000以上')
+                    }
+                },
+                {
+                    text: '5000-8000',
+                    onClick: function () {
+                        $('.money>span').eq(1).html('5000-8000')
+                    }
+                },
+                {
+                    text: '3000-5000',
+                    onClick: function () {
+                        $('.money>span').eq(1).html('3000-5000')
+                    }
+                },
+                {
+                    text: '3000以下',
+                    onClick: function () {
+                        $('.money>span').eq(1).html('3000以下')
+                    }
+                }
+            ];
+            var buttons2 = [
+                {
+                    text: '取消',
+                    bg: 'danger'
+                }
+            ];
+            var groups = [buttons1, buttons2];
+            $.actions(groups);
+        });
+        // 点击是否生育
+        $('.hoveChild').click(function () {
+            var buttons1 = [
+                {
+                    text: '是',
+                    bold: true,
+                    color: 'danger',
+                    onClick: function () {
+                        $('.hoveChild>span').eq(1).html('是')
+                    }
+                },
+                {
+                    text: '否',
+                    onClick: function () {
+                        $('.hoveChild>span').eq(1).html('否')
+                    }
+                }
+            ];
+            var buttons2 = [
+                {
+                    text: '取消',
+                    bg: 'danger'
+                }
+            ];
+            var groups = [buttons1, buttons2];
+            $.actions(groups);
+        });
+        $('.content-block>p>span').click(function(){
+            if($(this).hasClass('isClick')){
+                $(this).removeClass('isClick')
+            }else{
+                $(this).addClass('isClick')
+            }
+        })
+        var username = $.cookie('username')
+        $('#saveMsg').click(function(){
+            
+            var buyforStr = ''
+            var useforStr = ''
+            $('.content-block>p:nth-of-type(8)>.isClick').each(function(index,item){buyforStr+=$(item).html()})
+            $('.content-block>p:nth-of-type(9)>.isClick').each(function(index,item){useforStr+=$(item).html()})
+            var thisMsg={
+                sex:$('.content-block>p:nth-of-type(1)>a>span:nth-of-type(2)').html(),
+                birthday:$('.content-block>p:nth-of-type(2) input').val(),
+                school:$('.content-block>p:nth-of-type(3)>a>span:nth-of-type(2)').html(),
+                work:$('.content-block>p:nth-of-type(4)>a>span:nth-of-type(2)').html(),
+                love:$('.content-block>p:nth-of-type(5)>a>span:nth-of-type(2)').html(),
+                money:$('.content-block>p:nth-of-type(6)>a>span:nth-of-type(2)').html(),
+                haveChild:$('.content-block>p:nth-of-type(7)>a>span:nth-of-type(2)').html(),
+                buyfor:buyforStr,
+                usefor:useforStr,
+            }
+            $.get('/user/newUserMsg',{username,thisMsg},(data)=>{
+                if(data=="更改成功"){
+                    location.href='/mine'
+                }else{
+                    alert('更改失败')
+                }
+            })
+        })
+        $.post('/user/findUser',{username},(data)=>{
+            $('.content-block>p:nth-of-type(1)>a>span:nth-of-type(2)').html(data.data.sex)
+            $('.content-block>p:nth-of-type(2) input').val(data.data.birthday)
+            $('.content-block>p:nth-of-type(3)>a>span:nth-of-type(2)').html(data.data.school)
+            $('.content-block>p:nth-of-type(4)>a>span:nth-of-type(2)').html(data.data.work)
+            $('.content-block>p:nth-of-type(5)>a>span:nth-of-type(2)').html(data.data.love)
+            $('.content-block>p:nth-of-type(6)>a>span:nth-of-type(2)').html(data.data.money)
+            $('.content-block>p:nth-of-type(7)>a>span:nth-of-type(2)').html(data.data.haveChild)
+            console.log(data.data.buyfor.includes('送父母'));
+            if(data.data.buyfor.includes('送自己')){
+                $('.content-block>p:nth-of-type(8)>span:nth-of-type(1)').addClass('isClick')
+            }
+            if(data.data.buyfor.includes('送父母')){
+                $('.content-block>p:nth-of-type(8)>span:nth-of-type(2)').addClass('isClick')
+            }
+            if(data.data.buyfor.includes('送朋友')){
+                $('.content-block>p:nth-of-type(8)>span:nth-of-type(3)').addClass('isClick')
+            }
+            if(data.data.usefor.includes('客厅')){
+                $('.content-block>p:nth-of-type(9)>span:nth-of-type(1)').addClass('isClick')
+            }
+            if(data.data.usefor.includes('卧室')){
+                $('.content-block>p:nth-of-type(9)>span:nth-of-type(2)').addClass('isClick')
+            }
+            if(data.data.usefor.includes('办公室')){
+                $('.content-block>p:nth-of-type(9)>span:nth-of-type(3)').addClass('isClick')
+            }
+            if(data.data.usefor.includes('店铺')){
+                $('.content-block>p:nth-of-type(9)>span:nth-of-type(4)').addClass('isClick')
+            }
+        })
+    </script>
+</body>
+
+</html>

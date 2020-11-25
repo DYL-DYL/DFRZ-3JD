@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+}
+main > div {
+  padding: 4vw;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main > div i {
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 1px 1px 0 0;
+  border-color: #C8C8CD;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+main > div > div:nth-of-type(1) {
+  font-size: 4vw;
+  color: #444450;
+}
+main > div > div:nth-of-type(2) {
+  display: flex;
+  align-items: center;
+}
+main > div > div:nth-of-type(2) span {
+  color: #999;
+  font-size: 3.73vw;
+  margin-right: 2.2vw;
+}
+body > div {
+  display: none;
+}
+.newPhone {
+  background-color: #f5f5f5;
+  height: 100vh;
+}
+.newPhone > div:nth-of-type(1) {
+  background-color: white;
+  padding: 36px 0 18px;
+  text-align: center;
+}
+.newPhone > div:nth-of-type(1) p {
+  padding: 18px 0 8px;
+  color: #999;
+  font-size: 3.2vw;
+}
+.newPhone > div:nth-of-type(1) div {
+  color: #444450;
+  font-size: 3.73vw;
+}
+.newPhone > div:nth-of-type(2) {
+  margin: 20px 16px ;
+  padding-left: 5vw;
+}
+.newPhone > div:nth-of-type(2) input {
+  border: none;
+  background-color: #f5f5f5;
+  outline: none;
+}
+.newPhone > div:nth-of-type(2) button {
+  display: none;
+}
+.newPhone > section {
+  margin: 40px 16px ;
+  border-radius: 2px;
+  text-align: center;
+  line-height: 40px;
+  height: 40px;
+  background-color: #ff6672;
+  color: white;
+  font-size: 3.73vw;
+}
