@@ -1,4 +1,4 @@
-{{include './header.html'}}
+{{include '../header.html'}}
 <link rel="stylesheet" href="/css/mineCSS/mine.css">
 <div class="login">
     <img src="/imges/我的/login-bg.jpg" alt="">
@@ -25,7 +25,7 @@
         <div>
             <div>
                 <div>
-                    <div>编辑</div>
+                    <div class="mineCompile">编辑</div>
                 </div>
                 <p>手机用户</p>
                 <section>进入会员中心<img src="/imges/我的/right.svg" alt=""></section>
@@ -150,6 +150,24 @@
     })
     $('form>p').click(function(){
         location.href='/register'
+    })
+    $('.mineCompile').click(function(){
+        location.href='/mineCompile'
+    })
+    $('.userTop ul>li').eq(0).click(function(){
+        location.href='/userCar'
+    })
+    $('.userTop ul>li').eq(1).click(function(){
+        location.href='/buying'
+    })
+    $('.userTop ul>li').eq(2).click(function(){
+        location.href='/buyafter'
+    })
+    $('.userTop ul>li').eq(3).click(function(){
+        location.href='/buyend'
+    })
+    $('.userTop>div>section').click(function(){
+        location.href='/all'
     })
 </script>
 </body>

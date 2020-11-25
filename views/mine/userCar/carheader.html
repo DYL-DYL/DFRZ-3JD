@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        body{
+            background-color: #F5F5F5;
+        }
+        header{
+            height: 10.67vw;
+            line-height: 10.67vw;
+            font-size: 3.37vw;
+            box-sizing: border-box;
+            display: flex;
+            background-color: white;
+            
+        }
+        header>div{
+            width: 20%;
+            text-align: center;
+        }
+        a{
+            color: #999999;
+            text-decoration: none;
+        }
+        a:hover,a:focus{
+            color: #333333;
+            text-decoration: none;
+        }
+        .pic-main>div{
+            width: 26%;
+            margin: 150px auto 0 ;
+        }
+        .pic-main img{
+            width: 100%;
+        }
+        .pic-main p{
+            margin-top: 8vw;
+            color: #999;
+            font-size: 3.6vw;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div><a href="/all">全部</a></div>
+        <div><a href="/userCar">待付款</a></div>
+        <div><a href="/buying">服务中</a></div>
+        <div><a href="/buyafter">待评价</a></div>
+        <div><a href="/buyend">已完成</a></div>
+    </header>
+    <div class="pic-main">
+        <div>
+             <img src="/imges/我的/userCar.png" alt="">
+        </div>
+        <p>此分类中再无订单</p>
+    </div>

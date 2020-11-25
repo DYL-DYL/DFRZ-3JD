@@ -18,8 +18,15 @@ var userSchema=new mongoose.Schema({
     username:String,
     psw:String,
     phone:Number,
-    age:Number,
-    sex:String
+    sex:String,
+    birthday:String,
+    school:String,
+    work:String,
+    love:String,
+    money:String,
+    haveChild:String,
+    buyfor:String,
+    usefor:String
 })
 
 

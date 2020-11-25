@@ -40,9 +40,12 @@ router.post('/findUser', (req, res) => {
     User.findOne({ username: req.body.username }, (err, data) => {
         if (!err) {
             if (data == null) {
-                res.send('该用户名还没有注册')
+                res.send({msg:'该用户名还没有注册'})
             } else {
-                res.send('该用户名已注册')
+                res.send({
+                    msg:'该用户名已注册',
+                    data
+                })
             }
         } else {
             console.log(err);
@@ -62,9 +65,32 @@ router.post('/addUser', (req, res) => {
             res.send('注册失败')
         }
     })
-
-
 })
-
-
+// 更改电话
+router.get('/newPhone',(req,res)=>{
+    User.update({username:req.query.username},{phone:req.query.phone},(err)=>{
+        if(!err){
+            res.send('更改成功')
+        }else{
+            res.send('更改失败')
+        }
+    })
+})
+// 完善用户信息
+router.get('/newUserMsg',(req,res)=>{
+    User.update({username:req.query.username},req.query.thisMsg,(err)=>{
+        if(!err){
+            res.send('更改成功')
+        }else{
+            res.send('更改失败')
+        }
+    })
+})
+// 退出账号
+router.get('/out',(req,res)=>{
+    // 清除cookie
+    res.clearCookie('username')
+    res.send('清除成功')
+  
+  })
 module.exports = router
