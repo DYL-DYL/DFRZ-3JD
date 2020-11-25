@@ -89,7 +89,15 @@ router.get('/flower_detail', (req, res) => {
 })
 //鲜花养护-单品花束
 router.get('/single_bouquet', (req, res) => {
-  res.render('single_bouquet')
+    fs.readFile('./www/flower.json',(err,data)=>{
+        if(!err){
+          var data = JSON.parse(data)
+          res.render('single_bouquet',data)
+        }else{
+          console.log(err)
+        }
+      })
+
 })
 //鲜花养护-混合
 router.get('/mix', (req, res) => {
@@ -102,12 +110,26 @@ router.get('/mini', (req, res) => {
 
 //鲜花养护-主题
 router.get('/gift_bouquet', (req, res) => {
-  res.render('gift_bouquet')
+  fs.readFile('./www/flower.json',(err,data)=>{
+    if(!err){
+      var data = JSON.parse(data)
+      res.render('gift_bouquet',data)
+    }else{
+      console.log(err)
+    }
+  })
 })
 
 //鲜花养护-绿植
 router.get('/green_planting', (req, res) => {
-  res.render('gift_bouquet')
+  fs.readFile('./www/flower.json',(err,data)=>{
+    if(!err){
+      var data = JSON.parse(data)
+      res.render('green_planting',data)
+    }else{
+      console.log(err)
+    }
+  })
 })
 
 //搜索

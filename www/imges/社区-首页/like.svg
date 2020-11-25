@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="23px" height="19px" viewBox="0 0 23 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>心</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="7.26698216e-17 0 24 0 24 19 7.26698216e-17 19"></polygon>
+    </defs>
+    <g id="商城-花加社区" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="01-推荐" transform="translate(-283.000000, -1308.000000)">
+            <g id="内容" transform="translate(20.000000, 296.000000)">
+                <g id="分组12-copy" transform="translate(0.000000, 525.000000)">
+                    <g id="文字" transform="translate(20.000000, 391.000000)">
+                        <g id="心" transform="translate(242.000000, 96.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Clip-2"></g>
+                            <path d="M22.1398277,2.29421372 C24.2478066,4.39924447 24.1367244,7.86750088 21.8918038,10.0241346 L12.651426,18.9062637 L3.40980849,10.0248069 C1.16557653,7.86750088 1.05380568,4.39974873 3.16178464,2.29471799 C4.24375126,1.21438408 5.69935482,0.620025626 7.26070338,0.620025626 C8.78100732,0.620025626 10.2090642,1.18796068 11.2816305,2.21790186 L12.650875,3.53409657 L14.0200163,2.21790186 C15.0916185,1.18772536 16.5370297,0.613066791 18.0409089,0.619487745 C19.6022575,0.619487745 21.0585497,1.21438408 22.1398277,2.29421372 Z" id="Fill-1" fill="#FF6772" mask="url(#mask-2)"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="页面"></g>
+        <g id="页面"></g>
+    </g>
+</svg>

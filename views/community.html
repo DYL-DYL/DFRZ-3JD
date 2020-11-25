@@ -41,7 +41,7 @@
                     {{each data.left item}}
                     <li class="cet"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
+                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
                     </li>
                     {{/each}}
                 </ul>
@@ -49,7 +49,7 @@
                     {{each data.right item}}
                     <li class="cet"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
+                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
                     </li>
                     {{/each}}
                 </ul>
@@ -61,7 +61,7 @@
                     {{each data.right item}}
                     <li class="cet"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
+                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
                     </li>
                     {{/each}}
                 </ul>
@@ -69,14 +69,37 @@
                     {{each data.left item}}
                     <li class="cet"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img src="/imges/社区-首页/heart.png"> 0</span></p>
+                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
                     </li>
                     {{/each}}
                 </ul>
             </div>
             <!-- 关注部分 -->
-            <div class="attention">
-
+            <div class="attention" style="display: none;">
+                <ul class="show-card">
+                    {{each data.attention item}}
+                    <li>
+                        <p><img src="/imges/社区-首页/logo.jpg" alt=""><span>FLŌWERPLUS</span><span>Lv.1</span></p>
+                        <img src="{{item.img}}" alt="">
+                        <span>{{item.tip}}</span>
+                        <p>{{item.msg}}</p>
+                        <p>{{item.time}}
+                            <span>
+                                <img class="star" src="/imges/社区-首页/star.png" alt="">
+                                <sup class="starNum" data-id="{{item.star}}">{{item.star}}</sup>
+                            </span>
+                            <span>
+                                <img class="like" src="/imges/社区-首页/like.png" alt="">
+                                <sup class="likeNum">{{item.like}}</sup>
+                            </span>
+                        </p>
+                        {{if item.commit}}
+                        <p class="commit">{{item.commit}}</p>
+                        {{/if}}
+                        <p class="addCommit">添加评论....</p>
+                    </li>
+                    {{/each}}
+                </ul>
             </div>
         </div>
 
@@ -122,17 +145,48 @@
             $('.recommend').css('display', 'flex').siblings().css('display', 'none')
         })
 
-        $(window).scroll(function() {
-
-            var topp = $(document).scrollTop();
-
-            if (topp > 90) {
-                $('header').slideUp()
+        var isChange = true
+        $('.star').click(function() {
+            if (isChange) {
+                $(this).attr('src', "/imges/社区-首页/star.svg")
+                $(this).next().text($(this).next().text() * 1 + 1)
+                isChange = !isChange
+                return isChange
             } else {
-                $('header').slideDown()
+                $(this).attr('src', "/imges/社区-首页/star.png")
+                $(this).next().text($(this).next().text() * 1 - 1)
+                isChange = !isChange
+                return isChange
+            }
+        })
+
+        var isChange2 = true
+        $('.like').click(function() {
+            if (isChange2) {
+                $(this).attr('src', "/imges/社区-首页/like.svg")
+                $(this).next().text($(this).next().text() * 1 + 1)
+                isChange2 = !isChange2
+                return isChange2
+            } else {
+                $(this).attr('src', "/imges/社区-首页/like.png")
+                $(this).next().text($(this).next().text() * 1 - 1)
+                isChange2 = !isChange2
+                return isChange2
             }
 
         })
+
+        // $(window).scroll(function() {
+
+        //     var topp = $(document).scrollTop();
+
+        //     if (topp > 90) {
+        //         $('header').slideUp()
+        //     } else {
+        //         $('header').slideDown()
+        //     }
+
+        // })
     </script>
     </header>
 

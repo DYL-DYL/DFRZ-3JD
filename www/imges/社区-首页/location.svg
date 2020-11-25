@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="28px" height="30px" viewBox="0 0 28 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>ditu</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="1.0701412e-16 0 28 0 28 30 1.0701412e-16 30"></polygon>
+    </defs>
+    <g id="商城-花加社区" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="11-发布新动态--选择" transform="translate(-29.000000, -598.000000)">
+            <g id="评论" transform="translate(0.000000, 129.000000)">
+                <g id="添加主题-copy" transform="translate(29.000000, 393.000000)">
+                    <g id="ditu" transform="translate(0.000000, 76.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Clip-2"></g>
+                        <path d="M13.9998825,0 C6.2679936,0 4.57831215e-16,3.97796182 0,11.9889809 C0,20 11.2492065,28 11.9712925,28.744086 C13.8311157,30.4246548 14.3815021,30.4246548 16.0376873,28.7350608 C16.0376873,28.7350608 28,19.359375 28,11.9889809 C28,4.61858682 21.7319594,0 13.9998825,0 Z M14,6 L14,6 C17.3137085,6 20,8.6862915 20,12 L20,12 C20,15.3137085 17.3137085,18 14,18 L14,18 C10.6862915,18 8,15.3137085 8,12 L8,12 C8,8.6862915 10.6862915,6 14,6 Z" id="Fill-1" fill="#333333" mask="url(#mask-2)"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+        <g id="页面"></g>
+        <g id="页面"></g>
+    </g>
+</svg>

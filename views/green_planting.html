@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绿植系列</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body>div{
+            padding: 8px;
+            background-color: #F5F5F5;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .show-box{
+            display: block;
+            width: 48.6%;
+            margin-bottom: 10px;
+            color: #4A4A4A;
+            background-color: #fff;
+        }
+        .pic img{
+            margin-top: 26px;
+            width: 100%;
+        }
+        a{
+            text-decoration: none;
+
+        }
+        p{
+            text-align: center;
+        }
+        .f12{
+            font-size: 12px;
+
+            padding: 12px 0;
+        }
+      
+    </style>
+</head>
+<body>
+    <div>
+        {{each green item}}
+        <a href="{{item.id}}" class="show-box">
+            <div class="pic"><img src="{{item.img}}" alt=""></div>
+            <p class="f12">{{item.p}}</p>
+        </a>
+        {{/each}}
+    </div>
+</body>
+</html>
