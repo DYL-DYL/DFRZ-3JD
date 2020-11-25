@@ -1,7 +1,200 @@
 {{include './community-common.html'}}
+<style>
+    body {
+        background-color: white;
+    }
+    
+    textarea {
+        margin-top: 3vh;
+        width: 100%;
+        height: 15vh;
+        overflow: hidden;
+        border: none;
+        font-size: 4vw;
+        padding: 2vw;
+        outline: none;
+    }
+    
+    textarea::placeholder {
+        color: #c7c7c7;
+    }
+    
+    .upload {
+        width: 30vw;
+        height: 30vw;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 2vw;
+    }
+    
+    .glyphicon-picture {
+        font-size: 10vw;
+        color: rgb(192, 192, 192);
+    }
+    
+    .addTalk p {
+        margin-top: 1.5vh;
+    }
+    
+    .addTalk p img,
+    .addTalk section img {
+        width: 5vw;
+    }
+    
+    .addTalk p span:nth-of-type(1) {
+        font-size: 3.5vw;
+        margin-left: 2vw;
+    }
+    
+    .addTalk p span:nth-of-type(2) {
+        font-size: 3vw;
+        color: #c7c7c7;
+        margin-left: 2vw;
+    }
+    
+    .addTalk ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+    }
+    
+    .addTalk ul li {
+        font-size: 3.5vw;
+        color: #666666;
+        padding: 1vw 2vw;
+        margin-right: 2vw;
+        margin-bottom: 1vh;
+        border: .1vw solid #666666;
+        border-radius: 3vw;
+    }
+    
+    .addTalk section span {
+        font-size: 4vw;
+        margin-left: 2vw;
+    }
+    
+    .btn {
+        margin-top: 10vh;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .btn button {
+        border: none;
+        background: none;
+        margin: 0 2vw;
+    }
+    
+    .btn button:nth-of-type(1) {
+        padding: 1.5vw 5.5vw;
+        background-color: white;
+        border: .1vw solid #666666;
+        border-radius: 5vw;
+        color: #666666;
+        font-size: 4.5vw;
+        box-sizing: border-box;
+    }
+    
+    .btn button:nth-of-type(2) {
+        padding: 1.5vw 7.5vw;
+        background-color: #FF6772;
+        border-radius: 5vw;
+        color: white;
+        font-size: 4.5vw;
+        border: .1vw solid #FF6772;
+    }
+    
+    .showTalk {
+        margin-top: 2vh;
+        height: 3vh;
+    }
+    
+    .showTalk span {
+        display: inline-block;
+        line-height: 3vh;
+        font-size: 4vw;
+        margin-left: 2vw;
+        background-color: #fdeeef;
+        color: red;
+        padding: 0 3vw;
+        border-radius: 2vw;
+    }
+</style>
+
+<div class="container" enctype="multipart/form-data">
+    <form action="">
+        <textarea name="" id="" cols="30" rows="10" placeholder="记录这一刻的想法......"></textarea>
+
+        <div class="photo">
+            <div class="upload">
+                <img class="glyphicon glyphicon-picture" src=""></img>
+                <input type="file" name="photo" id="" accept="image/*" style="display: none;">
+            </div>
+
+        </div>
+    </form>
+    <div class="addTalk">
+        <div class="showTalk"><span></span></div>
+        <p><img src="/imges/社区-首页/talk.svg" alt=""><span>添加话题</span><span>选择合适的话题能被更多人看到哦</span></p>
+        <ul class="list">
+            <li>#旅途手记</li>
+            <li>#森林瓜友会·打卡领券</li>
+            <li>#养护咨询</li>
+            <li>#今日份美食</li>
+            <li>#心水好物</li>
+            <li>#收花打卡</li>
+            <li>#植物点亮空间</li>
+            <li>#一起来插话</li>
+            <li>#花草研究所</li>
+            <li>#植物星球</li>
+            <li>#网红店找草记</li>
+            <li>宠物萌图</li>
+            <li>#小日子</li>
+        </ul>
+        <section>
+            <img src="/imges/社区-首页/location.svg" alt=""><span>显示所在城市</span>
+        </section>
+    </div>
+
+    <div class="btn">
+        <button>存草稿</button>
+        <button>发布</button>
+    </div>
+
+</div>
 
 
 
 <script>
     $('a').removeClass('active')
+
+    $('.upload').on('click', 'img', function() {
+        $(this).next().click()
+    })
+
+    $('.upload').on('change', 'input', function() {
+        var file = $(this)[0].files[0]
+        if (file.type.startsWith('image')) {
+            var url = URL.createObjectURL(file)
+            $(this).prev().attr('src', url).removeClass().css('width', '100%')
+        } else {
+            alert('请选择一张正确图片')
+        }
+    })
+
+    $('.list').find('li').click(function() {
+        $(this).css({
+            'background-color': '#ff6772',
+            'color': 'white',
+            'border': '1px solid #ff6772'
+        }).siblings().css({
+            'background-color': 'white',
+            'color': '#666666',
+            'border': '1px solid #666666'
+        })
+        $('.showTalk').find('span').text($(this).text())
+    })
 </script>
