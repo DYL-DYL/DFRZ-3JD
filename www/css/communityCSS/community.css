@@ -248,3 +248,16 @@ input:-moz-placeholder {
 .user span>img {
     width: 4vw;
 }
+
+.show-card {
+    width: 100%;
+}
+
+.show-card li {
+    width: 100%;
+    background-color: white;
+}
+
+.show-card li img {
+    width: 100%;
+}

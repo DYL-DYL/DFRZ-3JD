@@ -75,8 +75,19 @@
                 </ul>
             </div>
             <!-- 关注部分 -->
-            <div class="attention">
-
+            <div class="attention" style="display: none;">
+                <ul class="show-card">
+                    {{each data.attention item}}
+                    <li>
+                        <img src="{{item.img}}" alt="">
+                        <span>{{item.tip}}</span>
+                        <p>{{item.msg}}</p>
+                        <p>{{item.time}}<span></span></p>
+                        <p>{{item.commit}}</p>
+                        <p>添加评论....</p>
+                    </li>
+                    {{/each}}
+                </ul>
             </div>
         </div>
 
@@ -122,17 +133,17 @@
             $('.recommend').css('display', 'flex').siblings().css('display', 'none')
         })
 
-        $(window).scroll(function() {
+        // $(window).scroll(function() {
 
-            var topp = $(document).scrollTop();
+        //     var topp = $(document).scrollTop();
 
-            if (topp > 90) {
-                $('header').slideUp()
-            } else {
-                $('header').slideDown()
-            }
+        //     if (topp > 90) {
+        //         $('header').slideUp()
+        //     } else {
+        //         $('header').slideDown()
+        //     }
 
-        })
+        // })
     </script>
     </header>
 
