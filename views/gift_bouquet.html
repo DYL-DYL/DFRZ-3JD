@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主题礼品花束</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body>div{
+            padding: 12px;
+            background-color: #fff;
+        }
+        .show-box{
+            display: block;
+            margin-bottom: 12px;
+            padding-bottom: 18px;
+        }
+        .pic img{
+            margin-bottom: 8px;
+            width: 100%;
+        }
+        a{
+            text-decoration: none;
+            color: #453B38;
+        }
+        p{
+            text-align: center;
+        }
+        .f16{
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+        .f14{
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        {{each gift item}}
+        <a href="" class="show-box">
+            <div class="pic"><img src="{{item.img}}" alt=""></div>
+            <p class="f16">{{item.p}}</p>
+            <p class="f14">{{item.text}}</p>
+        </a>
+        {{/each}}
+    </div>
+</body>
+</html>
