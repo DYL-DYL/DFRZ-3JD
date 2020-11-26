@@ -152,3 +152,90 @@ body{
         line-height: 48px;
     }
 }
+.buy-show{
+    width: 100%;
+    height: 82vh;
+    position: fixed;
+    bottom:-85vh;
+    transition: all .6s;
+    background-color: white;
+    z-index: 999;
+    &>div{
+        display: flex;
+        justify-content: space-around;
+        img{
+            width: 90px;
+            height: 90px;
+            position: relative;
+            bottom: 15px;
+        }
+        span{
+            display: inline-block;
+            padding: 30px 20px 0;
+            color: #333333;
+            font-size: 5.3vw;
+            margin-right: 10vw;
+        }
+        i{
+            padding-top: 15px;
+            font-size: 5.3vw;
+        }
+    }
+    &>section{
+        padding-left: 20px;
+        padding-bottom: 10px;
+        font-size: 3.2vw;
+        color: #333333;
+        &>div{
+            input{
+                border: none;
+                outline: none;
+            }
+            img{
+                width: 18px;
+                height: 18px;
+            }
+            i{
+                margin-right: 20px;
+            }
+        }
+        &>section{
+            display: inline-block;
+            color: #666;
+            padding: 7px 16px;
+            min-width: 65px;
+            line-height: 14px;
+            font-size: 14px;
+            margin: 0 16px 12px 0 ;
+            background-color: #F5F5F5;
+        }
+        &>div:nth-of-type(2){
+            display: flex;
+            input{
+                width: 60px;
+                font-size: 12px;
+                text-align: center;
+                line-height: 22px;
+                height: 22px;
+                color: #333333;
+                padding: 0;
+            }
+            img{
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+    &>span{
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        color: white;
+        font-size: 14px;
+        font-weight: bolder;
+        line-height: 48px;
+        text-align: center;
+        background-color: #ff6672;
+    }
+}

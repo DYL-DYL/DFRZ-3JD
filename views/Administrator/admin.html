@@ -1,0 +1,96 @@
+{{include './header.html'}}
+<style>
+    .login{
+      width: 50%;
+      margin: auto;
+    }
+    .login h3{
+      text-align: center;
+    }
+    main{
+      display: none;
+    }
+    .main-btn{
+      text-align: center;
+    }
+    .btn-group>label{
+      padding: 100px;
+      font-size: 30px;
+      margin: 50px;
+      letter-spacing: 5px;
+    }
+</style>
+  <div class="login">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          请登录管理员账号
+        </h3>
+      </div>
+      <div class="panel-body">
+        <form class="form-horizontal" role="form"  autocomplete="off">
+          <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">账号名称</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="username" disabled value="admin">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastname" class="col-sm-2 control-label">登录密码</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="psw" placeholder="请输入密码">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-default">登录</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <main>
+    <div class="main-btn">
+      <div class="btn-group" data-toggle="buttons">
+        <label class="btn btn-primary">
+          <input type="checkbox"> 鲜花管理
+        </label>
+        <label class="btn btn-primary">
+          <input type="checkbox"> 用户管理
+        </label>
+        <label class="btn btn-primary">
+          <input type="checkbox"> 留言管理
+        </label>
+      </div>
+    </div>
+   
+  </main>
+  <script>
+    var admin = $.cookie('admin')
+    if (admin != undefined) {
+        $('.login').css('display','none')
+        $('main').css('display','block')
+    }
+    $('form').submit(function(e){
+      e.preventDefault()
+      $.post('/user/userPage',{username:'admin',psw:$(':password').val()},(data)=>{
+        console.log({username:admin,psw:$(':password').val()});
+        if(data=='登录成功'){
+          $('.login').css('display','none')
+          $('main').css('display','block')
+        }
+      })
+    })
+    $('.btn-group>label').eq(0).click(function(){
+      location.href='/listFlower'
+    })
+    $('.btn-group>label').eq(1).click(function(){
+      location.href='/listUser'
+    })
+    $('.btn-group>label').eq(2).click(function(){
+    
+    })
+  </script>
+</body>
+</html>

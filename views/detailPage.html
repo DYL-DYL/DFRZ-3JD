@@ -36,12 +36,12 @@
         <div class="swiper-pagination"></div>
     </div>
     <div class="shophead">
-         <h1>{{h}}</h1>
-         <p>{{title}}</p>
-         <div>
-             <span>{{price}}</span>
-             <small>原价<del>{{oldPrice}}</del></small>
-         </div>
+        <h1>{{h}}</h1>
+        <p>{{title}}</p>
+        <div>
+            <span>{{price}}</span>
+            <small>原价<del>{{oldPrice}}</del></small>
+        </div>
     </div>
     <div class="round_tit">
         <img src="/imges/详情页/right.svg" alt="">
@@ -89,13 +89,44 @@
         </div>
         <img src="/imges/详情页/pic-footer.jpg" alt="">
     </div>
+
     <div class="buy_shop">
         <div>
             <img src="/imges/详情页/home.svg" alt="">
         </div>
-        <div>加入购物车</div>
-        <div>立即购买</div>
+        <div class="open-show">加入购物车</div>
+        <div class="open-show">立即购买</div>
     </div>
+    <div class="buy-show">
+        <div>
+            <img src="/imges/详情页/{{banner[0]}}">
+            <span>{{price}}</span>
+            <i class="glyphicon glyphicon-remove close-show"></i>
+        </div>
+        <section>
+            <p>配送区域</p>
+            <div>
+                <img src="/imges/我的/15265254442733.png" alt="">
+                <input type="text" value="广东省 广州市 海珠区" />
+                <i class="glyphicon glyphicon-menu-right pull-right"></i>
+            </div>
+            <p>产品</p>
+            <section>{{h}}</section>
+            <p>购买数量</p>
+            <div class="buyNum">
+                <img src="/imges/我的/15616022522527.jpg" alt="">
+                <input type="text" value="1">
+                <img src="/imges/我的/15268877432251.png" alt="">
+            </div>
+        </section>
+        <span class="addCar">
+            确定
+        </span>
+    </div>
+
+
+
+    <script src="/bootstrap-3.3.7-dist/js/jquery.cookie.js"></script>
     <script>
         // 轮播配置
         var mySwiper = new Swiper('.top-pics', {
@@ -104,6 +135,55 @@
             pagination: {
                 el: '.swiper-pagination',
             },
+        })
+        $('.open-about').click(function () {
+            $.popup('.popup-about');
+        });
+        $('.open-show').click(function () {
+            $('body').css({
+                height: '100vh',
+                overflow: 'hidden'
+            })
+            $('.buy-show').css('bottom', '0')
+        })
+        $('.close-show').click(function () {
+            $('body').css({
+                height: 'auto',
+                overflow: 'auto'
+            })
+            $('.buy-show').css('bottom', '-85vh')
+        })
+        $('.buyNum>img').eq(0).click(function () {
+            if ($('.buyNum>input').val() > 1) {
+                $('.buyNum>input').val($('.buyNum>input').val() * 1 - 1)
+            }
+        })
+        $('.buyNum>img').eq(1).click(function () {
+            $('.buyNum>input').val($('.buyNum>input').val() * 1 + 1)
+        })
+        $('.addCar').click(function () {
+            var username = $.cookie('username')
+            if (username != undefined) {
+                var thisShopMsg = {
+                    username,
+                    name: $('.shophead>h1').html(),
+                    quantity: $('.buyNum>input').val(),
+                    money: $('.shophead>div>span').html().slice(1),
+                    oldPrice: $('.shophead>div del').html().slice(1),
+                    img: $('.swiper-wrapper img').eq(0).attr('src')
+                }
+                $.get('/car/addCar',{thisShopMsg},(data)=>{
+                    if(data=="成功"){
+                        location.href='/userCar'
+                    }
+                })
+            } else {
+                alert('请先登录账号')
+                location.href = '/mine'
+            }
+        })
+        $('.buy_shop>div').eq(0).click(function(){
+            location.href='/'
         })
     </script>
 </body>

@@ -20,7 +20,11 @@ router.post('/userPage', (req, res) => {
                     if (data.psw == req.body.psw) {
                         var time = new Date()
                         time.setMonth(time.getMonth() + 1)
-                        res.cookie('username', req.body.username, { expires: time })
+                        if(req.body.username=='admin'){
+                            res.cookie('admin', req.body.username, { expires: time })
+                        }else{
+                            res.cookie('username', req.body.username, { expires: time })
+                        }
                         res.send('登录成功')
                     } else {
                         res.send('密码不正确')
@@ -53,7 +57,16 @@ router.post('/findUser', (req, res) => {
     })
 
 })
-
+// 更改电话
+router.get('/newPhone',(req,res)=>{
+    User.update({username:req.query.username},{phone:req.query.phone},(err)=>{
+        if(!err){
+            res.send('更改成功')
+        }else{
+            res.send('更改失败')
+        }
+    })
+})
 //   添加用户信息
 router.post('/addUser', (req, res) => {
 
@@ -65,16 +78,7 @@ router.post('/addUser', (req, res) => {
         }
     })
 })
-// 更改电话
-router.get('/newPhone',(req,res)=>{
-    User.update({username:req.query.username},{phone:req.query.phone},(err)=>{
-        if(!err){
-            res.send('更改成功')
-        }else{
-            res.send('更改失败')
-        }
-    })
-})
+
 // 完善用户信息
 router.get('/newUserMsg',(req,res)=>{
     User.update({username:req.query.username},req.query.thisMsg,(err)=>{

@@ -39,7 +39,7 @@
             <div class="news">
                 <ul class="left">
                     {{each data.left item}}
-                    <li class="cet"><img src="{{item.img}}" alt="">
+                    <li class="cet" data-id="{{item.name}}"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
                         <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
                     </li>
@@ -47,7 +47,7 @@
                 </ul>
                 <ul class="right">
                     {{each data.right item}}
-                    <li class="cet"><img src="{{item.img}}" alt="">
+                    <li class="cet" data-id="{{item.name}}"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
                         <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
                     </li>
@@ -59,7 +59,7 @@
             <div class="recommend" style="display: none;">
                 <ul class="left">
                     {{each data.right item}}
-                    <li class="cet"><img src="{{item.img}}" alt="">
+                    <li class="cet" data-id="{{item.name}}"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
                         <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
                     </li>
@@ -67,7 +67,7 @@
                 </ul>
                 <ul class="right">
                     {{each data.left item}}
-                    <li class="cet"><img src="{{item.img}}" alt="">
+                    <li class="cet" data-id="{{item.name}}"><img src="{{item.img}}" alt="">
                         <p class="msg">{{item.msg}}</p>
                         <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.name}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
                     </li>
@@ -174,6 +174,10 @@
                 return isChange2
             }
 
+        })
+
+        $('.cet').click(function() {
+            location.href = '/snsContent?name=' + $(this).data('id')
         })
 
         // $(window).scroll(function() {

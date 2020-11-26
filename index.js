@@ -23,6 +23,13 @@ app.use(require('./router/page'))
 // 用户注册接口
 app.use('/user',require('./router/user'))
 
+// 购物车接口
+app.use('/car',require('./router/car'))
+
+
+// 管理员接口
+app.use('/admin',require('./router/admin'))
+
 app.listen(3000,()=>{
   console.log('running.....')
 })

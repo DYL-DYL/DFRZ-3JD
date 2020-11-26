@@ -18,7 +18,7 @@
             box-sizing: border-box;
             display: flex;
             background-color: white;
-            
+            z-index: 99;
         }
         header>div{
             width: 20%;
@@ -31,6 +31,12 @@
         a:hover,a:focus{
             color: #333333;
             text-decoration: none;
+        }
+        .pic-main{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: -1;
         }
         .pic-main>div{
             width: 26%;

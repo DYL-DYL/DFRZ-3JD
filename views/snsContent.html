@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.css">
+    <script src="/bootstrap-3.3.7-dist/js/jquery-3.1.1.js"></script>
+    <script src="/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background-color: rgb(245, 245, 245);
+        }
+        
+        .show {
+            width: 100%;
+            list-style: none;
+            margin-top: 2vh;
+        }
+        
+        .show li {
+            background-color: white;
+            padding: 2vw;
+        }
+        
+        .show li>img {
+            width: 100%;
+        }
+        
+        .userPic {
+            width: 12vw;
+            height: 12vw;
+            border-radius: 6vw;
+            margin-right: 3vw;
+        }
+        
+        .show li .user {}
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <ul class="show">
+            <li>
+                <p class="user"><img class="userPic" src="{{data.userPic}}"><span>{{data.name}}</span><span>关注</span></p>
+                <img src="{{data.img}}" alt="">
+                <p class="msg">{{data.msg}}</p>
+                <p class="time">{{data.time}}</p>
+                <p class="commit">添加评论....</p>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
