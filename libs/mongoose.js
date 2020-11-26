@@ -28,10 +28,21 @@ var userSchema=new mongoose.Schema({
     buyfor:String,
     usefor:String
 })
-
-
 var User = mongoose.model('user',userSchema)
 
 
-module.exports={User}
+var userCar = new mongoose.Schema({
+    username:String,
+    name:String,
+    quantity:Number,
+    money:Number,
+    price:Number,
+    oldPrice:Number,
+    img:String
+})
+var Car = mongoose.model('car',userCar)
+
+
+
+module.exports={User,Car}
 

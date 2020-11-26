@@ -3,9 +3,12 @@
 var exp = require('express')
 var app = exp()
 var router = exp.Router()
-var { User } = require('../libs/mongoose')
+var { User,Car } = require('../libs/mongoose')
 var fs = require('fs')
 const { JSONCookie } = require('cookie-parser')
+const cookie = require('cookie-parser')
+router.use(cookie())
+
 
 // 首页
 router.get('/', (req, res) => {
@@ -189,7 +192,12 @@ router.get('/mineInvoice',(req,res)=>{
 
 // 购物车-待付款
 router.get('/userCar',(req,res)=>{
-    res.render('mine/userCar/payment')
+    Car.find({username:req.cookies.username},(err,data)=>{
+        if(!err){
+            res.render('mine/userCar/payment',{data})
+        }
+    })
+    
 })
 // 购物车-全部
 router.get('/all',(req,res)=>{
