@@ -59,7 +59,8 @@ var flower = new mongoose.Schema({
     oldPrice:String,
     banner:Array,
     img:Array,
-    top:String
+    top:String,
+    num:Number
 })
 var Flower = mongoose.model('flower', flower)
 
