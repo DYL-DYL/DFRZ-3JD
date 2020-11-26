@@ -16,7 +16,7 @@ router.use(cookie())
 router.get('/', (req, res) => {
   let thisData = {
     flash: '',
-    new: '',
+    New: '',
     hot: '',
     find: ''
   }
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
       thisData.flash = data
       Flower.find({ page: 'index/list2' }, (err, data) => {
         if (!err) {
-          thisData.new = data
+          thisData.New = data
           Flower.find({ page: 'index/list3' }, (err, data) => {
             if (!err) {
               thisData.hot = data
@@ -41,66 +41,66 @@ router.get('/', (req, res) => {
       })
     }
   })
-
 })
+
 // 首页-包月鲜花
 router.get('/monthly', (req, res) => {
 
-        let thisData = {
-            list1: '',
-            list2: '',
-            list3: ''
+  let thisData = {
+    list1: '',
+    list2: '',
+    list3: ''
+  }
+
+  Flower.find({ page: 'monthly/list1' }, (err, data) => {
+    if (!err) {
+      thisData.list1 = data
+      Flower.find({ page: 'monthly/list2' }, (err, data2) => {
+        if (!err) {
+          thisData.list2 = data2
+          Flower.find({ page: 'monthly/list3' }, (err, data3) => {
+            if (!err) {
+              thisData.list3 = data3
+              console.log(thisData)
+              res.render('monthly', thisData)
+            }
+          })
         }
 
-        Flower.find({ page: 'monthly/list1' }, (err, data) => {
-            if (!err) {
-                thisData.list1 = data
-                Flower.find({ page: 'monthly/list2' }, (err, data2) => {
-                    if (!err) {
-                        thisData.list2 = data2
-                        Flower.find({ page: 'monthly/list3' }, (err, data3) => {
-                            if (!err) {
-                                thisData.list3 = data3
-                                console.log(thisData)
-                                res.render('monthly', thisData)
-                            }
-                        })
-                    }
-
-                })
-            }
-        })
-    })
-    // 首页-礼品花束
+      })
+    }
+  })
+})
+// 首页-礼品花束
 
 router.get('/gift', (req, res) => {
   res.render('gift')
 })
 // 绿植多肉
 router.get('/fleshiness', (req, res) => {
-        let thisData = {
-            news: '',
-            hot: ''
+  let thisData = {
+    news: '',
+    hot: ''
+  }
+  Flower.find({ page: 'search/list1' }, (err, data) => {
+    if (!err) {
+      var result = []
+      for (var i = 0; i < data.length; i += 3) {
+        result.push(data.slice(i, i + 3))
+      }
+      thisData.news = result
+      Flower.find({ page: 'search/list2' }, (err, data2) => {
+        if (!err) {
+          thisData.hot = data2
+          console.log(thisData)
+          res.render('fleshiness', thisData)
         }
-        Flower.find({ page: 'search/list1' }, (err, data) => {
-            if (!err) {
-                var result = []
-                for (var i = 0; i < data.length; i += 3) {
-                    result.push(data.slice(i, i + 3))
-                }
-                thisData.news = result
-                Flower.find({ page: 'search/list2' }, (err, data2) => {
-                    if (!err) {
-                        thisData.hot = data2
-                        console.log(thisData)
-                        res.render('fleshiness', thisData)
-                    }
-                })
-            }
-        })
-    })
+      })
+    }
+  })
+})
 
-    // F+制物所
+// F+制物所
 router.get('/moreF', (req, res) => {
   let thisData = {
     flash: '',
@@ -125,9 +125,9 @@ router.get('/home', (req, res) => {
   }
   Flower.find({ page: 'home/new' }, (err, data) => {
     if (!err) {
-      var result=[]
-      for(var i=0;i<data.length;i+=3){
-        result.push(data.slice (i,i+3))
+      var result = []
+      for (var i = 0; i < data.length; i += 3) {
+        result.push(data.slice(i, i + 3))
       }
       thisData.news = result
       console.log(thisData);
@@ -147,7 +147,7 @@ router.get('/find', (req, res) => {
 // 我的
 router.get('/mine', (req, res) => {
 
-    res.render('mine/mine')
+  res.render('mine/mine')
 
 })
 
@@ -314,26 +314,11 @@ router.get('/register', (req, res) => {
 // 详情页
 router.get('/detailPage', (req, res) => {
 
-  // console.log(req.query);
-  fs.readFile('./www/data/detailPage.json', (err, data) => {
-    if (!err) {
-      var thisData = JSON.parse(data)
-      res.render('detailPage', thisData[req.query.id])
-    } else {
-      console.log(err);
-    }
-  })
-
-  // console.log(req.query);
-  fs.readFile('./www/data/detailPage.json', (err, data) => {
-    if (!err) {
-      var thisData = JSON.parse(data)
-      res.render('detailPage', thisData[req.query.id])
-    } else {
-      console.log(err);
-    }
-  })
-
+    Flower.findOne({_id:req.query.id},(err,data)=>{
+        if(!err){
+            res.render('detailPage', {data})
+        }
+    })
 })
 
 // 用户编辑页面

@@ -17,30 +17,30 @@
     <div class="swiper-container top-pics">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="/imges/详情页/{{banner[0]}}">
+                <img src="/imges/详情页/{{data.banner[0]}}">
             </div>
             <div class="swiper-slide">
-                <img src="/imges/详情页/{{banner[1]}}">
+                <img src="/imges/详情页/{{data.banner[1]}}">
             </div>
             <div class="swiper-slide">
-                <img src="/imges/详情页/{{banner[2]}}">
+                <img src="/imges/详情页/{{data.banner[2]}}">
             </div>
             <div class="swiper-slide">
-                <img src="/imges/详情页/{{banner[3]}}">
+                <img src="/imges/详情页/{{data.banner[3]}}">
             </div>
             <div class="swiper-slide">
-                <img src="/imges/详情页/{{banner[4]}}">
+                <img src="/imges/详情页/{{data.banner[4]}}">
             </div>
         </div>
         <!-- 如果需要分页器 -->
         <div class="swiper-pagination"></div>
     </div>
     <div class="shophead">
-        <h1>{{h}}</h1>
-        <p>{{title}}</p>
+        <h1>{{data.h}}</h1>
+        <p>{{data.title}}</p>
         <div>
-            <span>{{price}}</span>
-            <small>原价<del>{{oldPrice}}</del></small>
+            <span>{{data.price}}</span>
+            <small>原价<del>{{data.oldPrice}}</del></small>
         </div>
     </div>
     <div class="round_tit">
@@ -76,7 +76,7 @@
         <img src="/imges/详情页/banner.jpg" alt="">
     </div>
     <div class="all_imgs">
-        {{each img item}}
+        {{each data.img item}}
         <div>
             <img src="/imges/详情页/{{item}}" alt="">
         </div>
@@ -99,8 +99,8 @@
     </div>
     <div class="buy-show">
         <div>
-            <img src="/imges/详情页/{{banner[0]}}">
-            <span>{{price}}</span>
+            <img src="{{data.banner[0]}}">
+            <span>{{data.price}}</span>
             <i class="glyphicon glyphicon-remove close-show"></i>
         </div>
         <section>
@@ -111,7 +111,7 @@
                 <i class="glyphicon glyphicon-menu-right pull-right"></i>
             </div>
             <p>产品</p>
-            <section>{{h}}</section>
+            <section>{{data.h}}</section>
             <p>购买数量</p>
             <div class="buyNum">
                 <img src="/imges/我的/15616022522527.jpg" alt="">
@@ -185,6 +185,7 @@
         $('.buy_shop>div').eq(0).click(function(){
             location.href='/'
         })
+        $('.all_imgs>div').eq(0).remove()
     </script>
 </body>
 

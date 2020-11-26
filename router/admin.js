@@ -12,8 +12,9 @@ var { User, Fleshiness, Car, Flower } = require('../libs/mongoose')
 
 // 进行添加商品
 router.get('/addShop', (req, res) => {
-    req.query.banner=[req.query.banner]
-    req.query.img=[req.query.img]
+    req.query.banner=req.query.banner.split(',')
+    req.query.img=req.query.img.split(',')
+    console.log(req.query);
     Flower(req.query).save((err)=>{
         if(!err){
             res.send('保存成功')
@@ -25,7 +26,6 @@ router.get('/addShop', (req, res) => {
 
 // 进行查询商品信息
 router.get('/findShop', (req, res) => {
-    console.log(req.query.id);
     Flower.findOne({_id:req.query.id},(err,data)=>{
         if(!err){
             console.log(data);
@@ -35,7 +35,8 @@ router.get('/findShop', (req, res) => {
 })
 // 进行修改商品信息
 router.get('/updateShop', (req, res) => {
-    console.log(req.query.id);
+    req.query.banner=req.query.banner.split(',')
+    req.query.img=req.query.img.split(',')
     Flower.update({_id:req.query.id},req.query,(err)=>{
         if(!err){
             res.send('修改成功')
