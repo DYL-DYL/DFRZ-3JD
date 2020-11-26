@@ -54,6 +54,17 @@
             <p>新品推荐</p>
             <div class="swiper-container">
                 <ul class="swiper-wrapper" style="margin-bottom: 2vh;">
+                    {{each news datas}}
+                    <li class="swiper-slide">
+                        {{each datas items}}
+                        <div><img src="{{items.img[0]}}" alt="" class="toDetail" data-id="{{items.name}}">
+                            <p>{{items.name}}</p>
+                            <p><span>{{items.price}}</span><del>{{items.oldPrice}}</del></p>
+                            <span class="tip">{{items.tip}}</span>
+                        </div>
+                        {{/each}}
+                    </li>
+                    {{/each}}
                 </ul>
                 <div class="swiper-pagination"></div>
             </div>
@@ -64,6 +75,14 @@
             <p>热卖专区</p>
             <div class="container container-list">
                 <div class="list">
+                    {{each hot item}}
+                    <section class="detail toDetail" data-id="{{item.id}}">
+                        <div><img src="{{item.img[0]}}" alt=""></div>
+                        <p>{{item.h}}</p>
+                        <p><span>{{item.price}}</span><del>{{item.oldPrice}}</del><span>{{item.sale}}</span></p>
+                        <span class="hot">{{item.top}}</span>
+                    </section>
+                    {{/each}}
                 </div>
 
             </div>
@@ -76,34 +95,8 @@
         <!-- 底部 -->
 
         <script>
-            $(fleshinessData).each(function(index, item) {
-                // console.log(item)
-                var str = ` <li class="swiper-slide">
-                `
-                $(item.list).each(function(index, item) {
-                    str += `<div><img src="${item.img}" alt="" class="toDetail" data-id="fleshiness/${item.name}">
-                            <p>${item.name}</p>
-                            <p><span>${item.price}</span><del>${item.oldPrice}</del></p>
-                            <span class="tip">${item.tip}</span>
-                        </div>`
-                })
-                str += `</li>`
-                $('.swiper-wrapper').append(str)
-            })
-
-            $(hot).each(function(index, item) {
-                var str = `<section class="detail toDetail" data-id="fleshiness/1-${index}">
-                        <div><img src="${item.img}" alt=""></div>
-                        <p>${item.name}</p>
-                        <p><span>${item.price}</span><del>${item.oldPrice}</del><span>${item.sale}</span></p>
-                        <span class="hot">${item.tip}</span>
-                    </section>
-                `
-                $('.list').append(str)
-            })
-
             $('.toDetail').click(function() {
-                location.href = '/detailPage?id=index/1-4'
+                location.href = '/detailPage?id=' + $(this).data('id')
             })
 
             $('.search').click(function() {

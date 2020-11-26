@@ -52,6 +52,7 @@ var Fleshiness = mongoose.model('tab', fleshinessSchema)
 
 
 var flower = new mongoose.Schema({
+
     page:String,
     h:String,
     title:String,
@@ -61,6 +62,7 @@ var flower = new mongoose.Schema({
     img:Array,
     top:String,
     num:Number
+
 })
 var Flower = mongoose.model('flower', flower)
 
@@ -76,4 +78,4 @@ var Snsinfo = mongoose.model('snsinfo', snsInfoSchema)
 
 
 
-module.exports = { User, Fleshiness, Car,Flower, Snsinfo }
+module.exports = { User, Fleshiness, Car, Flower, Snsinfo }

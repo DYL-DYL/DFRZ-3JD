@@ -8,6 +8,7 @@ var { User, Fleshiness, Car, Flower, Snsinfo } = require('../libs/mongoose')
 var fs = require('fs')
 const { JSONCookie } = require('cookie-parser')
 const cookie = require('cookie-parser')
+const { render } = require('art-template')
 router.use(cookie())
 
 
@@ -44,17 +45,62 @@ router.get('/', (req, res) => {
 })
 // 首页-包月鲜花
 router.get('/monthly', (req, res) => {
-  res.render('monthly')
-})
-// 首页-礼品花束
+
+        let thisData = {
+            list1: '',
+            list2: '',
+            list3: ''
+        }
+
+        Flower.find({ page: 'monthly/list1' }, (err, data) => {
+            if (!err) {
+                thisData.list1 = data
+                Flower.find({ page: 'monthly/list2' }, (err, data2) => {
+                    if (!err) {
+                        thisData.list2 = data2
+                        Flower.find({ page: 'monthly/list3' }, (err, data3) => {
+                            if (!err) {
+                                thisData.list3 = data3
+                                console.log(thisData)
+                                res.render('monthly', thisData)
+                            }
+                        })
+                    }
+
+                })
+            }
+        })
+    })
+    // 首页-礼品花束
+
 router.get('/gift', (req, res) => {
   res.render('gift')
 })
 // 绿植多肉
 router.get('/fleshiness', (req, res) => {
-  res.render('fleshiness')
-})
-// F+制物所
+        let thisData = {
+            news: '',
+            hot: ''
+        }
+        Flower.find({ page: 'search/list1' }, (err, data) => {
+            if (!err) {
+                var result = []
+                for (var i = 0; i < data.length; i += 3) {
+                    result.push(data.slice(i, i + 3))
+                }
+                thisData.news = result
+                Flower.find({ page: 'search/list2' }, (err, data2) => {
+                    if (!err) {
+                        thisData.hot = data2
+                        console.log(thisData)
+                        res.render('fleshiness', thisData)
+                    }
+                })
+            }
+        })
+    })
+
+    // F+制物所
 router.get('/moreF', (req, res) => {
   let thisData = {
     flash: '',
@@ -100,7 +146,8 @@ router.get('/find', (req, res) => {
 
 // 我的
 router.get('/mine', (req, res) => {
-  res.render('mine/mine')
+
+    res.render('mine/mine')
 
 })
 
@@ -338,6 +385,7 @@ router.get('/buyend', (req, res) => {
 
 // 管理员登录页面
 router.get('/admin', (req, res) => {
+
   res.render('Administrator/admin')
 })
 // 管理鲜花
@@ -386,6 +434,7 @@ router.get('/teacher', (req, res) => {
 
 router.get('/come_buy', (req, res) => {
   res.render('mine/tools/come_buy')
+
 })
 
 module.exports = router
