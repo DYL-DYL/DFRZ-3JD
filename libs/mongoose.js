@@ -27,9 +27,20 @@ var userSchema = new mongoose.Schema({
     buyfor: String,
     usefor: String
 })
-
-
 var User = mongoose.model('user', userSchema)
+
+
+var userCar = new mongoose.Schema({
+    username: String,
+    name: String,
+    quantity: Number,
+    money: Number,
+    price: Number,
+    oldPrice: Number,
+    img: String
+})
+var Car = mongoose.model('car', userCar)
+
 
 var fleshinessSchema = new mongoose.Schema({
     img: String,
@@ -49,4 +60,6 @@ var snsInfoSchema = new mongoose.Schema({
 var Snsinfo = mongoose.model('snsinfo', snsInfoSchema)
 
 
-module.exports = { User, Fleshiness, Snsinfo }
+
+
+module.exports = { User, Fleshiness, Car, Snsinfo }

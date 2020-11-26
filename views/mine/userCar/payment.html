@@ -1,8 +1,196 @@
 {{include './carheader.html'}}
 <style>
-    header>div:nth-of-type(2){
+    .shop {
+        background-color: white;
+        padding: 5.3vw;
+        margin: 2.67vw;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .shop>img {
+        width: 26.67vw;
+        height: 26.67vw;
+    }
+
+    .shop>div {
+        width: 48vw;
+    }
+
+    .shop>div>h1 {
+        font-size: 4.267vw;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .shop>div>p {
+        margin-top: 3vw;
+        color: rgba(181, 181, 181, 1);
+        font-size: 3.2vw;
+    }
+
+    .shop>div>p>span {
+        color: rgba(255, 98, 105, 1);
+        font-weight: 500;
+        font-size: 3.46vw;
+    }
+
+    .shop>div>p>del {
+        color: rgba(181, 181, 181, 1);
+        font-size: 3.2vw;
+        line-height: 4.4vw;
+        margin-right: 4px;
+    }
+
+    .shop>div>div {
+        margin-top: 3.2vw;
+        font-size: 4.267vw;
+    }
+
+    .shop>div>div {
+        display: flex;
+    }
+
+    .shop>div>div>input {
+        width: 60px;
+        font-size: 12px;
+        text-align: center;
+        line-height: 22px;
+        height: 22px;
+        color: #333333;
+        padding: 0;
+        border: none;
+        outline: none;
+    }
+
+    .shop>div>div>img {
+        width: 22px;
+        height: 22px;
+    }
+    .shop>section{
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 5px;
+        text-align: center;
+        background-color: #666666;
+        color: white;
+        border-radius: 3px;
+    }
+    header>div:nth-of-type(2) {
         border-bottom: 2px solid rgb(0, 0, 0);
     }
+    .chick{
+        height: 40px;
+        line-height: 40px;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        display: flex;
+        
+    }
+    .chick>div{
+        display: flex;
+        justify-content: flex-end;
+        background-color: white;
+        width: 70%;
+        padding-right: 10px;
+    }
+    .chick>div>span{
+        font-size: 12px;
+        color: rgba(181, 181, 181, 1);
+    }
+    .chick>div>small{
+        font-size: 12px;
+        color: #333333;
+    }
+    .chick>div>p{
+        font-size: 14px;
+        font-weight: bolder;
+    }
+    .chick>div>p>span{
+        font-size: 18px;
+    }
+    .chick>section{
+        width: 30%;
+        text-align: center;
+        background-color: #F25C62;
+        color: white;
+    }
 </style>
+<main>
+    {{each data item}}
+    <div class="shop">
+        <img src="{{item.img}}" alt="">
+        <div>
+            <h1>{{item.name}}</h1>
+            <p><span>￥<b>{{item.money}}</b></span>原价<del>￥{{item.oldPrice}}</del></p>
+            &times;
+            <div>
+                <img src="/imges/我的/15616022522527.jpg" alt="" data-id="{{item.id}}">
+                <input type="text" value="{{item.quantity}}" disabled>
+                <img src="/imges/我的/15268877432251.png" alt="" data-id="{{item.id}}">
+            </div>
+        </div>
+        <section data-id="{{item.id}}">删除该商品</section>
+    </div>
+    
+    {{/each}}
+</main>
+<div class="chick">
+     <div>
+         <span>不含运费</span>
+         <small>合计：</small>
+         <p>￥ <span>49.6</span></p>
+     </div>
+     <section>去结算(<span>1</span>)</section>
+</div>
+<script src="/bootstrap-3.3.7-dist/js/jquery-3.1.1.js"></script>
+<script>
+    $('.shop>div>div>img:nth-of-type(1)').click(function () {
+        
+        if ($(this).next().val() > 1) {
+            $(this).next().val($(this).next().val() * 1 - 1)
+        }
+        updataNum()
+        $.get('/car/newQuantity',{quantity:$(this).next().val(),id:$(this).data('id')},(data)=>{
+
+        })
+    })
+    $('.shop>div>div>img:nth-of-type(2)').click(function () {
+        $(this).prev().val($(this).prev().val() * 1 + 1)
+        updataNum()
+        $.get('/car/newQuantity',{quantity:$(this).prev().val(),id:$(this).data('id')},(data)=>{
+            
+        })
+    })
+    $('.shop>section').click(function(){
+        $.get('/car/removeShop',{id:$(this).data('id')},(data)=>{
+            if(data=='成功'){
+                location.reload()
+            }
+        })
+    })
+    if($('main').children().length!=0){
+        $('.pic-main').css('display','none')
+
+    }else{
+        $('.chick').css('display','none')
+    }
+    function updataNum(){
+        let thisNum = 0
+        let thisMoney = 0
+        $('.shop').each(function(index,item){
+            thisNum++
+            thisMoney+=$(`.shop:nth-of-type(${index+1})>div>p>span>b`).html()*1*$(`.shop:nth-of-type(${index+1})>div>div>input`).val()*1
+          
+        })
+        $('.chick>div>p>span').html(thisMoney)
+        $('.chick>section>span').html(thisNum)
+    }updataNum()
+</script>
 </body>
+
 </html>
