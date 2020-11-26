@@ -51,9 +51,11 @@ form button {
 .search input {
     width: 90%;
     border: none;
-    background-color: none;
+    background-color: white !important;
     outline: none;
 }
+
+input:active {}
 
 .find {
     margin-bottom: 6vh;
@@ -109,6 +111,10 @@ form button {
 .nothing {
     text-align: center;
     margin-top: 5vh;
+}
+
+.nothing img {
+    margin-bottom: 2vh;
 }
 
 .list-show {

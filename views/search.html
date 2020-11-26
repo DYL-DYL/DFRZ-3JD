@@ -50,10 +50,10 @@
 
             $.get('/searchinfo?keyword=' + $('input').val(), (data) => {
                 var text = $('input').val()
-
+                console.log(text)
                 var info = data.filter(function(item) {
                     if (item.name.includes(text)) {
-                        console.log(item)
+                        // console.log(item)
                         return item
                     }
                 })
