@@ -46,36 +46,44 @@
 
     <script>
         $('form').submit(function(e) {
-            e.preventDefault()
+                e.preventDefault()
 
-            $.get('/searchinfo?keyword=' + $('input').val(), (data) => {
-                var text = $('input').val()
-                console.log(text)
-                var info = data.filter(function(item) {
-                    if (item.name.includes(text)) {
-                        // console.log(item)
-                        return item
-                    }
-                })
-                if (info.length) {
-                    $('.find').html('')
-                    var str = `<ul class='list-show'>`
-                    $(info).each(function(index, item) {
-                        str += `
-                        <li><img src="${item.img}">
+                $.get('/searchinfo?keyword=' + $('input').val(), (data) => {
+                    //谷歌支持jq的val（），火狐只能用原生js
+                    var text = document.getElementById('search').value
+                        // console.log(text)
+                    var info = data.filter(function(item) {
+                        if (item.name.includes(text)) {
+                            // console.log(item)
+                            return item
+                        }
+                    })
+                    if (info.length) {
+                        $('.find').html('')
+                        var str = `<ul class='list-show'>`
+                        $(info).each(function(index, item) {
+                            str += `
+                        <li class="toDetail"><img src="${item.img}">
                             <p>${item.name}</p>
                             <p><span>${item.price}</span><del>${item.oldPrice}</del></p>
                             </li>`
-                    })
-                    str += `</ul><p class="result">---------以上是查找“ ${text} ”的结果-------</p>`
-                    $('.find').html(str)
+                        })
+                        str += `</ul><p class="result">---------以上是查找“ ${text} ”的结果-------</p>`
+                        $('.find').html(str)
 
-                } else {
-                    var str = `<div class="nothing"><img src="/imges/首页-绿植/nothing.png"><p>没有搜索到你想要的结果<br>换个词试试</p></div>`
-                    $('.find').html(str).find('img').css('width', "30%")
-                }
+                    } else {
+                        var str = `<div class="nothing"><img src="/imges/首页-绿植/nothing.png"><p>没有搜索到你想要的结果<br>换个词试试</p></div>`
+                        $('.find').html(str).find('img').css('width', "30%")
+                    }
+
+
+                })
+
             })
-        })
+            // console.log($('.container .find').find('ul'))
+            // $('.container').find('li').click(function() {
+            //     location.href = '/detailPage?id=index/1-4'
+            // })
     </script>
 </body>
 

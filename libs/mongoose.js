@@ -27,19 +27,19 @@ var userSchema = new mongoose.Schema({
     buyfor: String,
     usefor: String
 })
-var User = mongoose.model('user',userSchema)
+var User = mongoose.model('user', userSchema)
 
 
 var userCar = new mongoose.Schema({
-    username:String,
-    name:String,
-    quantity:Number,
-    money:Number,
-    price:Number,
-    oldPrice:Number,
-    img:String
+    username: String,
+    name: String,
+    quantity: Number,
+    money: Number,
+    price: Number,
+    oldPrice: Number,
+    img: String
 })
-var Car = mongoose.model('car',userCar)
+var Car = mongoose.model('car', userCar)
 
 
 var fleshinessSchema = new mongoose.Schema({
@@ -49,6 +49,7 @@ var fleshinessSchema = new mongoose.Schema({
     oldPrice: String
 })
 var Fleshiness = mongoose.model('tab', fleshinessSchema)
+
 
 var flower = new mongoose.Schema({
     page:String,
@@ -62,5 +63,16 @@ var flower = new mongoose.Schema({
 })
 var Flower = mongoose.model('flower', flower)
 
+var snsInfoSchema = new mongoose.Schema({
+    img: String,
+    msg: String,
+    userPic: String,
+    name: String,
+    time: String
+})
+var Snsinfo = mongoose.model('snsinfo', snsInfoSchema)
 
-module.exports = { User, Fleshiness,Car,Flower }
+
+
+
+module.exports = { User, Fleshiness, Car,Flower, Snsinfo }

@@ -4,7 +4,7 @@ var exp = require('express')
 var app = exp()
 var router = exp.Router()
 
-var { User, Fleshiness,Car,Flower } = require('../libs/mongoose')
+var { User, Fleshiness, Car,Flower, Snsinfo } = require('../libs/mongoose')
 var fs = require('fs')
 const { JSONCookie } = require('cookie-parser')
 const cookie = require('cookie-parser')
@@ -268,28 +268,28 @@ router.get('/mineInvoice', (req, res) => {
 
 // 购物车-待付款
 
-router.get('/userCar',(req,res)=>{
-    Car.find({username:req.cookies.username},(err,data)=>{
-        if(!err){
-            res.render('mine/userCar/payment',{data})
-        }
+router.get('/userCar', (req, res) => {
+        Car.find({ username: req.cookies.username }, (err, data) => {
+            if (!err) {
+                res.render('mine/userCar/payment', { data })
+            }
+        })
+
     })
-    
-})
-// 购物车-全部
-router.get('/all',(req,res)=>{
-    res.render('mine/userCar/all')
-})
-// 购物车-服务中
-router.get('/buying',(req,res)=>{
-    res.render('mine/userCar/buying')
-})
-// 购物车-待评价
-router.get('/buyafter',(req,res)=>{
-    res.render('mine/userCar/buyafter')
-})
-// 购物车-已完成
-router.get('/buyend',(req,res)=>{
+    // 购物车-全部
+router.get('/all', (req, res) => {
+        res.render('mine/userCar/all')
+    })
+    // 购物车-服务中
+router.get('/buying', (req, res) => {
+        res.render('mine/userCar/buying')
+    })
+    // 购物车-待评价
+router.get('/buyafter', (req, res) => {
+        res.render('mine/userCar/buyafter')
+    })
+    // 购物车-已完成
+router.get('/buyend', (req, res) => {
 
     res.render('mine/userCar/buyend')
 })
@@ -320,6 +320,14 @@ router.get('/findShop', (req, res) => {
     Flower.findOne({_id:req.query.id},(err,data)=>{
         if(!err){
             res.render('Administrator/FlowerAdmin/updateFlower',{data})
+        }
+    })
+})
+router.get('/snsContent', (req, res) => {
+    // console.log(req.query)
+    Snsinfo.find({ name: req.query.name }, (err, data) => {
+        if (!err) {
+            res.render('snsContent', { data: data[0] })
         }
     })
 })
