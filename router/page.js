@@ -57,7 +57,7 @@ router.get('/find', (req, res) => {
 
 // 我的
 router.get('/mine', (req, res) => {
-
+res.render('mine/mine')
 
 })
 
