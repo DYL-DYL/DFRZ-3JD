@@ -119,7 +119,7 @@
             $(item.title).each(function (index, item_child) {
 
                 $(`.gift-${key}>div`).append(`
-                <div>
+                <div data-id="5fbf7a7894bfcb1dfc077066">
                     <img src="${item_child.img}" alt="">
                     <span>${item_child.name}</span>
                     <p>${item_child.txt}</p>
@@ -211,6 +211,9 @@
                 clearInterval(time)
             }
         }, 10);
+    })
+    $('.gift-all>div>div').click(function(){
+        location.href='/detailPage?id='+$(this).data("id")
     })
 </script>
 

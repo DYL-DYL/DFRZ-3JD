@@ -15,7 +15,7 @@ router.use(cookie())
 router.get('/', (req, res) => {
     let thisData={
         flash:'',
-        new:'',
+        New:'',
         hot:'',
         find:''
     }
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
             thisData.flash=data
             Flower.find({page:'index/list2'},(err,data)=>{
                 if(!err){
-                    thisData.new=data
+                    thisData.New=data
                     Flower.find({page:'index/list3'},(err,data)=>{
                         if(!err){
                             thisData.hot=data
@@ -84,7 +84,7 @@ router.get('/find', (req, res) => {
 
 // 我的
 router.get('/mine', (req, res) => {
-
+    res.render('mine/mine')
 
 })
 
@@ -251,26 +251,11 @@ router.get('/register', (req, res) => {
 // 详情页
 router.get('/detailPage', (req, res) => {
 
-    // console.log(req.query);
-    fs.readFile('./www/data/detailPage.json', (err, data) => {
-        if (!err) {
-            var thisData = JSON.parse(data)
-            res.render('detailPage', thisData[req.query.id])
-        } else {
-            console.log(err);
+    Flower.findOne({_id:req.query.id},(err,data)=>{
+        if(!err){
+            res.render('detailPage', {data})
         }
     })
-
-    // console.log(req.query);
-    fs.readFile('./www/data/detailPage.json', (err, data) => {
-        if (!err) {
-            var thisData = JSON.parse(data)
-            res.render('detailPage', thisData[req.query.id])
-        } else {
-            console.log(err);
-        }
-    })
-
 })
 
 // 用户编辑页面

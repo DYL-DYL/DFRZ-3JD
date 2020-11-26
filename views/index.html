@@ -67,7 +67,7 @@
                             <strong class="second_show">0秒</strong>
                         </div>
                         <h1>{{item.h}}</h1>
-                        <p><del>{{item.oldPrice}}</del><span>{{item.price}}</span></p>
+                        <p><del>原价：{{item.oldPrice}}</del><span>{{item.price}}</span></p>
                     </div>
                 </div>
                 {{/each}}
@@ -88,7 +88,14 @@
         </div>
         <section>
             <div>
-                
+                {{each New item}}
+                <div data-id="{{item.id}}" class="toDetail">
+                    <img src="{{item.img[0]}}" alt="">
+                    <h1>{{item.h}}</h1>
+                    <p>{{item.title}}</p>
+                    <div>{{item.price}}</div>
+                </div>
+                {{/each}}
             </div>
         </section>
     </div>
@@ -151,18 +158,6 @@
         }
     })
     
-    $(indexData.new).each(function (index, item) {
-        $('.new section>div').append(`
-            <div data-id="index/1-${index}" class="toDetail">
-                <img src="${item.img}" alt="">
-                <h1>${item.title}</h1>
-                <p>${item.txt}</p>
-                <div>${item.price}</div>
-            </div>
-        `)
-    })
-   
-
     // 倒计时
     var intDiff = parseInt(((12*24+5)*60+38)*60+52);//倒计时总秒数量
 
