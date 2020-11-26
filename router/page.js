@@ -4,10 +4,11 @@ var exp = require('express')
 var app = exp()
 var router = exp.Router()
 
-var { User, Fleshiness, Car,Flower, Snsinfo } = require('../libs/mongoose')
+var { User, Fleshiness, Car, Flower, Snsinfo } = require('../libs/mongoose')
 var fs = require('fs')
 const { JSONCookie } = require('cookie-parser')
 const cookie = require('cookie-parser')
+const { render } = require('art-template')
 router.use(cookie())
 
 
@@ -17,7 +18,30 @@ router.get('/', (req, res) => {
     })
     // 首页-包月鲜花
 router.get('/monthly', (req, res) => {
-        res.render('monthly')
+        let thisData = {
+            list1: '',
+            list2: '',
+            list3: ''
+        }
+
+        Flower.find({ page: 'monthly/list1' }, (err, data) => {
+            if (!err) {
+                thisData.list1 = data
+                Flower.find({ page: 'monthly/list2' }, (err, data2) => {
+                    if (!err) {
+                        thisData.list2 = data2
+                        Flower.find({ page: 'monthly/list3' }, (err, data3) => {
+                            if (!err) {
+                                thisData.list3 = data3
+                                console.log(thisData)
+                                res.render('monthly', thisData)
+                            }
+                        })
+                    }
+
+                })
+            }
+        })
     })
     // 首页-礼品花束
 router.get('/gift', (req, res) => {
@@ -25,7 +49,26 @@ router.get('/gift', (req, res) => {
     })
     // 绿植多肉
 router.get('/fleshiness', (req, res) => {
-        res.render('fleshiness')
+        let thisData = {
+            news: '',
+            hot: ''
+        }
+        Flower.find({ page: 'search/list1' }, (err, data) => {
+            if (!err) {
+                var result = []
+                for (var i = 0; i < data.length; i += 3) {
+                    result.push(data.slice(i, i + 3))
+                }
+                thisData.news = result
+                Flower.find({ page: 'search/list2' }, (err, data2) => {
+                    if (!err) {
+                        thisData.hot = data2
+                        console.log(thisData)
+                        res.render('fleshiness', thisData)
+                    }
+                })
+            }
+        })
     })
     // F+制物所
 router.get('/moreF', (req, res) => {
@@ -57,7 +100,7 @@ router.get('/find', (req, res) => {
 
 // 我的
 router.get('/mine', (req, res) => {
-
+    res.render('mine/mine')
 
 })
 
@@ -294,55 +337,55 @@ router.get('/buyend', (req, res) => {
 })
 
 // 管理员登录页面
-router.get('/admin',(req,res)=>{
-    res.render('Administrator/admin')
-})
-// 管理鲜花
-router.get('/listFlower',(req,res)=>{
-    Flower.find((err,data)=>{
-        if(!err){
-            res.render('Administrator/FlowerAdmin/listFlower',{data})
-        }
+router.get('/admin', (req, res) => {
+        res.render('Administrator/admin')
     })
-    
-})
-// 添加鲜花
-router.get('/addFlower',(req,res)=>{
-    res.render('Administrator/FlowerAdmin/addFlower')
-})
-// 管理用户
-router.get('/listUser',(req,res)=>{
-    res.render('Administrator/UserAdmin/listUser')
-})
-// 修改商品
+    // 管理鲜花
+router.get('/listFlower', (req, res) => {
+        Flower.find((err, data) => {
+            if (!err) {
+                res.render('Administrator/FlowerAdmin/listFlower', { data })
+            }
+        })
+
+    })
+    // 添加鲜花
+router.get('/addFlower', (req, res) => {
+        res.render('Administrator/FlowerAdmin/addFlower')
+    })
+    // 管理用户
+router.get('/listUser', (req, res) => {
+        res.render('Administrator/UserAdmin/listUser')
+    })
+    // 修改商品
 router.get('/findShop', (req, res) => {
-    Flower.findOne({_id:req.query.id},(err,data)=>{
-        if(!err){
-            res.render('Administrator/FlowerAdmin/updateFlower',{data})
+    Flower.findOne({ _id: req.query.id }, (err, data) => {
+        if (!err) {
+            res.render('Administrator/FlowerAdmin/updateFlower', { data })
         }
     })
 })
 router.get('/snsContent', (req, res) => {
-    // console.log(req.query)
-    Snsinfo.find({ name: req.query.name }, (err, data) => {
-        if (!err) {
-            res.render('snsContent', { data: data[0] })
-        }
+        // console.log(req.query)
+        Snsinfo.find({ name: req.query.name }, (err, data) => {
+            if (!err) {
+                res.render('snsContent', { data: data[0] })
+            }
+        })
     })
-})
-//我的小工具
-//赠品
-router.get('/active_99',(req,res)=>{
-  res.render('mine/tools/active')
-})
-//花艺课
-router.get('/teacher',(req,res)=>{
-  res.render('mine/tools/teacher')
-})
-//随花购
+    //我的小工具
+    //赠品
+router.get('/active_99', (req, res) => {
+        res.render('mine/tools/active')
+    })
+    //花艺课
+router.get('/teacher', (req, res) => {
+        res.render('mine/tools/teacher')
+    })
+    //随花购
 
-router.get('/come_buy',(req,res)=>{
-  res.render('mine/tools/come_buy')
+router.get('/come_buy', (req, res) => {
+    res.render('mine/tools/come_buy')
 })
 
 module.exports = router

@@ -2,29 +2,72 @@
 <link rel="stylesheet" href="/css/monthlyCss/monthly.css">
 
 <div class="content">
+    <div class="part">
+        <div class="banner"><img src="/imges/首页-包月/banner.png" alt=""></div>
+        <div class="list">
+            {{each list1 item}}
+            <section class="list-detail toDetail" data-id="{{item.id}}">
+                <div><img src="{{item.img[0]}}" alt=""></div>
+                <p>{{item.h}}</p>
+                <p>{{item.price}}</p>
+                <span>{{item.top}}</span>
+            </section>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="part">
+        <div class="banner"><img src="/imges/首页-包月/banner2.png" alt=""></div>
+        <div class="list">
+            {{each list2 item}}
+            <section class="list-detail toDetail" data-id="{{item.id}}">
+                <div><img src="{{item.img[0]}}" alt=""></div>
+                <p>{{item.h}}</p>
+                <p>{{item.price}}</p>
+                <span>{{item.top}}</span>
+            </section>
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="part">
+        <div class="banner"><img src="/imges/首页-包月/banner3.png" alt=""></div>
+        <div class="list">
+            {{each list3 item}}
+            <section class="list-detail toDetail" data-id="{{item.id}}">
+                <div><img src="{{item.img[0]}}" alt=""></div>
+                <p>{{item.h}}</p>
+                <p>{{item.price}}</p>
+                <span>{{item.top}}</span>
+            </section>
+            {{/each}}
+        </div>
+    </div>
+
+
 
 </div>
 
 <script src='/data/monthlyData.js'></script>
 <script>
-    // console.log($(monthlyData))
-    $(monthlyData).each(function(index, item) {
-        // console.log(item)
-        var str = `<div class='part'>
-            <div class="banner"><img src="${item.banner}"></div><div class="list">
-        `
-        $(item.list).each(function(index, data) {
-            str += `
-            <section class="list-detail toDetail" data-id="monthly/${data.name}">
-            <div><img src="${data.img}" alt=""></div>
-            <p>${data.name}</p>
-            <p>${data.price}</p>
-            <span>${data.tip}</span>
-        </section>`
-        })
-        str += `</div>`
-        $('.content').append(str)
-    })
+    // // console.log($(monthlyData))
+    // $(monthlyData).each(function(index, item) {
+    //     // console.log(item)
+    //     var str = `<div class='part'>
+    //         <div class="banner"><img src="${item.banner}"></div><div class="list">
+    //     `
+    //     $(item.list).each(function(index, data) {
+    //         str += `
+    //         <section class="list-detail toDetail" data-id="monthly/${data.name}">
+    //         <div><img src="${data.img}" alt=""></div>
+    //         <p>${data.name}</p>
+    //         <p>${data.price}</p>
+    //         <span>${data.tip}</span>
+    //     </section>`
+    //     })
+    //     str += `</div>`
+    //     $('.content').append(str)
+    // })
 </script>
 
 <div class="part part-four">
@@ -50,7 +93,7 @@
 
 <script>
     $('.toDetail').click(function() {
-        location.href = '/detailPage?id=index/1-4'
+        location.href = '/detailPage?id=' + $(this).data('id')
     })
 </script>
 </body>
