@@ -1,4 +1,3 @@
-
 // 处理学生信息的操作
 var exp = require('express')
 var router = exp.Router()
@@ -13,28 +12,28 @@ var { User } = require('../libs/mongoose')
 // 进行用户信息登录
 router.post('/userPage', (req, res) => {
 
-    User.findOne({ username: req.body.username }, (err, data) => {
-        if (!err) {
-            if (data == null) {
-                res.send('该用户还没有注册')
-            } else {
-                if (data.psw == req.body.psw) {
-                    var time = new Date()
-                    time.setMonth(time.getMonth() + 1)
-                    res.cookie('username', req.body.username, { expires: time })
-                    res.send('登录成功')
+        User.findOne({ username: req.body.username }, (err, data) => {
+            if (!err) {
+                if (data == null) {
+                    res.send('该用户还没有注册')
                 } else {
-                    res.send('密码不正确')
+                    if (data.psw == req.body.psw) {
+                        var time = new Date()
+                        time.setMonth(time.getMonth() + 1)
+                        res.cookie('username', req.body.username, { expires: time })
+                        res.send('登录成功')
+                    } else {
+                        res.send('密码不正确')
+                    }
                 }
+            } else {
+                console.log(err);
+                res.send('登录失败')
             }
-        } else {
-            console.log(err);
-            res.send('登录失败')
-        }
-    })
+        })
 
-})
-// 进行用户信息查询
+    })
+    // 进行用户信息查询
 router.post('/findUser', (req, res) => {
 
     User.findOne({ username: req.body.username }, (err, data) => {

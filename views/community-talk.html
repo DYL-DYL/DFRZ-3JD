@@ -13,6 +13,7 @@
         font-size: 4vw;
         padding: 2vw;
         outline: none;
+        resize: none;
     }
     
     textarea::placeholder {
@@ -77,15 +78,28 @@
     }
     
     .btn {
-        margin-top: 10vh;
+        margin-top: 6vh;
+        /* margin-bottom: 12vh; */
         display: flex;
         justify-content: center;
+    }
+    
+    .btn:focus {
+        border: none;
+        box-shadow: none;
+        outline: none;
     }
     
     .btn button {
         border: none;
         background: none;
-        margin: 0 2vw;
+        margin: 0 4vw;
+        outline: none;
+    }
+    
+    .btn:active,
+    .btn.active {
+        -webkit-box-shadow: none;
     }
     
     .btn button:nth-of-type(1) {
@@ -130,7 +144,7 @@
 
         <div class="photo">
             <div class="upload">
-                <img class="glyphicon glyphicon-picture" src=""></img>
+                <i class="glyphicon glyphicon-picture"><img  src=""></img></i>
                 <input type="file" name="photo" id="" accept="image/*" style="display: none;">
             </div>
 
@@ -160,8 +174,8 @@
     </div>
 
     <div class="btn">
-        <button>存草稿</button>
-        <button>发布</button>
+        <button type="button">存草稿</button>
+        <button type="button">发布</button>
     </div>
 
 </div>
@@ -171,7 +185,7 @@
 <script>
     $('a').removeClass('active')
 
-    $('.upload').on('click', 'img', function() {
+    $('.upload').on('click', 'i', function() {
         $(this).next().click()
     })
 
@@ -179,7 +193,8 @@
         var file = $(this)[0].files[0]
         if (file.type.startsWith('image')) {
             var url = URL.createObjectURL(file)
-            $(this).prev().attr('src', url).removeClass().css('width', '100%')
+            $(this).prev().find('img').attr('src', url).removeClass().css('width', '100%')
+            $(this).prev().removeClass()
         } else {
             alert('请选择一张正确图片')
         }

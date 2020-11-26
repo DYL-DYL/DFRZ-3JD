@@ -13,7 +13,7 @@ var fleshinessData = [{
         tip: 'NEW'
     }, {
         img: '/imges/首页-绿植/new-list24.jpg',
-        name: '宫粉梅 黄金蜡梅',
+        name: '金边瑞香',
         price: '￥59.90',
         oldPrice: '￥79.90',
         tip: 'NEW'
