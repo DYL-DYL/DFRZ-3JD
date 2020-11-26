@@ -39,5 +39,14 @@ var fleshinessSchema = new mongoose.Schema({
 })
 var Fleshiness = mongoose.model('tab', fleshinessSchema)
 
+var snsInfoSchema = new mongoose.Schema({
+    img: String,
+    msg: String,
+    userPic: String,
+    name: String,
+    time: String
+})
+var Snsinfo = mongoose.model('snsinfo', snsInfoSchema)
 
-module.exports = { User, Fleshiness }
+
+module.exports = { User, Fleshiness, Snsinfo }

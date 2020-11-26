@@ -3,7 +3,7 @@
 var exp = require('express')
 var app = exp()
 var router = exp.Router()
-var { User, Fleshiness } = require('../libs/mongoose')
+var { User, Fleshiness, Snsinfo } = require('../libs/mongoose')
 var fs = require('fs')
 const { JSONCookie } = require('cookie-parser')
 
@@ -281,5 +281,14 @@ router.get('/buyafter', (req, res) => {
     // 购物车-已完成
 router.get('/buyend', (req, res) => {
     res.render('mine/userCar/buyend')
+})
+
+router.get('/snsContent', (req, res) => {
+    // console.log(req.query)
+    Snsinfo.find({ name: req.query.name }, (err, data) => {
+        if (!err) {
+            res.render('snsContent', { data: data[0] })
+        }
+    })
 })
 module.exports = router
