@@ -22,11 +22,12 @@
     }
 </style>
 <div class="container btnBox">
-    <button type="button" class="btn btn-primary pull-right" data-toggle="button"> 添加图书</button>
+    <button type="button" class="btn btn-primary pull-right" data-toggle="button">添加商品</button>
     <table class="table table-hover">
         <thead>
             <tr>
                 <th>图片</th>
+                <th>商品页面</th>
                 <th>商品名称</th>
                 <th>商品信息</th>
                 <th>最新价格</th>
@@ -39,6 +40,7 @@
             {{each data item}}
             <tr>
                 <th><img src="{{item.img[0]}}" alt=""></th>
+                <th>{{item.page}}</th>
                 <th>{{item.h}}</th>
                 <th>{{item.title}}</th>
                 <th>{{item.price}}</th>
