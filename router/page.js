@@ -56,8 +56,6 @@ router.get('/mine', (req, res) => {
 
         res.render('mine/mine')
     })
-
-
 router.get('/community', (req, res) => {
   fs.readFile('www/data/news.json', (err, data) => {
     if (!err) {
@@ -213,4 +211,19 @@ router.get('/buyafter',(req,res)=>{
 router.get('/buyend',(req,res)=>{
     res.render('mine/userCar/buyend')
 })
+//我的小工具
+//赠品
+router.get('/active_99',(req,res)=>{
+  res.render('mine/tools/active')
+})
+//花艺课
+router.get('/teacher',(req,res)=>{
+  res.render('mine/tools/teacher')
+})
+//随花购
+
+router.get('/come_buy',(req,res)=>{
+  res.render('mine/tools/come_buy')
+})
+
 module.exports = router
