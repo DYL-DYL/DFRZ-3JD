@@ -11,8 +11,10 @@
                     <option>index/list4</option>
                     <option>monthly/list1</option>
                     <option>monthly/list2</option>
+                    <option>monthly/list3</option>
                     <option>gift</option>
-                    <option>search</option>
+                    <option>search/list1</option>
+                    <option>search/list2</option>
                     <option>moreF</option>
                     <option>home/list</option>
                     <option>home/new</option>
@@ -50,6 +52,12 @@
             </div>
           </div>
           <div class="form-group">
+            <div class="form-group">
+              <label for="twoname" class="col-sm-2 control-label">销售量</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="twoname" placeholder="请输入销售量" name="count" value="{{data.count}}">
+              </div>
+            </div>
             <label for="twoname" class="col-sm-2 control-label">轮播图片</label>
             <div class="col-sm-10">
                 <textarea class="form-control" rows="3" placeholder="每个图片地址请用英文的逗号(,)区分开" name="banner" value="">{{data.banner}}</textarea>
