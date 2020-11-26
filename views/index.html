@@ -55,7 +55,22 @@
         </div>
         <div class="swiper-container main-pics">
             <div class="swiper-wrapper">
-                
+                {{each flash item}}
+                <div class="swiper-slide toDetail"  data-id="{{item.id}}" >
+                    <img src="{{item.img[0]}}" alt="">
+                    <div>
+                        <div class="time-item">
+                            <img src="/imges/首页-推荐/time.svg" alt="">
+                            <span class="day_show">0天</span>
+                            <strong class="hour_show">0时</strong>
+                            <strong class="minute_show">0分</strong>
+                            <strong class="second_show">0秒</strong>
+                        </div>
+                        <h1>{{item.h}}</h1>
+                        <p><del>{{item.oldPrice}}</del><span>{{item.price}}</span></p>
+                    </div>
+                </div>
+                {{/each}}
             </div>
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination swiper-pagination-fraction"></div>
@@ -72,7 +87,9 @@
             </div>
         </div>
         <section>
-            <div></div>
+            <div>
+                
+            </div>
         </section>
     </div>
 </div>
@@ -84,7 +101,14 @@
         </div>
     </div>
     <section>
-
+        {{each hot item}}
+        <div data-id="{{item.id}}" class="toDetail">
+            <img src="{{item.img[0]}}" alt="">
+            <span>{{item.h}}</span>
+            <p>{{item.title}}</p>
+            <div>{{item.price}}</div>
+        </div>
+        {{/each}}
     </section>
 </div>
 <div class="find hot">
@@ -95,7 +119,14 @@
         </div>
     </div>
     <section>
-
+        {{each find item}}
+        <div data-id="{{item.id}}" class="toDetail">
+            <img src="{{item.img[0]}}" alt="">
+            <span>{{item.h}}</span>
+            <p>{{item.title}}</p>
+            <div>{{item.price}}</div>
+        </div>
+        {{/each}}
     </section>
 </div>
 <div class="inscribe">
@@ -119,24 +150,7 @@
             $(this)[0].scrollLeft = Math.round(thisNum) * ($('.new section>div>div').outerWidth(true))
         }
     })
-    $(indexData.flash).each(function (index, item) {
-        $('.main-pics .swiper-wrapper').append(`
-            <div class="swiper-slide toDetail"  data-id="index/0-${index}" >
-                <img src="${item.img}" alt="">
-                <div>
-                    <div class="time-item">
-                        <img src="/imges/首页-推荐/time.svg" alt="">
-                        <span class="day_show">0天</span>
-	                    <strong class="hour_show">0时</strong>
-	                    <strong class="minute_show">0分</strong>
-	                    <strong class="second_show">0秒</strong>
-                    </div>
-                    <h1>${item.title}</h1>
-                    <p><del>${item.oldPrice}</del><span>${item.newPrice}</span></p>
-                </div>
-            </div>
-        `)
-    })
+    
     $(indexData.new).each(function (index, item) {
         $('.new section>div').append(`
             <div data-id="index/1-${index}" class="toDetail">
@@ -147,26 +161,8 @@
             </div>
         `)
     })
-    $(indexData.hot).each(function (index, item) {
-        $('.hot-one section').append(`
-            <div data-id="index/1-4" class="toDetail">
-                <img src="${item.img}" alt="">
-                <span>${item.title}</span>
-                <p>${item.txt}</p>
-                <div>${item.price}</div>
-            </div>
-        `)
-    })
-    $(indexData.find).each(function (index, item) {
-        $('.find section').append(`
-            <div data-id="index/1-4" class="toDetail">
-                <img src="${item.img}" alt="">
-                <span>${item.title}</span>
-                <p>${item.txt}</p>
-                <div>${item.price}</div>
-            </div>
-        `)
-    })
+   
+
     // 倒计时
     var intDiff = parseInt(((12*24+5)*60+38)*60+52);//倒计时总秒数量
 

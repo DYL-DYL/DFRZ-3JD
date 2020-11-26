@@ -13,8 +13,35 @@ router.use(cookie())
 
 // 首页
 router.get('/', (req, res) => {
-        res.render('index')
+    let thisData={
+        flash:'',
+        new:'',
+        hot:'',
+        find:''
+    }
+    Flower.find({page:'index/list1'},(err,data)=>{
+        if(!err){
+            thisData.flash=data
+            Flower.find({page:'index/list2'},(err,data)=>{
+                if(!err){
+                    thisData.new=data
+                    Flower.find({page:'index/list3'},(err,data)=>{
+                        if(!err){
+                            thisData.hot=data
+                            Flower.find({page:'index/list4'},(err,data)=>{
+                                if(!err){
+                                    thisData.find=data
+                                    res.render('index',thisData)
+                                }
+                            })
+                        }
+                    })
+                }
+            })
+        }
     })
+        
+})
     // 首页-包月鲜花
 router.get('/monthly', (req, res) => {
         res.render('monthly')
