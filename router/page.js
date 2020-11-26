@@ -4,7 +4,7 @@ var exp = require('express')
 var app = exp()
 var router = exp.Router()
 
-var { User, Fleshiness,Car } = require('../libs/mongoose')
+var { User, Fleshiness,Car,Flower } = require('../libs/mongoose')
 var fs = require('fs')
 const { JSONCookie } = require('cookie-parser')
 const cookie = require('cookie-parser')
@@ -292,5 +292,35 @@ router.get('/buyafter',(req,res)=>{
 router.get('/buyend',(req,res)=>{
 
     res.render('mine/userCar/buyend')
+})
+
+// 管理员登录页面
+router.get('/admin',(req,res)=>{
+    res.render('Administrator/admin')
+})
+// 管理鲜花
+router.get('/listFlower',(req,res)=>{
+    Flower.find((err,data)=>{
+        if(!err){
+            res.render('Administrator/FlowerAdmin/listFlower',{data})
+        }
+    })
+    
+})
+// 添加鲜花
+router.get('/addFlower',(req,res)=>{
+    res.render('Administrator/FlowerAdmin/addFlower')
+})
+// 管理用户
+router.get('/listUser',(req,res)=>{
+    res.render('Administrator/UserAdmin/listUser')
+})
+// 修改商品
+router.get('/findShop', (req, res) => {
+    Flower.findOne({_id:req.query.id},(err,data)=>{
+        if(!err){
+            res.render('Administrator/FlowerAdmin/updateFlower',{data})
+        }
+    })
 })
 module.exports = router

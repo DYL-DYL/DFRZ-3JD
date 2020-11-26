@@ -20,7 +20,11 @@ router.post('/userPage', (req, res) => {
                     if (data.psw == req.body.psw) {
                         var time = new Date()
                         time.setMonth(time.getMonth() + 1)
-                        res.cookie('username', req.body.username, { expires: time })
+                        if(req.body.username=='admin'){
+                            res.cookie('admin', req.body.username, { expires: time })
+                        }else{
+                            res.cookie('username', req.body.username, { expires: time })
+                        }
                         res.send('登录成功')
                     } else {
                         res.send('密码不正确')

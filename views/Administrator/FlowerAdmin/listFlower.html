@@ -1,0 +1,76 @@
+{{include '../header.html'}}
+<style>
+    .btn{
+        display: inline-block;
+    }
+    table{
+        margin-top: 55px !important;
+    }
+    th{
+        max-width: 300px;
+        min-width: 130px;
+        padding: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    table img{
+        width: 100px;
+        height: 100px;
+    }
+    th>button{
+        margin: 0 2px;
+    }
+</style>
+<div class="container btnBox">
+    <button type="button" class="btn btn-primary pull-right" data-toggle="button"> 添加图书</button>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>图片</th>
+                <th>商品名称</th>
+                <th>商品信息</th>
+                <th>最新价格</th>
+                <th>曾经价格</th>
+                <th>商品抬头</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each data item}}
+            <tr>
+                <th><img src="{{item.img[0]}}" alt=""></th>
+                <th>{{item.h}}</th>
+                <th>{{item.title}}</th>
+                <th>{{item.price}}</th>
+                <th>{{item.oldPrice}}</th>
+                <th>{{item.top}}</th>
+                <th>
+                    <button type="button" class="btn btn-primary pull-right updateShop" data-toggle="button" data-id="{{item.id}}">修改</button>
+                    <button type="button" class="btn btn-danger pull-right removeShop" data-toggle="button" data-id="{{item.id}}">删除</button>
+                </th>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</div>
+    <script>
+        $('.btnBox>button').click(function(){
+            location.href='/addFlower'
+        })
+        $('.updateShop').click(function(){
+            location.href='/findShop?id='+$(this).data('id')
+        })
+        $('.removeShop').click(function(){
+            $.get('/admin/removeShop?id='+$(this).data('id'),(data)=>{
+                alert(data)
+                if(data=='删除成功'){
+                    location.reload()
+                }
+            })
+            
+        })
+    </script>
+</body>
+
+</html>
