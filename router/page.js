@@ -54,6 +54,7 @@ router.get('/monthly', (req, res) => {
 
         Flower.find({ page: 'monthly/list1' }, (err, data) => {
             if (!err) {
+
                 thisData.list1 = data
                 Flower.find({ page: 'monthly/list2' }, (err, data2) => {
                     if (!err) {
@@ -68,6 +69,7 @@ router.get('/monthly', (req, res) => {
                     }
 
                 })
+
             }
         })
     })
@@ -84,6 +86,7 @@ router.get('/fleshiness', (req, res) => {
     }
     Flower.find({ page: 'search/list1' }, (err, data) => {
         if (!err) {
+
             var result = []
             for (var i = 0; i < data.length; i += 3) {
                 result.push(data.slice(i, i + 3))
@@ -96,6 +99,7 @@ router.get('/fleshiness', (req, res) => {
                     res.render('fleshiness', thisData)
                 }
             })
+
         }
     })
 })
@@ -117,6 +121,7 @@ router.get('/moreF', (req, res) => {
     })
     // 家居生活
 router.get('/home', (req, res) => {
+
         let thisData = {
             flash: '',
             news: '',
@@ -134,7 +139,6 @@ router.get('/home', (req, res) => {
                     thisData.list = data
                     res.render('home', thisData)
                 })
-
             }
         })
     })
@@ -310,11 +314,13 @@ router.get('/register', (req, res) => {
 // 详情页
 router.get('/detailPage', (req, res) => {
 
+
     Flower.findOne({ _id: req.query.id }, (err, data) => {
         if (!err) {
             res.render('detailPage', { data })
         }
     })
+
 })
 
 // 用户编辑页面
@@ -415,7 +421,12 @@ router.get('/teacher', (req, res) => {
     //随花购
 
 router.get('/come_buy', (req, res) => {
-    res.render('mine/tools/come_buy')
+        res.render('mine/tools/come_buy')
+
+    })
+    //兑换
+router.get('/dh', (req, res) => {
+    res.render('mine/tools/dh')
 
 })
 
