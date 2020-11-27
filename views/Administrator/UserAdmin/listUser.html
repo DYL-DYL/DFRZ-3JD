@@ -1,5 +1,6 @@
 {{include '../header.html'}}
 <style>
+    
     .btn{
         display: inline-block;
     }
@@ -22,32 +23,23 @@
     }
 </style>
 <div class="container btnBox">
-    <button type="button" class="btn btn-primary pull-right" data-toggle="button">添加商品</button>
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>图片</th>
-                <th>商品页面</th>
-                <th>商品名称</th>
-                <th>商品信息</th>
-                <th>最新价格</th>
-                <th>曾经价格</th>
-                <th>商品抬头</th>
-                <th>操作</th>
+                <th>用户名</th>
+                <th>用户密码</th>
+                <th>用户电话</th>
+                <th style="text-align: right;padding-right: 20px;">操作</th>
             </tr>
         </thead>
         <tbody>
             {{each data item}}
             <tr>
-                <th><img src="{{item.img[0]}}" alt=""></th>
-                <th>{{item.page}}</th>
-                <th>{{item.h}}</th>
-                <th>{{item.title}}</th>
-                <th>{{item.price}}</th>
-                <th>{{item.oldPrice}}</th>
-                <th>{{item.top}}</th>
+                <th>{{item.username}}</th>
+                <th>{{item.psw}}</th>
+                <th>{{item.phone}}</th>
                 <th>
-                    <button type="button" class="btn btn-danger pull-right removeUser" data-toggle="button" data-id="{{item.id}}">删除</button>
+                    <button type="button" class="btn btn-danger pull-right  removeUser" data-toggle="button" data-id="{{item.id}}">删除</button>
                 </th>
             </tr>
             {{/each}}
@@ -57,6 +49,14 @@
 </div>
     <script>
         
+        
+        $('tr').each(function(index,item){
+            if($(item).children().eq(0).html()=='admin'){
+                $(item).children().eq(3).children().addClass('disabled')
+                $(item).children().eq(3).children().removeClass('removeUser')
+                $(item).children().eq(3).prepend('管理员账号，无法删除')
+            }
+        })
         $('.removeUser').click(function(){
             $.get('/admin/removeUser?id='+$(this).data('id'),(data)=>{
                 alert(data)
@@ -64,7 +64,6 @@
                     location.reload()
                 }
             })
-            
         })
     </script>
 </body>

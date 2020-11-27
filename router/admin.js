@@ -24,15 +24,7 @@ router.get('/addShop', (req, res) => {
     })
 })
 
-// 进行查询商品信息
-router.get('/findShop', (req, res) => {
-    Flower.findOne({_id:req.query.id},(err,data)=>{
-        if(!err){
-            console.log(data);
-            res.render('')
-        }
-    })
-})
+
 // 进行修改商品信息
 router.get('/updateShop', (req, res) => {
     req.query.banner=req.query.banner.split(',')
@@ -48,6 +40,19 @@ router.get('/updateShop', (req, res) => {
 // 进行删除商品信息
 router.get('/removeShop', (req, res) => {
     Flower.remove({ _id: req.query.id }, (err) => {
+        if (!err) {
+            res.send('删除成功')
+        } else {
+            console.log(err);
+            res.send('删除失败')
+        }
+    })
+})
+
+// 进行删除用户信息
+router.get('/removeUser', (req, res) => {
+    res.clearCookie('username')
+    User.remove({ _id: req.query.id }, (err) => {
         if (!err) {
             res.send('删除成功')
         } else {

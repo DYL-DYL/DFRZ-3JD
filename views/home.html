@@ -44,7 +44,7 @@
                 {{each item news}}
                 <div class="lb-box toDetail"  data-id="{{news.id}}">
                     <div class="img">
-                        <img src="{{items.img[0]}}" alt="">
+                        <img src="{{news.img[0]}}" alt="">
                         <div>NEW</div>
                     </div>
                     <div class="title">
@@ -71,8 +71,17 @@
 
 <div class="show_box">
     <h1>热卖专区</h1>
+<<<<<<< HEAD
+    {{each list item a}}
+=======
+<<<<<<< HEAD
+    {{each list item }}
+    <div class="list toDetail" data-id="home/{{item.id}}">
+=======
     {{each data.list item a}}
+>>>>>>> ed45edefa2e6d7bc987c0508b6fae2ba6fcebc69
     <div class="list toDetail" data-id="{{item.id}}">
+>>>>>>> dcc27ec9184926e7e1b4518aff8897bffda5f1ac
         <div class="list_img">
             <img src="{{item.img[0]}}" alt="">
             <p class="tips">{{item.top}}</p>
