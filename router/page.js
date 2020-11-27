@@ -421,7 +421,21 @@ router.get('/come_buy', (req, res) => {
 //兑换
 router.get('/dh', (req, res) => {
   res.render('mine/tools/dh')
-
 })
-
+//优惠
+router.get('/upgradelist', (req, res) => {
+  res.render('mine/tools/upgradelist')
+})
+//换购 
+router.get('/coupon', (req, res) => {
+  res.render('mine/tools/coupon')
+})
+//当日达订单
+router.get('/order_list', (req, res) => {
+  res.render('mine/tools/order_list')
+})
+//花卡
+router.get('/block', (req, res) => {
+  res.render('mine/tools/block')
+})
 module.exports = router
