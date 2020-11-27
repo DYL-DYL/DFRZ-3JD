@@ -61,7 +61,6 @@ router.get('/monthly', (req, res) => {
           Flower.find({ page: 'monthly/list3' }, (err, data3) => {
             if (!err) {
               thisData.list3 = data3
-              console.log(thisData)
               res.render('monthly', thisData)
             }
           })
@@ -92,7 +91,6 @@ router.get('/fleshiness', (req, res) => {
       Flower.find({ page: 'search/list2' }, (err, data2) => {
         if (!err) {
           thisData.hot = data2
-          console.log(thisData)
           res.render('fleshiness', thisData)
         }
       })
@@ -130,7 +128,6 @@ router.get('/home', (req, res) => {
         result.push(data.slice(i, i + 3))
       }
       thisData.news = result
-      console.log(thisData);
       Flower.find({ page: 'home/list' }, (err, data) => {
         thisData.list = data
         res.render('home', thisData)
@@ -314,11 +311,11 @@ router.get('/register', (req, res) => {
 // 详情页
 router.get('/detailPage', (req, res) => {
 
-    Flower.findOne({_id:req.query.id},(err,data)=>{
-        if(!err){
-            res.render('detailPage', {data})
-        }
-    })
+  Flower.findOne({ _id: req.query.id }, (err, data) => {
+    if (!err) {
+      res.render('detailPage', { data })
+    }
+  })
 })
 
 // 用户编辑页面
@@ -419,6 +416,11 @@ router.get('/teacher', (req, res) => {
 
 router.get('/come_buy', (req, res) => {
   res.render('mine/tools/come_buy')
+
+})
+//兑换
+router.get('/dh', (req, res) => {
+  res.render('mine/tools/dh')
 
 })
 
