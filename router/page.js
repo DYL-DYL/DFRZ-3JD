@@ -60,7 +60,6 @@ router.get('/monthly', (req, res) => {
                         Flower.find({ page: 'monthly/list3' }, (err, data3) => {
                             if (!err) {
                                 thisData.list3 = data3
-                                console.log(thisData)
                                 res.render('monthly', thisData)
                             }
                         })
@@ -90,7 +89,6 @@ router.get('/fleshiness', (req, res) => {
                 Flower.find({ page: 'search/list2' }, (err, data2) => {
                     if (!err) {
                         thisData.hot = data2
-                        console.log(thisData)
                         res.render('fleshiness', thisData)
                     }
                 })

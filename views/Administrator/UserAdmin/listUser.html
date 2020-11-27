@@ -1,4 +1,72 @@
 {{include '../header.html'}}
-    <h1>用户列表</h1>
+<style>
+    .btn{
+        display: inline-block;
+    }
+    table{
+        margin-top: 55px !important;
+    }
+    th{
+        max-width: 300px;
+        min-width: 130px;
+        padding: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    table img{
+        width: 100px;
+        height: 100px;
+    }
+    th>button{
+        margin: 0 2px;
+    }
+</style>
+<div class="container btnBox">
+    <button type="button" class="btn btn-primary pull-right" data-toggle="button">添加商品</button>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>图片</th>
+                <th>商品页面</th>
+                <th>商品名称</th>
+                <th>商品信息</th>
+                <th>最新价格</th>
+                <th>曾经价格</th>
+                <th>商品抬头</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{each data item}}
+            <tr>
+                <th><img src="{{item.img[0]}}" alt=""></th>
+                <th>{{item.page}}</th>
+                <th>{{item.h}}</th>
+                <th>{{item.title}}</th>
+                <th>{{item.price}}</th>
+                <th>{{item.oldPrice}}</th>
+                <th>{{item.top}}</th>
+                <th>
+                    <button type="button" class="btn btn-danger pull-right removeUser" data-toggle="button" data-id="{{item.id}}">删除</button>
+                </th>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+</div>
+    <script>
+        
+        $('.removeUser').click(function(){
+            $.get('/admin/removeUser?id='+$(this).data('id'),(data)=>{
+                alert(data)
+                if(data=='删除成功'){
+                    location.reload()
+                }
+            })
+            
+        })
+    </script>
 </body>
+
 </html>
