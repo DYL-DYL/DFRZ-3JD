@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            font-size: 14px;
+            min-width: 320px;
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: #fff;
+            background-image: url(./imges/我的/小工具/bg1.jpg), url(./imges/我的/小工具/bg2.jpg);
+            background-size: 100% auto, 100% auto;
+            background-repeat: no-repeat, no-repeat;
+            background-position: center top, center bottom;
+            background-attachment: fixed;
+        }
+
+        .top {
+            display: flex;
+        }
+
+        .add-btn {
+            width: 18vw;
+            height: 18vw;
+            background: url("./imges/我的/小工具/add.jpg") center no-repeat;
+            background-size: 100% auto;
+        }
+
+        .run-btn {
+            width: 18vw;
+            height: 18vw;
+            background: url("./imges/我的/小工具/rule.jpg") center no-repeat;
+            background-size: 100% auto;
+        }
+        .pic{
+            margin-top: 2.667vw;
+            color: rgba(255,255,255,0.80);
+            letter-spacing: 0.33px;
+            text-align: center;
+        }
+        .pic img{
+            display: block;
+            width: 21.324vw;
+            margin: 0 auto 5.6vw;
+        }
+        .p1{
+            font-size: 4vw;
+            height: 5.6vw;
+            font-family: PingFangTC-Medium,PingFangTC;
+            color: rgba(255,255,255,1);
+            text-align: center;
+        }
+        .p2{
+            margin-top: 2vw;
+            font-size: 3.467vw;
+            height: 5vw;
+            font-family: PingFangTC-Regular,PingFangTC;
+            font-weight: 400;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            line-height: 5vw;
+        }
+        .rule-btn{
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 16vw;
+            width: 26vw;
+            height: 4.467vw;
+            font-size: 3.467vw;
+            color: rgba(255,108,108,1);
+            border-bottom: 1px solid rgba(255, 108, 108, 0.5);
+            line-height: 5vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <p class="add-btn"></p>
+        <p class="run-btn"></p>
+    </div>
+
+    <div class="pic">
+        <img src="./imges/我的/小工具/mone.jpg" alt="">
+        <p class="p1">点击左上角  “+”  绑定新卡</p>
+        <p class="p2">你暂无可用的礼品卡</p>
+        <p class="rule-btn">查看礼品卡规则</p>
+    </div>
+</body>
+
+</html>
