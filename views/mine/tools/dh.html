@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <!-- <script src="./bootstrap-3.3.7-dist/js/bootstrap.min.js"></script> -->
+    <script src="./bootstrap-3.3.7-dist/js/jquery-3.1.1.js"></script>
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/framework7/1.6.5/css/framework7.ios.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/framework7/1.6.5/css/framework7.ios.colors.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        p{
+            margin: 0;
+        }
+        body{
+            height: auto !important;
+        }
+        .warning_tips {
+            padding: 15px 10px;
+            font-size: 12px;
+            line-height: 18px;
+            color: #ff6269;
+            background-color: #FFE3E5;
+        }
+
+        .pic {
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        .en {
+            font-weight: normal;
+            color: #999;
+            margin-left: 5px;
+        }
+        label {
+            margin-bottom: 8px;
+        }
+
+        .form-control[disabled] {
+            background-color: #fff !important;
+        }
+
+        #location {
+            background: none;
+        }
+
+        .picker-modal-inner {
+            background: white !important;
+        }
+        .dh-but{
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            border-radius: 30px;
+            height: 45px;
+            line-height: 45px;
+            background: #fba5b2;
+            border: 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warning_tips">
+        <p>重要通知:</p>
+        <p>受天气影响，东北，西北11月28日起即将暂停鲜花、绿植、花市等产品的配送，预计明年3月初起恢复收货，感谢您的理解！</p>
+    </div>
+    <div class="pic">
+        <img src="./imges/我的/小工具/dh.jpg" alt="">
+    </div>
+
+    <form class="form" role="form">
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">兑换码<span class="en">Redemption Code</span></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="firstname">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">收花人<span class="en">Consignee</span></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="name">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">手机号码<span class="en">Mobile</span></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="phone" placeholder="座机格式:021-88888888">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">省/市/区<span class="en">Province /City
+                    /District</span></label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="location" name="location">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="name">详细地址<span class="en">Detail Address</span></label>
+            <div class="col-sm-10">
+                <textarea class="form-control" rows="3"></textarea>
+            </div>
+        </div>
+        <div class="form-group col-sm-10" style="margin-top: 30px;">
+             <button class=" dh-but">确认兑换<span class="en">(Confirm)</span></button>
+             <p style="margin-top: 8px; font-weight: normal;  text-align: center;">搜索并关注“花加”公众号，可享受更多优惠及服务 </p>
+             <p style="color:#337ab7; text-align: center; margin-top: 10px;">有效期查询</p>
+        </div>
+           
+    </form>
+
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="https://cdn.bootcss.com/framework7/1.6.5/js/framework7.min.js"></script>
+    <script src="data/regionsObject2.js"></script>
+    <script src="data/cityPicker.js"></script>
+</body>
+
+</html>

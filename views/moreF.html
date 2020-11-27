@@ -3,21 +3,19 @@
     <div class="top"><img src="./imges/首页-制物/topbanner.jpg" alt=""></div>
 
     <div class="show_box">
-        {{each data index a}}
-        {{each index item }}
-        <div class="list" data-id="moreF/{{a}}" class="toDetail">
+        {{each flash item a}}
+        <div class="list toDetail" data-id="moreF/{{a}}">
             <div class="list_img">
-                <img src="{{item.img}}" alt="">
+                <img src="{{item.img[0]}}" alt="">
                 <p class="tips">{{item.top}}</p>
             </div>
             <div class="title">
-                <p>{{item.title}}</p>
-                <p><span>{{item.newPrice}}</span>
+                <p>{{item.h}}</p>
+                <p><span>{{item.price}}</span>
                     <del class="old">{{item.oldPrice}}</del>
                 </p>
             </div>
         </div>
-        {{/each}}
         {{/each}}
     </div>
     <div class="ad"><img src="./imges/首页-制物/hot.png" alt=""></div>
@@ -36,8 +34,8 @@
         </p>
     </div>
     <script>
-    $('.toDetail').click(function(){
-        location.href='/detailPage?id=index/1-4'
+ $('.toDetail').click(function(){
+        location.href='/detailPage?id='+$(this).data("id")
     })
     </script>
 </body>

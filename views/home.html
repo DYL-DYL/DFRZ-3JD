@@ -39,17 +39,17 @@
     <h1>新品推荐</h1>
     <div class="swiper-container swiper-container-initialized swiper-container-horizontal">
         <ul id="swiper-wrapper-5166ce487d6f5cbe" class="swiper-wrapper" aria-live="polite">
-            {{each data.new item index}}
+            {{each news datas}}
             <li class="swiper-slide" role="group" aria-label="({{index}}+1) /3"  >
                 {{each item news}}
                 <div class="lb-box toDetail"  data-id="{{news.id}}">
                     <div class="img">
-                        <img src="{{news.img}}" alt="">
+                        <img src="{{items.img[0]}}" alt="">
                         <div>NEW</div>
                     </div>
                     <div class="title">
-                        <p>{{news.title}}</p>
-                    <p><span>￥{{news.newPrice}}</span><del class="old">￥{{ news.oldPrice}}</del></p>
+                        <p>{{items.h}}</p>
+                    <p><span>￥{{items.price}}</span><del class="old">￥{{ items.oldPrice}}</del></p>
                     </div>
                     
                 </div>
@@ -74,14 +74,14 @@
     {{each data.list item a}}
     <div class="list toDetail" data-id="{{item.id}}">
         <div class="list_img">
-            <img src="{{item.img}}" alt="">
+            <img src="{{item.img[0]}}" alt="">
             <p class="tips">{{item.top}}</p>
         </div>
         <div class="title">
-            <p>{{item.title}}</p>
-            <p><span>￥{{item.newPrice}}</span>
+            <p>{{item.h}}</p>
+            <p><span>￥{{item.price}}</span>
                 <del class="old">￥{{item.oldPrice}}</del>
-                <span class=" num">月售{{item.num}}</span>
+                <span class=" num">月售{{item.count}}</span>
             </p>
         </div>
     </div>
@@ -160,8 +160,6 @@
 
     });
     $('.toDetail').click(function(){
-        console.log($(this));
-        console.log($(this).data("id"));
         location.href='/detailPage?id='+$(this).data("id")
     })
 </script>

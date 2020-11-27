@@ -52,15 +52,17 @@ var Fleshiness = mongoose.model('tab', fleshinessSchema)
 
 
 var flower = new mongoose.Schema({
-    page: String,
-    h: String,
-    title: String,
-    price: String,
-    oldPrice: String,
-    count: String,
-    banner: Array,
-    img: Array,
-    top: String
+
+    page:String,
+    h:String,
+    title:String,
+    price:String,
+    oldPrice:String,
+    banner:Array,
+    img:Array,
+    top:String,
+    num:Number
+
 })
 var Flower = mongoose.model('flower', flower)
 
