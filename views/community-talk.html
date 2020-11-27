@@ -1,4 +1,5 @@
 {{include './community-common.html'}}
+
 <style>
     body {
         background-color: white;
@@ -18,6 +19,11 @@
     
     textarea::placeholder {
         color: #c7c7c7;
+    }
+    
+    .photo {
+        width: 30vw;
+        height: 30vw;
     }
     
     .upload {
@@ -122,62 +128,59 @@
         border: .1vw solid #FF6772;
     }
     
-    .showTalk {
+    #tip {
         margin-top: 2vh;
-        height: 3vh;
-    }
-    
-    .showTalk span {
-        display: inline-block;
-        line-height: 3vh;
-        font-size: 4vw;
-        margin-left: 2vw;
-        background-color: #fdeeef;
-        color: red;
-        padding: 0 3vw;
-        border-radius: 2vw;
+        border: none;
+        background: none;
+        font-size: 3.5vw;
+        outline: none;
     }
 </style>
 
-<div class="container" enctype="multipart/form-data">
-    <form action="">
-        <textarea name="" id="" cols="30" rows="10" placeholder="记录这一刻的想法......"></textarea>
+<div class="container">
+    <form action="" enctype="multipart/form-data">
+        <textarea name="msg" id="" cols="30" rows="10" placeholder="记录这一刻的想法......" required></textarea>
 
         <div class="photo">
             <div class="upload">
                 <i class="glyphicon glyphicon-picture"><img  src=""></img></i>
-                <input type="file" name="photo" id="" accept="image/*" style="display: none;">
+                <input type="file" name="photo" id="" accept="image/*" style="display: none;" required>
             </div>
+        </div>
 
+        <div>
+            <input type="text" name="tip" id="tip">
+        </div>
+
+        <div class="addTalk">
+            <p><img src="/imges/社区-首页/talk.svg" alt=""><span>添加话题</span><span>选择合适的话题能被更多人看到哦</span></p>
+            <ul class="list">
+                <li>#旅途手记</li>
+                <li>#森林瓜友会·打卡领券</li>
+                <li>#养护咨询</li>
+                <li>#今日份美食</li>
+                <li>#心水好物</li>
+                <li>#收花打卡</li>
+                <li>#植物点亮空间</li>
+                <li>#一起来插话</li>
+                <li>#花草研究所</li>
+                <li>#植物星球</li>
+                <li>#网红店找草记</li>
+                <li>宠物萌图</li>
+                <li>#小日子</li>
+            </ul>
+            <section>
+                <img src="/imges/社区-首页/location.svg" alt=""><span>显示所在城市</span>
+            </section>
+        </div>
+        <div class="btn">
+            <button type="button">存草稿</button>
+            <button type="submit">发布</button>
         </div>
     </form>
-    <div class="addTalk">
-        <div class="showTalk"><span></span></div>
-        <p><img src="/imges/社区-首页/talk.svg" alt=""><span>添加话题</span><span>选择合适的话题能被更多人看到哦</span></p>
-        <ul class="list">
-            <li>#旅途手记</li>
-            <li>#森林瓜友会·打卡领券</li>
-            <li>#养护咨询</li>
-            <li>#今日份美食</li>
-            <li>#心水好物</li>
-            <li>#收花打卡</li>
-            <li>#植物点亮空间</li>
-            <li>#一起来插话</li>
-            <li>#花草研究所</li>
-            <li>#植物星球</li>
-            <li>#网红店找草记</li>
-            <li>宠物萌图</li>
-            <li>#小日子</li>
-        </ul>
-        <section>
-            <img src="/imges/社区-首页/location.svg" alt=""><span>显示所在城市</span>
-        </section>
-    </div>
 
-    <div class="btn">
-        <button type="button">存草稿</button>
-        <button type="button">发布</button>
-    </div>
+
+
 
 </div>
 
@@ -194,7 +197,10 @@
         var file = $(this)[0].files[0]
         if (file.type.startsWith('image')) {
             var url = URL.createObjectURL(file)
-            $(this).prev().find('img').attr('src', url).removeClass().css('width', '100%')
+            $(this).prev().find('img').attr('src', url).removeClass().css({
+                'width': '30vw',
+                'height': "30vw"
+            })
             $(this).prev().removeClass()
         } else {
             alert('请选择一张正确图片')
@@ -211,6 +217,20 @@
             'color': '#666666',
             'border': '1px solid #666666'
         })
-        $('.showTalk').find('span').text($(this).text())
+        $('#tip').val($(this).text())
+    })
+
+    $('form').submit(function(e) {
+        e.preventDefault()
+
+        $.ajax({
+            method: 'post',
+            data: new FormData(this),
+            url: '/addTalk',
+            processData: false,
+            contentType: false
+        }).done(function(data) {
+            location.href = '/community'
+        })
     })
 </script>
