@@ -44,7 +44,7 @@
                 {{each item news}}
                 <div class="lb-box toDetail"  data-id="{{news.id}}">
                     <div class="img">
-                        <img src="{{items.img[0]}}" alt="">
+                        <img src="{{news.img[0]}}" alt="">
                         <div>NEW</div>
                     </div>
                     <div class="title">
@@ -71,7 +71,7 @@
 
 <div class="show_box">
     <h1>热卖专区</h1>
-    {{each data.list item a}}
+    {{each list item a}}
     <div class="list toDetail" data-id="{{item.id}}">
         <div class="list_img">
             <img src="{{item.img[0]}}" alt="">

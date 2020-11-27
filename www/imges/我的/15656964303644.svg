@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="68px" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.1 (78136) - https://sketchapp.com -->
+    <title>展开</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="15" cy="15" r="15"></circle>
+        <filter x="-120.0%" y="-80.0%" width="340.0%" height="340.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="12" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.582937047   0 0 0 0 0.481456238   0 0 0 0 0.481456238  0 0 0 0.0739455857 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="会员体系" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="会员中心" transform="translate(-321.000000, -1601.000000)">
+            <g id="展开" transform="translate(340.000000, 1608.000000)">
+                <g id="椭圆形">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <g id="chevron-arrow-down" transform="translate(8.000000, 12.000000)" fill="#F9E4DD" fill-rule="nonzero">
+                    <path d="M12.691204,1.02648305 L12.0655167,0.339015152 C11.8486932,0.113026451 11.5954548,0 11.306386,0 C11.0113552,0 10.761127,0.113026451 10.5552923,0.339015152 L6.50002922,4.793368 L2.4447954,0.339143554 C2.23898988,0.113154854 1.98870324,0.000128402671 1.69378937,0.000128402671 C1.40457445,0.000128402671 1.1513945,0.113154854 0.934541767,0.339143554 L0.317066755,1.02661145 C0.105649951,1.25866718 0,1.53675526 0,1.8606189 C0,2.19051746 0.105766853,2.46545968 0.31703753,2.68538136 L5.74899397,8.65177196 C5.94933433,8.88385978 6.19953329,9 6.5,9 C6.7948262,9 7.04797692,8.88389188 7.25918915,8.65177196 L12.6911748,2.68538136 C12.8970096,2.45926425 13,2.18435413 13,1.8606189 C13,1.54279019 12.8970388,1.26486261 12.691204,1.02648305 Z" id="路径"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
