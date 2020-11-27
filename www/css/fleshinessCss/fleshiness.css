@@ -89,8 +89,12 @@ header {
     justify-content: space-between;
 }
 
-.activity>div img {
+.activity>div>section {
     width: 49%;
+}
+
+.activity>div>section img {
+    width: 100%;
 }
 
 

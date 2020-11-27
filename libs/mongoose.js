@@ -53,25 +53,29 @@ var Fleshiness = mongoose.model('tab', fleshinessSchema)
 
 var flower = new mongoose.Schema({
 
-    page:String,
-    h:String,
-    title:String,
-    price:String,
-    oldPrice:String,
-    banner:Array,
-    img:Array,
-    top:String,
-    num:Number
+    page: String,
+    h: String,
+    title: String,
+    price: String,
+    oldPrice: String,
+    banner: Array,
+    img: Array,
+    top: String,
+    num: Number
 
 })
 var Flower = mongoose.model('flower', flower)
 
 var snsInfoSchema = new mongoose.Schema({
-    img: String,
+    pic: String,
     msg: String,
     userPic: String,
-    name: String,
-    time: String
+    username: String,
+    time: String,
+    like: String,
+    star: String,
+    tip: String,
+    attention: Array
 })
 var Snsinfo = mongoose.model('snsinfo', snsInfoSchema)
 
