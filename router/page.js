@@ -158,6 +158,7 @@ router.get('/community', (req, res) => {
         Snsinfo.find({}, (err, data) => {
             if (!err) {
                 // console.log(data)
+                data = data.reverse()
                 res.render('community', { data })
             }
         })
