@@ -368,111 +368,112 @@ router.get('/buyafter', (req, res) => {
     // 购物车-已完成
 router.get('/buyend', (req, res) => {
 
-    res.render('mine/userCar/buyend')
-})
-// 我的会员中心
+        res.render('mine/userCar/buyend')
+    })
+    // 我的会员中心
 router.get('/mineMember', (req, res) => {
 
-  res.render('mine/mineMember')
+    res.render('mine/mineMember')
 })
 
 // 管理员登录页面
 router.get('/admin', (req, res) => {
-  res.render('Administrator/admin')
-})
-// 管理鲜花
+        res.render('Administrator/admin')
+    })
+    // 管理鲜花
 router.get('/listFlower', (req, res) => {
-  let flag = false
-  if (req.headers.cookie != null) {
-    req.headers.cookie.split(';').forEach(data => {
-      var parts = data.split('=');
-      if (parts[0] == 'admin') {
-        flag = true
-      }
+        let flag = false
+        if (req.headers.cookie != null) {
+            req.headers.cookie.split(';').forEach(data => {
+                var parts = data.split('=');
+                if (parts[0] == 'admin') {
+                    flag = true
+                }
 
-    });
-  }
-  if (flag) {
-    Flower.find((err, data) => {
-      if (!err) {
-        res.render('Administrator/FlowerAdmin/listFlower', { data })
-      }
+            });
+        }
+        if (flag) {
+            Flower.find((err, data) => {
+                if (!err) {
+                    res.render('Administrator/FlowerAdmin/listFlower', { data })
+                }
+            })
+        } else {
+            res.render('Administrator/admin')
+        }
+
     })
-  } else {
-    res.render('Administrator/admin')
-  }
-  
-})
-// 添加鲜花
+    // 添加鲜花
 router.get('/addFlower', (req, res) => {
-  let flag = false
-  if (req.headers.cookie != null) {
-    req.headers.cookie.split(';').forEach(data => {
-      var parts = data.split('=');
-      if (parts[0] == 'admin') {
-        flag = true
-      }
+        let flag = false
+        if (req.headers.cookie != null) {
+            req.headers.cookie.split(';').forEach(data => {
+                var parts = data.split('=');
+                if (parts[0] == 'admin') {
+                    flag = true
+                }
 
-    });
-  }
-  if (flag) {
-    res.render('Administrator/FlowerAdmin/addFlower')
-  } else {
-    res.render('Administrator/admin')
-  }
-  
-})
-// 管理用户
+            });
+        }
+        if (flag) {
+            res.render('Administrator/FlowerAdmin/addFlower')
+        } else {
+            res.render('Administrator/admin')
+        }
+
+    })
+    // 管理用户
 router.get('/listUser', (req, res) => {
-  var flag = false
-  if (req.headers.cookie != null) {
-    req.headers.cookie.split(';').forEach(data => {
-      var parts = data.split('=');
-      if (parts[0] == 'admin') {
-        flag = true
-      }
+        var flag = false
+        if (req.headers.cookie != null) {
+            req.headers.cookie.split(';').forEach(data => {
+                var parts = data.split('=');
+                if (parts[0] == 'admin') {
+                    flag = true
+                }
 
-    });
-  }
-  if (flag) {
-    User.find((err, data) => {
-      if (!err) {
-        res.render('Administrator/UserAdmin/listUser', { data })
-      }
+            });
+        }
+        if (flag) {
+            User.find((err, data) => {
+                if (!err) {
+                    res.render('Administrator/UserAdmin/listUser', { data })
+                }
+            })
+        } else {
+            res.render('Administrator/admin')
+        }
+
     })
-  } else {
-    res.render('Administrator/admin')
-  }
-
-})
-// 修改商品
+    // 修改商品
 router.get('/findShop', (req, res) => {
-  var flag = false
-  if (req.headers.cookie != null) {
-    req.headers.cookie.split(';').forEach(data => {
-      var parts = data.split('=');
-      if (parts[0] == 'admin') {
-        flag = true
-      }
+    var flag = false
+    if (req.headers.cookie != null) {
+        req.headers.cookie.split(';').forEach(data => {
+            var parts = data.split('=');
+            if (parts[0] == 'admin') {
+                flag = true
+            }
 
-    });
-  }
-  if (flag) {
-    Flower.findOne({ _id: req.query.id }, (err, data) => {
-      if (!err) {
-        res.render('Administrator/FlowerAdmin/updateFlower', { data })
-      }
-    })
-  } else {
-    res.render('Administrator/admin')
-  }
+        });
+    }
+    if (flag) {
+        Flower.findOne({ _id: req.query.id }, (err, data) => {
+            if (!err) {
+                res.render('Administrator/FlowerAdmin/updateFlower', { data })
+            }
+        })
+    } else {
+        res.render('Administrator/admin')
+    }
 })
 router.get('/snsContent', (req, res) => {
-        // console.log(req.query)
-        Snsinfo.find({ username: req.query.username }, (err, data) => {
+        console.log(req.query)
+        Snsinfo.find({ time: req.query.time }, (err, data) => {
+            console.log(data)
             if (!err) {
                 res.render('snsContent', { data: data[0] })
-                    // console.log(data)
+                console.log(data)
             }
         })
     })
@@ -493,22 +494,22 @@ router.get('/come_buy', (req, res) => {
     })
     //兑换
 router.get('/dh', (req, res) => {
-  res.render('mine/tools/dh')
-})
-//优惠
+        res.render('mine/tools/dh')
+    })
+    //优惠
 router.get('/upgradelist', (req, res) => {
-  res.render('mine/tools/upgradelist')
-})
-//换购 
+        res.render('mine/tools/upgradelist')
+    })
+    //换购 
 router.get('/coupon', (req, res) => {
-  res.render('mine/tools/coupon')
-})
-//当日达订单
+        res.render('mine/tools/coupon')
+    })
+    //当日达订单
 router.get('/order_list', (req, res) => {
-  res.render('mine/tools/order_list')
-})
-//花卡
+        res.render('mine/tools/order_list')
+    })
+    //花卡
 router.get('/block', (req, res) => {
-  res.render('mine/tools/block')
+    res.render('mine/tools/block')
 })
 module.exports = router
