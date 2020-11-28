@@ -44,7 +44,18 @@
                     <section class="cet" data-id="{{item.time}}"><img src="/{{item.pic}}" alt="" class="show"> {{if item.tip}}
                         <span class="tip">{{item.tip}}</span> {{/if}}
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.username}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
+                        <p class="user">
+                            <img src="{{item.userPic}}" alt="">
+                            <span>{{item.username}}</span>
+                            <span>
+                                {{if item.istrue}}
+                                <img class="like" src="/imges/社区-首页/like.svg" data-id="{{item.id}}"> 
+                                {{else}}
+                                <img class="like" src="/imges/社区-首页/like.png" data-id="{{item.id}}">
+                                {{/if}}
+                                <i>{{item.likeNum}}</i>
+                            </span>
+                        </p>
                     </section>
                     {{/if}} {{/each}}
                 </div>
@@ -54,7 +65,18 @@
                     <section class="cet" data-id="{{item.time}}"><img src="/{{item.pic}}" alt="" class="show"> {{if item.tip}}
                         <span class="tip">{{item.tip}}</span> {{/if}}
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.username}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
+                        <p class="user">
+                            <img src="{{item.userPic}}" alt="">
+                            <span>{{item.username}}</span>
+                            <span>
+                                {{if item.istrue}}
+                                <img class="like" src="/imges/社区-首页/like.svg" data-id="{{item.id}}"> 
+                                {{else}}
+                                <img class="like" src="/imges/社区-首页/like.png" data-id="{{item.id}}">
+                                {{/if}}
+                                <i>{{item.like}}</i>
+                            </span>
+                        </p>
                     </section>
                     {{/if}} {{/each}}
                 </div>
@@ -69,7 +91,17 @@
                     <section class="cet" data-id="{{item.time}}"><img src="/{{item.pic}}" alt="" class="show"> {{if item.tip}}
                         <span class="tip">{{item.tip}}</span> {{/if}}
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.username}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
+                        <p class="user">
+                            <img src="{{item.userPic}}" alt="">
+                            <span>{{item.username}}</span>
+                            <span>
+                                {{if item.istrue}}
+                                <img class="like" src="/imges/社区-首页/like.svg" data-id="{{item.id}}"> 
+                                {{else}}
+                                <img class="like" src="/imges/社区-首页/like.png" data-id="{{item.id}}">
+                                {{/if}}
+                                <i>{{item.likeNum}}</i>
+                            </span></p>
                     </section>
                     {{/if}} {{/each}}
                 </div>
@@ -79,7 +111,18 @@
                     <section class="cet" data-id="{{item.time}}"><img src="/{{item.pic}}" alt="" class="show"> {{if item.tip}}
                         <span class="tip">{{item.tip}}</span> {{/if}}
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.username}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
+                        <p class="user">
+                            <img src="{{item.userPic}}" alt="">
+                            <span>{{item.username}}</span>
+                            <span>
+                                {{if item.istrue}}
+                                <img class="like" src="/imges/社区-首页/like.svg" data-id="{{item.id}}"> 
+                                {{else}}
+                                <img class="like" src="/imges/社区-首页/like.png" data-id="{{item.id}}">
+                                {{/if}}
+                                <i>{{item.likeNum}}</i>
+                            </span>
+                        </p>
                     </section>
                     {{/if}} {{/each}}
                 </div>
@@ -98,7 +141,22 @@
                         <img src="{{item.pic}}" alt=""> {{if item.tip}}
                         <span class="tip">{{item.tip}}</span>{{/if}}
                         <p class="msg">{{item.msg}}</p>
-                        <p>{{item.showTime}}<span><img class="star" src="/imges/社区-首页/star.png" alt=""><sup>{{item.star}}</sup></span><span><img class="like" src="/imges/社区-首页/like.png" alt=""><sup>{{item.like}}</sup></span></p>
+                        <p>{{item.showTime}}
+                            <span>
+                                <img class="star" src="/imges/社区-首页/star.png" alt="">
+                                <sup>{{item.star}}</sup>
+                            </span>
+                            <span>
+                                {{if item.istrue}}
+                                <img class="like" src="/imges/社区-首页/like.svg" data-id="{{item.id}}"> 
+                                {{else}}
+                                <img class="like" src="/imges/社区-首页/like.png" data-id="{{item.id}}">
+                                {{/if}}
+                                
+                                <sup>{{item.likeNum}}</sup>
+                            </span>
+                        </p>
+
                         <p>添加评论....</p>
                     </li>
                     {{/each}}
@@ -114,6 +172,7 @@
 
 
     <script src='/data/communityData.js'></script>
+    <script src="/bootstrap-3.3.7-dist/js/jquery.cookie.js"></script>
     <script>
         $(topUser).each(function(index, item) {
             str = `<li>
@@ -162,6 +221,12 @@
 
 
         $('.like').click(function() {
+            $.get('/addLike', {
+                addName: $.cookie('username'),
+                id: $(this).data('id')
+            }, (data) => {
+                console.log(data);
+            })
             if ($(this).attr('src') == "/imges/社区-首页/like.svg") {
                 $(this).attr('src', "/imges/社区-首页/like.png")
                 $(this).next().text($(this).next().text() * 1 - 1)
@@ -171,11 +236,12 @@
                 $(this).next().text($(this).next().text() * 1 + 1)
             }
 
+
         })
 
         $('.cet').find('.show').click(function() {
-            location.href = '/snsContent?time=' + $(this).parent().data('id')
-                // console.log($(this).parent().parent())
+            location.href = '/snsContent?time=' + $(this).parent().data('id') + '&nowUser=' + $.cookie('username')
+
         })
 
         // $(window).scroll(function() {

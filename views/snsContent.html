@@ -107,15 +107,93 @@
     <div class="container">
         <ul class="show">
             <li>
-                <p class="user"><img class="userPic" src="{{data.userPic}}"><span class="username">{{data.username}}</span><span class="attention">关注</span></p>
+                <p class="user"><img class="userPic" src="{{data.userPic}}"><span class="username">{{data.username}}</span><span class="attention" data-User="{{data.username}}">关注</span></p>
                 <img src="{{data.pic}}" alt=""> {{if data.tip}}
                 <span class="tip">{{data.tip}}</span> {{/if}}
                 <p class="msg">{{data.msg}}</p>
-                <p class="time">{{data.showTime}}<span><img class="star" src="/imges/社区-首页/star.png" alt=""><sup>{{data.star}}</sup></span><span><img class="like" src="/imges/社区-首页/like.png" alt=""><sup>{{data.like}}</sup></span></p>
+
+                <p class="time">{{data.showTime}}
+                    <span>
+                        {{if data.isStarTrue}}
+                        <img class="star" src="/imges/社区-首页/star.svg" alt="" data-id="{{data.id}}">
+                        {{else}}
+                        <img class="star" src="/imges/社区-首页/star.png" alt="" data-id="{{data.id}}">
+                        {{/if}}
+                        
+                        <sup>{{data.starNum}}</sup>
+                    </span>
+                    <span>
+                        {{if data.istrue}}
+                        <img class="like" src="/imges/社区-首页/like.svg" data-id="{{data.id}}">
+                        {{else}}
+                        <img class="like" src="/imges/社区-首页/like.png" data-id="{{data.id}}">
+                        {{/if}}
+
+                        <sup>{{data.likeNum}}</sup>
+                    </span>
+                </p>
+
                 <p class="commit">添加评论....</p>
             </li>
         </ul>
     </div>
+    <script src="/bootstrap-3.3.7-dist/js/jquery.cookie.js"></script>
+    <script>
+        $('.like').click(function() {
+            $.get('/addLike', {
+                addName: $.cookie('username'),
+                id: $(this).data('id')
+            }, (data) => {
+                console.log(data);
+            })
+            if ($(this).attr('src') == "/imges/社区-首页/like.svg") {
+                $(this).attr('src', "/imges/社区-首页/like.png")
+                $(this).next().text($(this).next().text() * 1 - 1)
+
+            } else {
+                $(this).attr('src', "/imges/社区-首页/like.svg")
+                $(this).next().text($(this).next().text() * 1 + 1)
+            }
+
+
+        })
+
+        $('.star').click(function() {
+            $.get('/addStar', {
+                addName: $.cookie('username'),
+                id: $(this).data('id')
+            }, (data) => {
+                console.log(data);
+            })
+            if ($(this).attr('src') == "/imges/社区-首页/star.svg") {
+                $(this).attr('src', "/imges/社区-首页/star.png")
+                $(this).next().text($(this).next().text() * 1 - 1)
+
+            } else {
+                $(this).attr('src', "/imges/社区-首页/star.svg")
+                $(this).next().text($(this).next().text() * 1 + 1)
+            }
+
+
+        })
+        $.get('/isAttention', {
+            User: $('.attention').data('user'),
+            addName: $.cookie('username')
+        }, (data) => {
+            $('.attention').html(data)
+        })
+        $('.attention').click(function() {
+            $.get('/addPeople', {
+                User: $(this).data('user'),
+                addName: $.cookie('username')
+            }, (data) => {})
+            if ($(this).html() == '关注') {
+                $(this).html('已关注')
+            } else {
+                $(this).html('关注')
+            }
+        })
+    </script>
 </body>
 
 </html>

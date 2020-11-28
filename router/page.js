@@ -157,8 +157,17 @@ router.get('/mine', (req, res) => {
 router.get('/community', (req, res) => {
         Snsinfo.find({}, (err, data) => {
             if (!err) {
-                // console.log(data)
                 data = data.reverse()
+                data.forEach(function(item) {
+                    item.likeNum = item.like.length
+                    item.starNum = item.star.length
+                    if (item.like.indexOf(req.query.nowUser) == -1) {
+                        item.istrue = false
+                    } else {
+                        item.istrue = true
+                    }
+                })
+
                 res.render('community', { data })
             }
         })
@@ -300,12 +309,15 @@ router.get('/community/talk', (req, res) => {
     })
     //社区部分-我
 router.get('/community/me', (req, res) => {
-        Snsinfo.find({ username: req.cookies.username }, (err, data) => {
-            res.render('community-me', { data })
-            console.log(data)
-        })
+
+    Snsinfo.find({ username: req.cookies.username }, (err, data) => {
+        res.render('community-me', { data })
+        console.log(data)
     })
-    //社区部分-消息
+})
+
+
+//社区部分-消息
 router.get('/community/message', (req, res) => {
     res.render('community-message')
 })
@@ -471,12 +483,23 @@ router.get('/findShop', (req, res) => {
     }
 })
 router.get('/snsContent', (req, res) => {
-        console.log(req.query)
+
         Snsinfo.find({ time: req.query.time }, (err, data) => {
-            console.log(data)
             if (!err) {
+
+                data[0].likeNum = data[0].like.length
+                data[0].starNum = data[0].star.length
+                if (data[0].like.indexOf(req.query.nowUser) == -1) {
+                    data[0].istrue = false
+                } else {
+                    data[0].istrue = true
+                }
+                if (data[0].star.indexOf(req.query.nowUser) == -1) {
+                    data[0].isStarTrue = false
+                } else {
+                    data[0].isStarTrue = true
+                }
                 res.render('snsContent', { data: data[0] })
-                console.log(data)
             }
         })
     })

@@ -26,6 +26,7 @@
         </div>
     </div>
 </main>
+<script src="/bootstrap-3.3.7-dist/js/jquery.cookie.js"></script>
     <script>
         $('footer>div:nth-of-type(1)>i').css({
             background:'url(/imges/首页-推荐/nav-1b.png)',
@@ -40,7 +41,7 @@
             if(username==undefined){
                 location.href='/mine';
             }else{
-                location.href='/community'
+                location.href='/community?nowUser='+$.cookie('username')
             }
         })
         $('main>div:nth-of-type(2)').click(function(){
