@@ -75,7 +75,8 @@ var snsInfoSchema = new mongoose.Schema({
     like: String,
     star: String,
     tip: String,
-    attention: Array
+    attention: Array,
+    showTime: String
 })
 var Snsinfo = mongoose.model('snsinfo', snsInfoSchema)
 
