@@ -155,10 +155,15 @@ router.get('/mine', (req, res) => {
 })
 
 router.get('/community', (req, res) => {
+    let likeNum=0
+    let starNum=0
         Snsinfo.find({}, (err, data) => {
             if (!err) {
-                // console.log(data)
-                res.render('community', { data })
+                data.forEach(function(item){
+                    item.likeNum=item.like.length
+                    item.starNum=item.star.length
+                })
+                res.render('community', {data})
             }
         })
 

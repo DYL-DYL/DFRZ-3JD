@@ -42,7 +42,14 @@
                     <li class="cet" data-id="{{item.username}}"><img src="/{{item.pic}}" alt="" class="show"> {{if item.tip}}
                         <span class="tip">{{item.tip}}</span> {{/if}}
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.username}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
+                        <p class="user">
+                            <img src="{{item.userPic}}" alt="">
+                            <span>{{item.username}}</span>
+                            <span>
+                               
+                                <i>{{item.likeNum}}</i>
+                            </span>
+                        </p>
                     </li>
                     {{/each}}
                 </ul>
@@ -54,7 +61,13 @@
                     <li class="cet" data-id="{{item.username}}"><img src="/{{item.pic}}" alt="" class="show"> {{if item.tip}}
                         <span class="tip">{{item.tip}}</span> {{/if}}
                         <p class="msg">{{item.msg}}</p>
-                        <p class="user"><img src="{{item.userPic}}" alt=""><span>{{item.username}}</span><span><img class="like" src="/imges/社区-首页/heart.png"> <i>{{item.like}}</i></span></p>
+                        <p class="user">
+                            <img src="{{item.userPic}}" alt=""><span>{{item.username}}</span>
+                            <span>
+                                <img class="like" src="/imges/社区-首页/heart.png" data-id="{{item.id}}"> 
+                                <i>{{item.likeNum}}</i>
+                            </span>
+                        </p>
                     </li>
                     {{/each}}
                 </ul>
@@ -70,6 +83,7 @@
 
 
     <script src='/data/communityData.js'></script>
+    <script src="/bootstrap-3.3.7-dist/js/jquery.cookie.js"></script>
     <script>
         $(topUser).each(function(index, item) {
             str = `<li>
@@ -121,6 +135,9 @@
 
         var isChange2 = true
         $('.like').click(function() {
+            $.get('/addLike',{addName:$.cookie('username'),id:$(this).data('id')},(data)=>{
+                console.log(data);
+            })
             if (isChange2) {
                 $(this).attr('src', "/imges/社区-首页/like.svg")
                 $(this).next().text($(this).next().text() * 1 + 1)
@@ -132,7 +149,8 @@
                 isChange2 = !isChange2
                 return isChange2
             }
-
+            
+            
         })
 
         $('.cet').find('.show').click(function() {
@@ -150,6 +168,9 @@
         //     }
 
         // })
+        $.get('findLike',{nowUser:$.cookie('username')},(data)=>{
+            console.log(data);
+        })
     </script>
     </header>
 

@@ -27,8 +27,8 @@ var upload = multer({ storage })
 router.post('/addTalk', upload.single('photo'), (req, res) => {
     // console.log(req.body)
     req.body.time = Date.now()
-    req.body.like = 0
-    req.body.star = 0
+    req.body.like = []
+    req.body.star = []
     req.body.attention = ''
     req.body.username = req.cookies.username
     req.body.userPic = '/imges/社区-首页/list-user14.jpg'
@@ -43,7 +43,44 @@ router.post('/addTalk', upload.single('photo'), (req, res) => {
             res.send('发布失败')
         }
     }))
-
 })
-
+// 添加或删除点赞
+router.get('/addLike',  (req, res) => {
+    Snsinfo.findOne({_id:req.query.id},(err,data)=>{
+        if(!err){
+            let likeArr=data.like
+            if(likeArr.indexOf(req.query.addName)!=-1){
+                likeArr.splice(likeArr.indexOf(req.query.addName),1)
+                updateThis(likeArr,'删除')               
+            }else{
+                likeArr.push(req.query.addName)
+                updateThis(likeArr,'添加')       
+            }
+        }
+    })
+    function updateThis(likeArr,str){
+        Snsinfo.update({_id:req.query.id},{like:likeArr},(err)=>{
+            if(!err){
+                res.send(str+'成功')
+            }else{
+                res.send(str+'失败')
+            }
+        })
+    }
+})
+// 查询是否点赞
+router.get('/findLike',  (req, res) => {
+    Snsinfo.find((err,data)=>{
+        if(!err){
+            data.forEach(function(item){
+                if(item.like.indexOf(req.query.nowUser)==-1){
+                    item.istrue=false
+                }else{
+                    item.istrue=true
+                }
+            })
+        }
+    })
+    
+})
 module.exports = router

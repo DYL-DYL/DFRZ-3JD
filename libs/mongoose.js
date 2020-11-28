@@ -72,8 +72,8 @@ var snsInfoSchema = new mongoose.Schema({
     userPic: String,
     username: String,
     time: String,
-    like: String,
-    star: String,
+    like: Array,
+    star: Array,
     tip: String,
     attention: Array
 })
