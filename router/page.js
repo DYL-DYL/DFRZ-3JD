@@ -300,7 +300,10 @@ router.get('/community/talk', (req, res) => {
     })
     //社区部分-我
 router.get('/community/me', (req, res) => {
-        res.render('community-me')
+        Snsinfo.find({ username: req.cookies.username }, (err, data) => {
+            res.render('community-me', { data })
+            console.log(data)
+        })
     })
     //社区部分-消息
 router.get('/community/message', (req, res) => {

@@ -1,6 +1,7 @@
 var exp = require('express')
 var router = exp.Router()
 var multer = require('multer')
+var moment = require('moment')
 var fs = require('fs')
 var bodyparser = require('body-parser')
 var cookie = require('cookie-parser')
@@ -31,6 +32,7 @@ router.post('/addTalk', upload.single('photo'), (req, res) => {
     req.body.star = 0
     req.body.attention = ''
     req.body.username = req.cookies.username
+    req.body.showTime = moment(req.query.time).format('YYYY-MM-DD hh:mm:ss')
     req.body.userPic = '/imges/社区-首页/list-user14.jpg'
     var data = JSON.stringify(req.body)
     data = JSON.parse(data)
