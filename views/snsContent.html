@@ -13,34 +13,92 @@
             margin: 0;
             padding: 0;
         }
-        
+
         body {
             background-color: rgb(245, 245, 245);
         }
-        
+
         .show {
             width: 100%;
             list-style: none;
             margin-top: 2vh;
         }
-        
+
         .show li {
             background-color: white;
             padding: 2vw;
         }
-        
+
         .show li>img {
             width: 100%;
+            margin-bottom: 1.5vh;
         }
-        
+
         .userPic {
             width: 12vw;
             height: 12vw;
             border-radius: 6vw;
             margin-right: 3vw;
         }
-        
-        .show li .user {}
+
+        .show li .user .username {
+            font-size: 4vw;
+            margin-left: 1vw;
+        }
+
+        .show li .user .attention {
+            float: right;
+            display: inline-block;
+            padding: 1vw 4vw;
+            border: 1px solid #FF6772;
+            color: #FF6772;
+            font-size: 4vw;
+            border-radius: 4vw;
+            margin-top: 1vh;
+            margin-right: 3vw;
+        }
+
+        .show li .msg {
+            font-size: 4vw;
+            font-weight: 600;
+            margin-top: 1.5vh;
+            padding: 0 2vw;
+            margin-bottom: 2vh;
+        }
+
+        .show li .time {
+            padding-left: 2vw;
+        }
+
+        .show li .time>span {
+            float: right;
+            margin: 0 3vw;
+        }
+
+        .show li .time>span sup {
+            font-size: 3vw;
+            margin-left: 1vw;
+        }
+
+        .show li .time>span img {
+            width: 4vw;
+            height: 4vw;
+        }
+
+        .show li .tip {
+            font-size: 3vw;
+            background-color: rgb(253, 238, 239);
+            color: rgb(255, 103, 114);
+            padding: 1vw 2vw;
+            border-radius: 3vw;
+            /* margin-top: 3.5vh; */
+            margin-left: 2vw;
+        }
+
+        .show li .commit {
+            margin-top: 5vh;
+            padding-left: 2vw;
+        }
     </style>
 
 </head>
@@ -49,14 +107,81 @@
     <div class="container">
         <ul class="show">
             <li>
-                <p class="user"><img class="userPic" src="{{data.pic}}"><span>{{data.username}}</span><span>关注</span></p>
-                <img src="{{data.pic}}" alt="">
+                <p class="user"><img class="userPic" src="{{data.userPic}}"><span
+                        class="username">{{data.username}}</span><span class="attention" data-User="{{data.username}}">关注</span></p>
+                <img src="{{data.pic}}" alt=""> {{if data.tip}}
+                <span class="tip">{{data.tip}}</span> {{/if}}
                 <p class="msg">{{data.msg}}</p>
-                <p class="time">{{data.time}}</p>
+                <p class="time">{{data.time}}
+                    <span>
+                        {{if data.isStarTrue}}
+                        <img class="star" src="/imges/社区-首页/star.svg" alt="" data-id="{{data.id}}">
+                        {{else}}
+                        <img class="star" src="/imges/社区-首页/star.png" alt="" data-id="{{data.id}}">
+                        {{/if}}
+                        
+                        <sup>{{data.starNum}}</sup>
+                    </span>
+                    <span>
+                        {{if data.istrue}}
+                        <img class="like" src="/imges/社区-首页/like.svg" data-id="{{data.id}}">
+                        {{else}}
+                        <img class="like" src="/imges/社区-首页/like.png" data-id="{{data.id}}">
+                        {{/if}}
+
+                        <sup>{{data.likeNum}}</sup>
+                    </span>
+                </p>
                 <p class="commit">添加评论....</p>
             </li>
         </ul>
     </div>
+    <script src="/bootstrap-3.3.7-dist/js/jquery.cookie.js"></script>
+    <script>
+        $('.like').click(function () {
+            $.get('/addLike', { addName: $.cookie('username'), id: $(this).data('id') }, (data) => {
+                console.log(data);
+            })
+            if ($(this).attr('src') == "/imges/社区-首页/like.svg") {
+                $(this).attr('src', "/imges/社区-首页/like.png")
+                $(this).next().text($(this).next().text() * 1 - 1)
+
+            } else {
+                $(this).attr('src', "/imges/社区-首页/like.svg")
+                $(this).next().text($(this).next().text() * 1 + 1)
+            }
+
+
+        })
+
+        $('.star').click(function () {
+            $.get('/addStar', { addName: $.cookie('username'), id: $(this).data('id') }, (data) => {
+                console.log(data);
+            })
+            if ($(this).attr('src') == "/imges/社区-首页/star.svg") {
+                $(this).attr('src', "/imges/社区-首页/star.png")
+                $(this).next().text($(this).next().text() * 1 - 1)
+
+            } else {
+                $(this).attr('src', "/imges/社区-首页/star.svg")
+                $(this).next().text($(this).next().text() * 1 + 1)
+            }
+            
+
+        })
+        $.get('/isAttention',{User:$('.attention').data('user'),addName:$.cookie('username')},(data)=>{
+            $('.attention').html(data)
+        })
+        $('.attention').click(function(){
+            $.get('/addPeople',{User:$(this).data('user'),addName:$.cookie('username')},(data)=>{
+            })
+            if($(this).html()=='关注'){
+                $(this).html('已关注')
+            }else{
+                $(this).html('关注')
+            }
+        })
+    </script>
 </body>
 
 </html>

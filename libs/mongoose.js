@@ -25,7 +25,8 @@ var userSchema = new mongoose.Schema({
     money: String,
     haveChild: String,
     buyfor: String,
-    usefor: String
+    usefor: String,
+    attention: Array,
 })
 var User = mongoose.model('user', userSchema)
 
@@ -75,7 +76,7 @@ var snsInfoSchema = new mongoose.Schema({
     like: Array,
     star: Array,
     tip: String,
-    attention: Array
+    showTime: String
 })
 var Snsinfo = mongoose.model('snsinfo', snsInfoSchema)
 

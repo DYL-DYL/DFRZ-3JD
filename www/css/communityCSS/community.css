@@ -195,37 +195,25 @@ input:-moz-placeholder {
 /* 最新 */
 
 .news,
-.recommend {
+.recommend,
+.attention {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 8vh;
 }
 
-.news ul,
-.recommend ul {
-    margin-top: 1.5vh;
-    margin-bottom: 7vh;
-    /* display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start; */
+.left,
+.right {
+    width: 48%;
 }
 
 .cet {
-    width: 48%;
     background-color: white;
     padding-bottom: 1vw;
     border-radius: 2vw;
     margin-top: 2vh;
-}
-
-.cet:nth-of-type(2n) {
-    float: right;
-    margin-bottom: 2vh;
-}
-
-.cet:nth-of-type(2n-1) {
-    float: left;
 }
 
 .cet>img {
@@ -270,96 +258,64 @@ input:-moz-placeholder {
     width: 4vw;
 }
 
+
+/* 关注部分 */
+
 .show-card {
-    margin-top: 2vh;
-    margin-bottom: 9vh;
-    width: 100%;
+    list-style: none;
+    margin-bottom: 6vh;
 }
 
 .show-card li {
-    width: 100%;
+    padding: 2vw;
     background-color: white;
-    padding-bottom: 1vh;
-    margin-bottom: 2vh;
-    border-radius: 2vw;
+    margin-top: 1.5vh;
 }
 
 .show-card li>img {
     width: 100%;
+    margin-bottom: 1vh;
 }
 
-.show-card li p:nth-of-type(1) {
-    line-height: 12vw;
-    padding: 2vw;
-    margin: 0;
-}
-
-.show-card li p:nth-of-type(1) img {
+.show-card .userpic {
     width: 12vw;
     height: 12vw;
     border-radius: 6vw;
+    margin-right: 3vw;
 }
 
-.show-card li p:nth-of-type(1) span:nth-of-type(1) {
-    font-size: 4vw;
-    margin-left: 3vw;
-}
-
-.show-card li p:nth-of-type(1) span:nth-of-type(2) {
-    color: #F0A735;
-    font-size: 3.8vw;
-    margin-left: 3.5vw;
-}
-
-.show-card li>span {
-    display: inline-block;
-    background-color: #fdeeef;
-    color: #f25c62;
-    padding: 1vw 2vw;
-    font-size: 4vw;
-    margin-left: 3vw;
-    border-radius: 2vw;
-    margin-top: 2vh;
-    margin-bottom: 1.5vh;
-}
-
-.show-card li p:nth-of-type(2) {
+.show-card li p:nth-of-type(1) {
     padding: 0 2vw;
     font-size: 4vw;
-    margin-bottom: 2vh;
+}
+
+.show-card li .msg {
+    font-size: 4.5vw;
+    padding: 0 2vw;
+    font-weight: 600;
+}
+
+.show-card li .level {
+    font-size: 3.5vw;
+    color: wheat;
+    margin-left: 3vw;
 }
 
 .show-card li p:nth-of-type(3) {
-    padding: 0 2vw;
-    font-size: 4vw;
-    color: #c9c9c9;
+    font-size: 3.5vw;
 }
 
 .show-card li p:nth-of-type(3) span {
     float: right;
-    display: inline-block;
-    padding: 0 3vw;
+    margin: 0 3vw;
 }
 
 .show-card li p:nth-of-type(3) span sup {
-    margin-left: 1vw;
-    font-size: 3.5vw;
-    color: rgb(152, 152, 152);
+    font-size: 3vw;
+    margin-left: 2vw;
 }
 
 .show-card li p:nth-of-type(3) span img {
     width: 4vw;
     height: 4vw;
-}
-
-.show-card li .commit {
-    margin: 0 2vw 1vh;
-    padding: 2vw;
-    border-radius: 1vw;
-    background-color: #F4F4F4;
-}
-
-.show-card li .addCommit {
-    padding: 2vw 2vw 0;
-    font-size: 4vw;
 }

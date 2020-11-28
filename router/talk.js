@@ -68,15 +68,92 @@ router.get('/addLike',  (req, res) => {
         })
     }
 })
-// 查询是否点赞
-router.get('/findLike',  (req, res) => {
-    Snsinfo.find((err,data)=>{
+
+// 添加或删除收藏
+router.get('/addStar',  (req, res) => {
+    Snsinfo.findOne({_id:req.query.id},(err,data)=>{
+        if(!err){
+            let starArr=data.star
+            if(starArr.indexOf(req.query.addName)!=-1){
+                starArr.splice(starArr.indexOf(req.query.addName),1)
+                updateThis(starArr,'删除')               
+            }else{
+                starArr.push(req.query.addName)
+                updateThis(starArr,'添加')       
+            }
+        }
+    })
+    function updateThis(starArr,str){
+        Snsinfo.update({_id:req.query.id},{star:starArr},(err)=>{
+            if(!err){
+                res.send(str+'成功')
+            }else{
+                res.send(str+'失败')
+            }
+        })
+    }
+})
+// 添加或删除关注
+router.get('/addPeople',  (req, res) => {
+    User.findOne({username:req.query.User},(err,data)=>{
+        if(!err){
+            let userArr=data.attention
+            if(userArr.indexOf(req.query.addName)!=-1){
+                userArr.splice(userArr.indexOf(req.query.addName),1)
+                updateThis(userArr,'删除')               
+            }else{
+                userArr.push(req.query.addName)
+                updateThis(userArr,'添加')       
+            }
+        }
+    })
+    function updateThis(starArr,str){
+        User.update({username:req.query.User},{attention:starArr},(err)=>{
+            if(!err){
+                res.send(str+'成功')
+            }else{
+                res.send(str+'失败')
+            }
+        })
+    }
+})
+// 查看是否关注
+router.get('/isAttention',(req,res)=>{
+    User.findOne({username:req.query.User},(err,data)=>{
+        if(!err){
+            if(data.attention.indexOf(req.query.addName)==-1){
+                res.send('关注')
+            }else{
+                res.send('已关注')
+            }
+        }
+    })
+})
+// 获取数量
+router.get('/allNum',(req,res)=>{
+    var allNum={
+        meStar:0,
+        starMe:0,
+        likeMe:0
+    }
+    Snsinfo.find({username:req.query.username},(err,data)=>{
         if(!err){
             data.forEach(function(item){
-                if(item.like.indexOf(req.query.nowUser)==-1){
-                    item.istrue=false
-                }else{
-                    item.istrue=true
+                allNum.likeMe=allNum.likeMe+item.like.length+item.star.length
+            })
+            User.findOne({username:req.query.username},(err,data)=>{
+                if(!err){
+                    allNum.starMe=data.attention.length
+                    User.find((err,data)=>{
+                        if(!err){
+                            data.forEach(function(item){
+                                if(item.attention.indexOf(req.query.username)!=-1){
+                                    allNum.meStar++
+                                }
+                            })
+                            res.send(allNum)
+                        }
+                    })
                 }
             })
         }

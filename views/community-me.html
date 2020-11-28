@@ -160,15 +160,15 @@
 
         <div class="info-count">
             <div>
-                <div class="count">5</div>
+                <div class="count"></div>
                 <div class="label">我关注的人</div>
             </div>
             <div>
-                <div class="count">0</div>
+                <div class="count"></div>
                 <div class="label">关注我的人</div>
             </div>
             <div>
-                <div class="count">5</div>
+                <div class="count"></div>
                 <div class="label">获赞和收藏</div>
             </div>
         </div>
@@ -216,4 +216,10 @@
         $('.main1').css('display','none')
         $('.main2').css('display','block')
     })
+    $.get('/allNum',{username:$.cookie('username')},(data)=>{
+        $('.count').eq(0).html(data.meStar)
+        $('.count').eq(1).html(data.starMe)
+        $('.count').eq(2).html(data.likeMe)
+
+    })  
 </script>
