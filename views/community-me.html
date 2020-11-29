@@ -9,7 +9,7 @@
         background-size: cover;
         color: white;
     }
-
+    
     .header>div {
         width: 100%;
         height: 100%;
@@ -17,30 +17,30 @@
         background-color: rgba(0, 0, 0, 0.3);
         position: relative;
     }
-
+    
     .user_info {
         display: flex;
         justify-content: space-between;
         padding-top: 6.667vw;
     }
-
+    
     .username {
         font-weight: 500;
         letter-spacing: 1px;
         font-size: 4vw;
         margin-top: 2.67vw;
     }
-
+    
     .username span {
         margin-left: 6px;
         color: #F0A735;
         font-size: 11px;
     }
-
-    .user img {
+    
+    .userpic img {
         width: 58px;
     }
-
+    
     .btn {
         display: flex;
         align-items: center;
@@ -54,15 +54,15 @@
         font-weight: 400;
         width: 83.5px;
     }
-
+    
     .icon {
         margin-right: 8px;
     }
-
+    
     .icon img {
         width: 10px;
     }
-
+    
     .info-count {
         text-align: center;
         display: flex;
@@ -72,18 +72,18 @@
         right: 40px;
         bottom: 10px;
     }
-
+    
     .label {
         font-size: 11px;
         letter-spacing: 1px;
         font-weight: 400;
     }
-
+    
     .count {
         font-size: 16px;
         font-weight: 400;
     }
-
+    
     .sns_tab_wrapper {
         height: 44px;
         padding: 10px;
@@ -94,17 +94,17 @@
         color: black;
         line-height: 44px;
     }
-
+    
     .sns_tab_wrapper li {
         width: 50%;
         letter-spacing: 1px;
         line-height: 24px;
     }
-
+    
     .sns_tab_wrapper li span:nth-of-type(1) {
         position: relative;
     }
-
+    
     .txt::after {
         content: '';
         position: absolute;
@@ -114,37 +114,104 @@
         background-color: #FF6772;
         width: 100%;
     }
-
+    
     a {
         text-decoration: none;
         color: black;
     }
-    .no-result{
+    
+    .no-result {
         margin-top: 10%;
     }
+    
     .pic {
         text-align: center;
     }
-
-    .pic img{
+    
+    .pic>img {
         width: 58px;
     }
-    .text{
+    
+    .text {
         margin-top: 30px;
         font-size: 13px;
         font-weight: 400;
         color: #C3C5C6;
         text-align: center;
     }
-    .main2{
-        display: none;
+    
+    .main2 {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .main1 {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 8vh;
+    }
+    
+    .left,
+    .right {
+        width: 48%;
+    }
+    
+    .cet {
+        background-color: white;
+        padding-bottom: 1vw;
+        border-radius: 2vw;
+        margin-top: 2vh;
+    }
+    
+    .cet>img {
+        width: 100%;
+        border-top-left-radius: 2vw;
+        border-top-right-radius: 2vw;
+        margin-bottom: 1vh;
+    }
+    
+    .tip {
+        display: inline-block;
+        padding: 1vw 2vw;
+        border-radius: 3vw;
+        background-color: rgb(253, 238, 239);
+        color: rgb(255, 103, 114);
+        margin-left: 2vw;
+        margin-bottom: 1vh;
+    }
+    
+    .msg {
+        padding: 0 2vw;
+        font-size: 3.8vw;
+    }
+    
+    .user {
+        padding: 0 2vw;
+        font-size: 3vw;
+    }
+    
+    .user>img {
+        width: 6vw;
+        height: 6vw;
+        border-radius: 3vw;
+        margin-right: 2vw;
+    }
+    
+    .user span:nth-of-type(2) {
+        float: right;
+    }
+    
+    .user span>img {
+        width: 4vw;
     }
 </style>
 <div class="header">
     <div>
         <div class="user_info">
             <div class="user_info_box">
-                <div class="user">
+                <div class="userpic">
                     <img src="/imges/发现/社区/user.png" alt="">
                 </div>
                 <div class="username">
@@ -160,15 +227,15 @@
 
         <div class="info-count">
             <div>
-                <div class="count">5</div>
+                <div class="count"></div>
                 <div class="label">我关注的人</div>
             </div>
             <div>
-                <div class="count">0</div>
+                <div class="count"></div>
                 <div class="label">关注我的人</div>
             </div>
             <div>
-                <div class="count">5</div>
+                <div class="count"></div>
                 <div class="label">获赞和收藏</div>
             </div>
         </div>
@@ -178,19 +245,55 @@
 
 </div>
 <ul class="sns_tab_wrapper">
-    <li class="btn1"><span class="txt">帖子</span> <span>(0)</span></li>
+
+    <li class="btn1"><span class="txt">帖子</span> <span>{{data.length}}</span></li>
     <li class="btn2"><span>收藏</span> <span>(0)</span></li>
 </ul>
 
-<main class="main1">
-    <div class="no-result">
-        <div class="pic">
-            <img src="/imges/发现/社区/bg2.svg" alt="">
-        </div>
-        <p class="text">点击下方 “+” ，发布你的第一篇帖子吧</p>
+<main class="main1 container ">
+    <div class="left">
+        {{each data.reverse() item index}} {{if index%2==0}}
+        <section class="cet" data-id="{{item.time}}"><img src="/{{item.pic}}" alt="" class="show"> {{if item.tip}}
+            <span class="tip">{{item.tip}}</span> {{/if}}
+            <p class="msg">{{item.msg}}</p>
+            <p class="user">
+                <img src="{{item.userPic}}" alt="">
+                <span>{{item.username}}</span>
+                <span>
+                    {{if item.istrue}}
+                    <img class="like" src="/imges/社区-首页/like.svg" data-id="{{item.id}}"> 
+                    {{else}}
+                    <img class="like" src="/imges/社区-首页/like.png" data-id="{{item.id}}">
+                    {{/if}}
+                    <i>{{item.likeNum}}</i>
+                </span></p>
+        </section>
+        {{/if}} {{/each}}
+    </div>
+
+    <div class="right">
+        {{each data item index}} {{if index%2!==0}}
+        <section class="cet" data-id="{{item.time}}"><img src="/{{item.pic}}" alt="" class="show"> {{if item.tip}}
+            <span class="tip">{{item.tip}}</span> {{/if}}
+            <p class="msg">{{item.msg}}</p>
+            <p class="user">
+                <img src="{{item.userPic}}" alt="">
+                <span>{{item.username}}</span>
+                <span>
+                    {{if item.istrue}}
+                    <img class="like" src="/imges/社区-首页/like.svg" data-id="{{item.id}}"> 
+                    {{else}}
+                    <img class="like" src="/imges/社区-首页/like.png" data-id="{{item.id}}">
+                    {{/if}}
+                    <i>{{item.likeNum}}</i>
+                </span>
+            </p>
+        </section>
+        {{/if}} {{/each}}
     </div>
 </main>
-<main class="main2">
+
+<main class="main2" style="display: none;">
     <div class="no-result">
         <div class="pic">
             <img src="/imges/发现/社区/bg3.svg" alt="">
@@ -204,16 +307,24 @@
 <script>
     $('a').removeClass('active')
     $('a').eq(4).addClass('active')
-    $('.btn1').click(function(){
+    $('.btn1').click(function() {
         $('.btn2').children().eq(0).removeClass('txt')
         $(this).children().eq(0).addClass('txt')
-        $('.main2').css('display','none')
-        $('.main1').css('display','block')
+        $('.main2').css('display', 'none')
+        $('.main1').css('display', 'flex')
     })
-    $('.btn2').click(function(){
+    $('.btn2').click(function() {
         $('.btn1').children().eq(0).removeClass('txt')
         $(this).children().eq(0).addClass('txt')
-        $('.main1').css('display','none')
-        $('.main2').css('display','block')
+        $('.main1').css('display', 'none')
+        $('.main2').css('display', 'flex')
+    })
+    $.get('/allNum', {
+        username: $.cookie('username')
+    }, (data) => {
+        $('.count').eq(0).html(data.meStar)
+        $('.count').eq(1).html(data.starMe)
+        $('.count').eq(2).html(data.likeMe)
+
     })
 </script>
