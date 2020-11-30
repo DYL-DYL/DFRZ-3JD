@@ -1,64 +1,77 @@
 * {
-  margin: 0;
+    margin: 0;
 }
+
 header {
-  display: none;
+    display: none;
 }
+
 body {
-  padding-top: 0;
-  background-color: #F4F4F4;
+    padding-top: 0;
+    background-color: #F4F4F4;
 }
-main > div {
-  padding: 5.3vw;
-  background-color: white;
-  margin-bottom: 1.6vw;
-  position: relative;
+
+main>div {
+    padding: 5.3vw;
+    background-color: white;
+    margin-bottom: 1.6vw;
+    position: relative;
 }
-main > div > img {
-  width: 100%;
+
+main>div>img {
+    width: 100%;
 }
-main > div > div {
-  position: absolute;
-  top: 10%;
-  left: 10.66vw;
+
+main>div>div {
+    position: absolute;
+    top: 10%;
+    left: 10.66vw;
 }
-main > div > div h1 {
-  color: #333333;
-  font-size: 6.4vw;
-  line-height: 8vw;
-  letter-spacing: 2px;
-  font-family: PingFangSC-Regular !important;
+
+main>div>div h1 {
+    color: #333333;
+    font-size: 6.4vw;
+    line-height: 8vw;
+    letter-spacing: 2px;
+    font-family: PingFangSC-Regular !important;
 }
-main > div > div p {
-  padding: 2.66vw 0;
-  line-height: 4.8vw;
-  color: #666666;
-  font-size: 3.2vw;
+
+main>div>div p {
+    padding: 2.66vw 0;
+    line-height: 4.8vw;
+    color: #666666;
+    font-size: 3.2vw;
 }
-main > div > div ul {
-  display: flex;
-  padding: 0;
-  height: 6.4vw;
-  margin: 0;
+
+main>div>div ul {
+    display: flex;
+    padding: 0;
+    height: 6.4vw;
+    margin: 0;
 }
-main > div > div ul li {
-  list-style: none;
-  height: 6.4vw;
-  border: 1px solid white;
-  margin-right: -1.06vw;
-  overflow: hidden;
-  border-radius: 50%;
-  width: 6.4vw;
+
+main>div>div ul li {
+    list-style: none;
+    height: 6.4vw;
+    border: 1px solid white;
+    margin-right: -1.06vw;
+    overflow: hidden;
+    border-radius: 50%;
+    width: 6.4vw;
 }
-main > div > div ul li img {
-  width: 100%;
+
+main>div>div ul li img {
+    width: 100%;
 }
-main > div > div div {
-  margin-top: 10.67vw;
-  font-family: PingFangSC-Regular !important;
-  border: 0.5px solid #333333;
-  font-size: 3.2vw;
-  height: 5.8vw;
-  border-radius: 2px;
-  padding: 0 2.66vw;
+
+main>div>div div {
+    display: inline-block;
+    text-align: center;
+    margin-top: 10.67vw;
+    font-family: PingFangSC-Regular !important;
+    border: 0.5px solid #333333;
+    font-size: 3.2vw;
+    height: 5.8vw;
+    border-radius: 2px;
+    padding: 0 2.66vw;
 }
