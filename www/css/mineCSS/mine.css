@@ -40,15 +40,6 @@ body {
   padding-left: 20px;
 }
 .login > div form > p {
-  text-align: center;
-  color: white;
-  margin-bottom: 20px;
-  height: 40px;
-  line-height: 40px;
-  border-radius: 3px;
-  background-color: #40e640;
-}
-.login > div form > button {
   height: 40px;
   line-height: 40px;
   text-align: center;
@@ -57,6 +48,18 @@ body {
   color: white;
   background-color: #ccc;
   border: none;
+}
+.login > div form > button {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 3px;
+  background-color: #40e640;
+  border: none;
+  width: 100%;
+  outline: none;
 }
 main .userTop img {
   width: 100%;
