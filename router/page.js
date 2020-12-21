@@ -404,7 +404,6 @@ router.get('/listFlower', (req, res) => {
                 if (parts[0] == 'admin') {
                     flag = true
                 }
-
             });
         }
         if (flag) {
