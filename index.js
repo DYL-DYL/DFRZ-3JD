@@ -16,7 +16,6 @@ app.set('view engine', 'html')
 app.set('views', './views')
 temp.defaults.extname = '.html'
 
-
 // 页面跳转的路由
 app.use(require('./router/page'))
 
@@ -33,6 +32,6 @@ app.use('/admin', require('./router/admin'))
 //发帖接口
 app.use(require('./router/talk'))
 
-app.listen(3000, () => {
+app.listen(3001, () => {
     console.log('running.....')
 })
